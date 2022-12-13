@@ -5,6 +5,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* full page scroll settings */
     scroll-snap-align: center;
-    background-color: aqua;
 }

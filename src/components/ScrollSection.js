@@ -1,6 +1,7 @@
 import React from "react";
 import "./ScrollSection.css";
 
+// secondary container in home page
 function ScrollSection({ backgroundColor }) {
   return (
     <div className="section" style={{ backgroundColor: backgroundColor }}>
