@@ -1,4 +1,3 @@
-import React from "react";
 import "./ScrollSection.css";
 
 // secondary container in home page

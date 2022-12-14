@@ -10,7 +10,26 @@
     background-color: #ffffff;
 }
 
+.title {
+    display: flex;
+    color: #d4d4d4;
+    text-decoration: none;
+}
+
+.list {
+    display: flex;
+    list-style-type: none;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .link {
+    display: flex;
     padding: 16px;
     text-decoration: none;
 }

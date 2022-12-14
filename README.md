@@ -1,6 +1,6 @@
 # NCU Career Center Frontend
 
-Use React.js as framework.
+Using React.js as framework.
 
 ## Folder Structure
 
@@ -10,6 +10,8 @@ To be Completed.
 
 ### Components
 
+### Hooks
+
 ### Pages
 
 ### Utils
@@ -17,3 +19,7 @@ To be Completed.
 ## Rules
 
 To be Completed.
+
+## Dependencies
+
+1. react-router-dom: ^6.4.5
