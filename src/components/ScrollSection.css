@@ -7,25 +7,5 @@
   align-items: center;
   /* full page scroll settings */
   scroll-snap-align: center;
-}
-.themeTitle {
-  color: #e37404;
-  font-size: 60px;
-  font-weight: bold;
-  padding: 10px;
-}
-.themeIntro {
-  color: #686868;
-  line-height: 48px;
-  padding: 10px;
-}
-.themeInfo {
-  gap: 20px;
-}
-.navButton {
-  background-color: #e37404;
-  padding: 10px 50px;
-  font-size: 24px;
-  border-radius: 100px;
-  color: white;
+  gap: 5vw;
 }
