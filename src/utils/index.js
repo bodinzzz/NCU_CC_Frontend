@@ -6,11 +6,11 @@ export const Colors = {
   // For Text
   textPrimary: "#686868",
   // For Themes
-  themeOneMain: "#E37464",
+  themeOnePrimary: "#E37464",
   themeOneSecondary: "#FFFDEF",
-  themeTwoMain: "#789EE7",
+  themeTwoPrimary: "#789EE7",
   themeTwoSecondary: "#D4E2FC",
-  themeThreeMain: "#00BCD4",
+  themeThreePrimary: "#00BCD4",
   themeThreeSecondary: "#EBFAFF",
   // For Charts
   themeTwoChartFirst: "#789EE7",

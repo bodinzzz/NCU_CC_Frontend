@@ -5,7 +5,7 @@ function Future() {
   return (
     <div className="container">
       <div className="sectionContainer">
-        <div className="section" style={{ backgroundColor: "green" }}>
+        <div className="section" style={{ backgroundColor: "white" }}>
           <div className="themeTitle">未來道路選擇</div>
           <div className="inputLabel">院所</div>
         </div>
