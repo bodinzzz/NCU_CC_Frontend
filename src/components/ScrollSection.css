@@ -9,3 +9,34 @@
   scroll-snap-align: center;
   gap: 5vw;
 }
+
+/* themeInfo */
+
+.themeTitle {
+  color: #e37404;
+  font-size: 60px;
+  font-weight: bold;
+  padding: 10px;
+}
+.themeIntro {
+  color: #686868;
+  line-height: 48px;
+  padding: 10px;
+}
+.themeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.navButton {
+  display: flex;
+  justify-content: center;
+  background-color: #e37404;
+  padding: 20px 10px;
+  font-size: 20px;
+  border-radius: 100px;
+  color: white;
+}
+.themeImg {
+  height: 36vh;
+}

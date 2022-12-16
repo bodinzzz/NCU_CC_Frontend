@@ -1,0 +1,36 @@
+.chartTitle {
+  display: flex;
+  align-items: center;
+}
+.chartTitleText {
+  color: #686868;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.data {
+  font-size: 48px;
+  font-weight: bold;
+  padding: 10px;
+}
+.text {
+  color: #686868;
+  font-size: 32px;
+  padding: 10px;
+}
+.items {
+  display: flex;
+  gap: 80px;
+}
+.item {
+  gap: 20px;
+}
+.roadChart {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+.roadImg {
+  height: 24vh;
+}

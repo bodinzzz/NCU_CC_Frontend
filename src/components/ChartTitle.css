@@ -1,0 +1,10 @@
+.chartTitle {
+  display: flex;
+  align-items: center;
+}
+.chartTitleText {
+  color: #686868;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}

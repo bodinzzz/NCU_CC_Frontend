@@ -9,6 +9,22 @@
   scroll-snap-align: center;
   gap: 5vw;
 }
+.sectionContainer {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  /* full page scroll settings */
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* hide the scroll bar */
+.sectionContainer::-webkit-scrollbar {
+  display: none;
+}
 .themeTitle {
   color: #e37404;
   font-size: 60px;
@@ -18,7 +34,7 @@
 
 /* 名字待改 */
 .inputLabel {
-  color: #878787;
+  color: #686868;
   font-size: 32px;
   font-weight: bold;
   padding: 10px;
