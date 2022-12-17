@@ -1,4 +1,4 @@
-import "./Future.css";
+import "./Future.scss";
 import RoadChart from "../components/RoadChart.js";
 
 function Future() {

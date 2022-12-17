@@ -4,8 +4,6 @@ import WorkRoadImg from "../assets/image/Future/WorkRoadImg.svg";
 import OtherRoadImg from "../assets/image/Future/OtherRoadImg.svg";
 import ChartTitle from "./ChartTitle";
 
-import { Colors } from "../utils";
-
 function RoadChart() {
   return (
     <div className="roadChart">

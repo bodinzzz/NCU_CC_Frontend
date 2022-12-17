@@ -1,4 +1,4 @@
-import "./Graduated.css";
+import "./Graduated.scss";
 
 function Graduated() {
   return (

@@ -1,14 +1,23 @@
-import "./Home.css";
+import "./Home.scss";
 import ScrollSection from "../components/ScrollSection";
+import ThemeOne from "../components/home/ThemeOne";
 
 function Home() {
   return (
     <div className="container">
       <div className="sectionContainer">
-        <ScrollSection backgroundColor={"#e5e5e5"} />
-        <ScrollSection backgroundColor={"#fffdef"} />
-        <ScrollSection backgroundColor={"#e3e9f4"} />
-        <ScrollSection backgroundColor={"#ebfaff"} />
+        <ScrollSection>
+          <ThemeOne />
+        </ScrollSection>
+        <ScrollSection>
+          <ThemeOne />
+        </ScrollSection>
+        <ScrollSection>
+          <ThemeOne />
+        </ScrollSection>
+        <ScrollSection>
+          <ThemeOne />
+        </ScrollSection>
       </div>
     </div>
   );
