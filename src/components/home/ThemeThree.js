@@ -4,17 +4,17 @@ import "./Theme.scss";
 function ThemeThree() {
   return (
     <div className="theme-3">
-      <img src={ThemeThreeImg} className="theme-img" alt="theme-img" />
-      <div className="theme-info">
+      <img src={ThemeThreeImg} className="theme__img" alt="theme-img" />
+      <div className="theme__info">
         <div>
-          <div className="theme-title">未來道路選擇</div>
-          <div className="theme-intro">
-            繼續升學增進自我?
-            <br /> 開始工作走進社會?
-            <br /> 畢業後我該選擇往哪個道路走呢?
+          <div className="theme__title">職務類型大比拚</div>
+          <div className="theme__intro">
+            決定升學的我該選擇哪個領域進修?
+            <br /> 走入職場的我又該如何選擇職位?
+            <br /> 各個系所有什麼差別呢?
           </div>
         </div>
-        <div className="nav-button">看看學長姐如何選擇</div>
+        <div className="theme__nav-button">看看畢業生各類職務資訊</div>
       </div>
     </div>
   );

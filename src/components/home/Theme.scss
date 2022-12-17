@@ -1,36 +1,38 @@
 @import "../../styles/variables.scss";
 
-@mixin theme-layout($primary-color, $secondary-color){
+@mixin theme-layout($primary-color){
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  .theme-image {
-    height: 36vh;
-  }
+  .theme {
+    &__image {
+      height: 36vh;
+    }
+  
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 40px;
+    }
 
-  .theme-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 40px;
-
-    .theme-title {
+    &__title {
       color: $primary-color;
       font-size: 60px;
       font-weight: bold;
       padding: 10px;
     }
   
-    .theme-intro {
+    &__intro {
       color: #686868;
       line-height: 48px;
       padding: 10px;
     }
   
-    .nav-button {
+    &__nav-button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -45,13 +47,13 @@
 }
 
 .theme-1 {
-  @include theme-layout($theme-1-primary-color, $theme-1-secondary-color);
+  @include theme-layout($theme-1-primary-color);
 }
 
 .theme-2 {
-  @include theme-layout($theme-2-primary-color, $theme-2-secondary-color);
+  @include theme-layout($theme-2-primary-color);
 }
 
 .theme-3 {
-  @include theme-layout($theme-3-primary-color, $theme-3-secondary-color);
+  @include theme-layout($theme-3-primary-color);
 }
