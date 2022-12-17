@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+.future-page-2 {
+    @extend %flex-col-center;
+    background-color: crimson;
+
+    &__title {
+        color: $text-primary-color;
+        font-size: $font-md;
+        font-weight: bold;
+        padding: $p-xs;
+        margin-bottom: $m-xl;
+    }
+
+    &__chart {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        &__element {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &__image {
+                height: 24vh;
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                &__percentage {
+                    color: $theme-1-primary-color;
+                    font-size: $font-xl;
+                }
+                
+                &__title {
+                    color: $text-primary-color;
+                    font-size: $font-lg;
+                }
+            }
+        }
+    }
+}
+
+  

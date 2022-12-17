@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+.future-page-1 {
+    @extend %flex-col-between;
+
+    &__title {
+        color: $theme-1-primary-color;
+        font-size: 60px;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    &__intro {
+        color: #686868;
+        font-size: 32px;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    &__btn {
+        padding: 12px 48px;
+        background-color: $theme-1-primary-color;
+        color: $white-color;
+        border-radius: 100px;
+    }
+}

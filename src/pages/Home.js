@@ -5,17 +5,17 @@ import ThemeThree from "../components/home/ThemeThree";
 
 function Home() {
   return (
-    <div className="scroll-container">
-      <div className="section-1">
+    <div className="home scroll-container">
+      <div className="home__section-1">
         <ThemeOne />
       </div>
-      <div className="section-2">
+      <div className="home__section-2">
         <ThemeOne />
       </div>
-      <div className="section-3">
+      <div className="home__section-3">
         <ThemeTwo />
       </div>
-      <div className="section-4">
+      <div className="home__section-4">
         <ThemeThree />
       </div>
     </div>

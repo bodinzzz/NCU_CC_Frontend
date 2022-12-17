@@ -1,41 +1,24 @@
-.section {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* full page scroll settings */
-  scroll-snap-align: center;
-  gap: 5vw;
-}
-.sectionContainer {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  /* full page scroll settings */
-  overflow-y: auto;
-  overscroll-behavior-y: contain;
-  scroll-snap-type: y mandatory;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@import "../styles/variables";
+@import "../styles/layout";
+@import "../styles/scroll";
+
+.future {
+  
+  &__section-1 {
+    @include scroll-section;
+    @extend %flex-row-center;
+  }
+  
+  &__section-2 {
+    @include scroll-section($theme-3-secondary-color){
+      padding: 48px;
+    };
+    @extend %flex-row-center;
+
+  }
+  
+  &__section-3 {
+    @include scroll-section;
+  }
 }
 
-/* hide the scroll bar */
-.sectionContainer::-webkit-scrollbar {
-  display: none;
-}
-.themeTitle {
-  color: #e37404;
-  font-size: 60px;
-  font-weight: bold;
-  padding: 10px;
-}
-
-/* 名字待改 */
-.inputLabel {
-  color: #686868;
-  font-size: 32px;
-  font-weight: bold;
-  padding: 10px;
-}

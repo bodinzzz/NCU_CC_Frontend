@@ -1,32 +1,25 @@
-@import "../styles/variables.scss";
+@import "../styles/variables";
+@import "../styles/layout";
+@import "../styles/scroll";
 
-%section {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* full page scroll settings */
-  scroll-snap-align: center;
-}
-
-.section-1 {
-  @extend %section;
-  background-color: $white-color;
-}
-
-.section-2 {
-  @extend %section;
-  background-color: $theme-1-secondary-color;
-}
-
-.section-3 {
-  @extend %section;
-  background-color: $theme-2-secondary-color;
-}
-
-.section-4 {
-  @extend %section;
-  background-color: $theme-3-secondary-color;
+.home {
+    &__section-1 {
+        @include scroll-section($white-color);
+        @extend %flex-row-center;
+    }
+    
+    &__section-2 {
+        @include scroll-section($theme-1-secondary-color);
+        @extend %flex-row-center;
+    }
+    
+    &__section-3 {
+        @include scroll-section($theme-2-secondary-color);
+        @extend %flex-row-center;
+    }
+    
+    &__section-4 {
+        @include scroll-section($theme-3-secondary-color);
+        @extend %flex-row-center;
+    }
 }

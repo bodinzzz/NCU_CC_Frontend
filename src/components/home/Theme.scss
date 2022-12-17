@@ -1,21 +1,16 @@
-@import "../../styles/variables.scss";
+@import "../../styles/variables";
+@import "../../styles/layout";
 
-@mixin theme-layout($primary-color){
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+@mixin home-theme-layout($primary-color){
+  @extend %flex-row-center;
 
-  .theme {
+  .home-theme {
     &__image {
       height: 36vh;
     }
   
     &__info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      @extend %flex-col-between;
       margin: 40px;
     }
 
@@ -32,10 +27,8 @@
       padding: 10px;
     }
   
-    &__nav-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    &__nav-btn {
+      @extend %flex-row-center;
       background-color: $primary-color;
       padding: 20px 10px;
       margin-top: 40px;
@@ -46,14 +39,14 @@
   }
 }
 
-.theme-1 {
-  @include theme-layout($theme-1-primary-color);
+.home-theme-1 {
+  @include home-theme-layout($theme-1-primary-color);
 }
 
-.theme-2 {
-  @include theme-layout($theme-2-primary-color);
+.home-theme-2 {
+  @include home-theme-layout($theme-2-primary-color);
 }
 
-.theme-3 {
-  @include theme-layout($theme-3-primary-color);
+.home-theme-3 {
+  @include home-theme-layout($theme-3-primary-color);
 }

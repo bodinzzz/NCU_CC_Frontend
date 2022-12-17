@@ -1,19 +1,17 @@
 import "./Future.scss";
-import RoadChart from "../components/RoadChart.js";
+import PageOne from "../components/future/PageOne";
+import PageTwo from "../components/future/PageTwo";
 
 function Future() {
   return (
-    <div className="container">
-      <div className="sectionContainer">
-        <div className="section" style={{ backgroundColor: "white" }}>
-          <div className="themeTitle">未來道路選擇</div>
-          <div className="inputLabel">院所</div>
-        </div>
-        <div className="section">
-          <RoadChart />
-        </div>
-        <div className="section" style={{ backgroundColor: "red" }}></div>
+    <div className="future scroll-container">
+      <div className="future__section-1">
+        <PageOne />
       </div>
+      <div className="future__section-2">
+        <PageTwo />
+      </div>
+      <div className="future__section-3"></div>
     </div>
   );
 }

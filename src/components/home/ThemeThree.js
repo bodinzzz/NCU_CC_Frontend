@@ -3,18 +3,18 @@ import "./Theme.scss";
 
 function ThemeThree() {
   return (
-    <div className="theme-3">
-      <img src={ThemeThreeImg} className="theme__img" alt="theme-img" />
-      <div className="theme__info">
+    <div className="home-theme-3">
+      <img src={ThemeThreeImg} className="home-theme__img" alt="theme-img" />
+      <div className="home-theme__info">
         <div>
-          <div className="theme__title">職務類型大比拚</div>
-          <div className="theme__intro">
+          <div className="home-theme__title">職務類型大比拚</div>
+          <div className="home-theme__intro">
             決定升學的我該選擇哪個領域進修?
             <br /> 走入職場的我又該如何選擇職位?
             <br /> 各個系所有什麼差別呢?
           </div>
         </div>
-        <div className="theme__nav-button">看看畢業生各類職務資訊</div>
+        <div className="home-theme__nav-btn">看看畢業生各類職務資訊</div>
       </div>
     </div>
   );
