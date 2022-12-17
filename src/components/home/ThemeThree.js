@@ -1,10 +1,10 @@
-import ThemeOneImg from "../../assets/image/Home/ThemeOneImg.svg";
+import ThemeThreeImg from "../../assets/image/Home/ThemeThreeImg.svg";
 import "./Theme.scss";
 
-function ThemeOne() {
+function ThemeThree() {
   return (
-    <div className="theme-1">
-      <img src={ThemeOneImg} className="theme-img" alt="theme-img" />
+    <div className="theme-3">
+      <img src={ThemeThreeImg} className="theme-img" alt="theme-img" />
       <div className="theme-info">
         <div>
           <div className="theme-title">未來道路選擇</div>
@@ -20,4 +20,4 @@ function ThemeOne() {
   );
 }
 
-export default ThemeOne;
+export default ThemeThree;

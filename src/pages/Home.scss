@@ -1,16 +1,32 @@
-.sectionContainer {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    /* full page scroll settings */
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scroll-snap-type: y mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+@import "../styles/variables.scss";
+
+%section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* full page scroll settings */
+  scroll-snap-align: center;
 }
 
-/* hide the scroll bar */
-.sectionContainer::-webkit-scrollbar {
-    display: none;
+.section-1 {
+  @extend %section;
+  background-color: $white-color;
+}
+
+.section-2 {
+  @extend %section;
+  background-color: $theme-1-secondary-color;
+}
+
+.section-3 {
+  @extend %section;
+  background-color: $theme-2-secondary-color;
+}
+
+.section-4 {
+  @extend %section;
+  background-color: $theme-3-secondary-color;
 }

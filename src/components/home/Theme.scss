@@ -1,28 +1,57 @@
-.themeTitle {
-  color: #e37404;
-  font-size: 60px;
-  font-weight: bold;
-  padding: 10px;
-}
-.themeIntro {
-  color: #686868;
-  line-height: 48px;
-  padding: 10px;
-}
-.themeInfo {
+@import "../../styles/variables.scss";
+
+@mixin theme-layout($primary-color, $secondary-color){
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .theme-image {
+    height: 36vh;
+  }
+
+  .theme-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px;
+
+    .theme-title {
+      color: $primary-color;
+      font-size: 60px;
+      font-weight: bold;
+      padding: 10px;
+    }
+  
+    .theme-intro {
+      color: #686868;
+      line-height: 48px;
+      padding: 10px;
+    }
+  
+    .nav-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-color;
+      padding: 20px 10px;
+      margin-top: 40px;
+      font-size: 20px;
+      color: white;
+      border-radius: 100px;
+    }
+  }
 }
-.navButton {
-  display: flex;
-  justify-content: center;
-  background-color: #e37404;
-  padding: 20px 10px;
-  font-size: 20px;
-  border-radius: 100px;
-  color: white;
+
+.theme-1 {
+  @include theme-layout($theme-1-primary-color, $theme-1-secondary-color);
 }
-.themeImg {
-  height: 36vh;
+
+.theme-2 {
+  @include theme-layout($theme-2-primary-color, $theme-2-secondary-color);
+}
+
+.theme-3 {
+  @include theme-layout($theme-3-primary-color, $theme-3-secondary-color);
 }
