@@ -2,26 +2,69 @@
 @import "../../styles/layout";
 
 .future-page-1 {
-    @extend %flex-col-between;
+  @extend %flex-col-between;
 
-    &__title {
-        color: $theme-1-primary-color;
-        font-size: 60px;
+  &__title {
+    color: $theme-1-primary-color;
+    font-size: 60px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  &__label {
+    color: $text-primary-color;
+    font-size: $font-lg;
+    font-weight: bold;
+    padding: $p-xxs;
+  }
+
+  &__btn {
+    padding: 12px 48px;
+    background-color: $theme-1-primary-color;
+    color: $white-color;
+    border-radius: 100px;
+  }
+
+  &__chooser {
+    @extend %flex-row-between;
+
+    &__dropdown {
+      display: relative;
+
+      &__btn {
+        padding: $p-xxs;
+        background-color: $white-color;
+        border: 0.8px solid $text-primary-color;
+        border-radius: $border-sm;
+        font-size: $font-sm;
         font-weight: bold;
-        padding: 10px;
+        color: $text-primary-color;
+        cursor: pointer;
+      }
+
+      &__items {
+        background-color: $white-color;
+        padding: $p-xs;
+        border-radius: $border-sm;
+        box-shadow: 0 4px 4px 0 rgba(166, 166, 166, 0.1);
+
+        &__item {
+          padding: $p-xs;
+          cursor: pointer;
+          border-radius: $border-sm;
+
+          &:hover {
+            background-color: $hover-color;
+          }
+        }
+      }
     }
 
-    &__intro {
-        color: #686868;
-        font-size: 32px;
-        font-weight: bold;
-        padding: 10px;
+    &__degree {
+      padding: $p-xxs;
     }
 
-    &__btn {
-        padding: 12px 48px;
-        background-color: $theme-1-primary-color;
-        color: $white-color;
-        border-radius: 100px;
+    &__year {
     }
+  }
 }
