@@ -1,6 +1,11 @@
 import { useState } from "react";
 import "./PageOne.scss";
-// import BachelorHatSelectedImg from "../../assets/image/Future/BachelorHatSelectedImg.svg";
+import BachelorDegreeSelectedImg from "../../assets/image/Future/BachelorDegreeSelectedImg.svg";
+import BachelorDegreeUnselectedImg from "../../assets/image/Future/BachelorDegreeUnselectedImg.svg";
+import MasterDegreeSelectedImg from "../../assets/image/Future/MasterDegreeSelectedImg.svg";
+import MasterDegreeUnselectedImg from "../../assets/image/Future/MasterDegreeUnselectedImg.svg";
+import DoctorDegreeSelectedImg from "../../assets/image/Future/DoctorDegreeSelectedImg.svg";
+import DoctorDegreeUnselectedImg from "../../assets/image/Future/DoctorDegreeUnselectedImg.svg";
 
 // DROPDOWN USING SELECT
 function Dropdown({ options, setSelectedValue }) {
@@ -25,6 +30,7 @@ function PageOne() {
   // SELECTED DATA (College、Department、Degree、Year)
   const [selectedCollege, setSelectedCollege] = useState(0);
   const [selectedDepartment, setSelectedDepartment] = useState(0);
+  const [selectedDegree, setSelectedDegree] = useState(0);
 
   // DATA
   const colleges = [
@@ -46,28 +52,51 @@ function PageOne() {
     },
   ];
 
+  const degrees = [
+    {
+      name: "學士",
+      selectedImg: BachelorDegreeSelectedImg,
+      unselectedImg: BachelorDegreeUnselectedImg,
+    },
+    {
+      name: "碩士",
+      selectedImg: MasterDegreeSelectedImg,
+      unselectedImg: MasterDegreeUnselectedImg,
+    },
+    {
+      name: "博士",
+      selectedImg: DoctorDegreeSelectedImg,
+      unselectedImg: DoctorDegreeUnselectedImg,
+    },
+  ];
+
   return (
     <div className="future-page-1">
       <div className="future-page-1__title">未來道路選擇</div>
 
-      <div>
-        {colleges[selectedCollege].name}
+      {/* CHOOSER 1 - COLLEGES AND DEPARTMENT */}
+      <div className="future-page-1__label">
+        院所 {colleges[selectedCollege].name}
         {colleges[selectedCollege].departments[selectedDepartment].name}
       </div>
-      {/* CHOOSER 1 - COLLEGES AND DEPARTMENT */}
-      <div className="future-page-1__label">院所</div>
       <div className="future-page-1__chooser">
         <Dropdown options={colleges} setSelectedValue={setSelectedCollege} />
         <Dropdown options={colleges[selectedCollege].departments} setSelectedValue={setSelectedDepartment} />
       </div>
 
       {/* CHOOSER 3 - DEGREE */}
-      {/* <div className="future-page-1__label">學位哇哇哇</div>
+      <div className="future-page-1__label">學位 {selectedDegree}</div>
       <div className="future-page-1__chooser">
-        <img src={BachelorHatSelectedImg} className="future-page-1__chooser__degree" alt="BachelorHatSelectedImg" />
-        <img src={BachelorHatSelectedImg} className="future-page-1__chooser__degree" alt="BachelorHatSelectedImg" />
-        <img src={BachelorHatSelectedImg} className="future-page-1__chooser__degree" alt="BachelorHatSelectedImg" />
-      </div> */}
+        {degrees.map((degree, index) => (
+          <div className="future-page-1__chooser__degree" onClick={() => setSelectedDegree(index)}>
+            <img
+              src={selectedDegree == index ? degree.selectedImg : degree.unselectedImg}
+              alt={degree.name}
+              className="future-page-1__chooser__degree"
+            />
+          </div>
+        ))}
+      </div>
 
       {/* SUBMIT BUTTON */}
       {/* <div className="future-page-1__btn">
