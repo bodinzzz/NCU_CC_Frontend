@@ -29,7 +29,7 @@
     @extend %flex-row-between;
 
     &__dropdown {
-      display: relative;
+      position: relative;
 
       &__btn {
         padding: $p-xxs;
@@ -43,6 +43,7 @@
       }
 
       &__items {
+        position: absolute;
         background-color: $white-color;
         padding: $p-xs;
         border-radius: $border-sm;
