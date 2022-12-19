@@ -9,32 +9,21 @@ import DoctorDegreeUnselectedImg from "../../assets/image/Future/DoctorDegreeUns
 import submitIcon from "../../assets/icon/submitIcon.svg";
 
 // DROPDOWN USING SELECT
-
-function Dropdown({ options, selectedValue, setSelectedValue }) {
-  // DROPDOWN TOGGLE DATA
-  const [isDropdownOpen, toggleDropdown] = useState(false);
-
-  // TOGGLE DROPDOWN
-  const onClick = (index) => {
-    setSelectedValue(index);
-    toggleDropdown(!isDropdownOpen);
-  };
-
+function Dropdown({ options, setSelectedValue }) {
   return (
-    <div className="future-page-1__chooser__dropdown">
-      <div className="future-page-1__chooser__dropdown__btn" onClick={() => toggleDropdown(!isDropdownOpen)}>
-        {options[selectedValue].name}
-      </div>
-      {isDropdownOpen && (
-        <div className="future-page-1__chooser__dropdown__items">
-          {options.map((option, index) => (
-            <div className="future-page-1__chooser__dropdown__items__item" onClick={() => onClick(index)}>
-              {options[index].name}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <select
+      className="future-page-1__chooser__dropdown__btn"
+      name="select"
+      onChange={(e) => {
+        setSelectedValue(e.target.value);
+      }}
+    >
+      {options.map((option, index) => (
+        <option key={index} value={index}>
+          {option.name}
+        </option>
+      ))}
+    </select>
   );
 }
 
@@ -93,8 +82,8 @@ function PageOne() {
       <div className="future-page-1__chooserBox">
         <div className="future-page-1__label">院所</div>
         <div className="future-page-1__chooser">
-          <Dropdown options={colleges} selectedValue={selectedCollege} setSelectedValue={setSelectedCollege} />
-          <Dropdown options={colleges[selectedCollege].departments} selectedValue={selectedDepartment} setSelectedValue={setSelectedDepartment} />
+          <Dropdown options={colleges} setSelectedValue={setSelectedCollege} />
+          <Dropdown options={colleges[selectedCollege].departments} setSelectedValue={setSelectedDepartment} />
         </div>
       </div>
 

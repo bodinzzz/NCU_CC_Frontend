@@ -14,7 +14,9 @@ function ThemeThree() {
             <br /> 各個系所有什麼差別呢?
           </div>
         </div>
-        <div className="home-theme__nav-btn">看看畢業生各類職務資訊</div>
+        <div className="home-theme__nav-btn">
+          <span>看看畢業生各類職務資訊</span>
+        </div>
       </div>
     </div>
   );

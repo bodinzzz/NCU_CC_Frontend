@@ -14,7 +14,9 @@ function ThemeOne() {
             <br /> 畢業後我該選擇往哪個道路走呢?
           </div>
         </div>
-        <div className="home-theme__nav-btn">看看學長姐如何選擇</div>
+        <div className="home-theme__nav-btn">
+          <span>看看學長姐如何選擇</span>
+        </div>
       </div>
     </div>
   );

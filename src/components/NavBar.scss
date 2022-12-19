@@ -1,30 +1,26 @@
 @import "../styles/variables";
+@import "../styles/layout";
 
 .navbar {
-    display: flex;
-    position: sticky;
-    z-index: 100;
-    top: 0;
-    padding: 0px 64px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
+  @extend %flex-row-between;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  background-color: $white-color;
+  width: 100%;
 
-    &__title {
-        color: #d4d4d4;
-        text-decoration: none;
-    }
-    
-    &__links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+  &__title {
+    color: #d4d4d4;
+    text-decoration: none;
+    padding: $p-sm $p-md;
+  }
 
-        &__link {
-            padding: 16px;
-            text-decoration: none;
-        }
+  &__links {
+    @extend %flex-row-between;
+
+    &__link {
+      padding: $p-sm $p-md;
+      text-decoration: none;
     }
+  }
 }

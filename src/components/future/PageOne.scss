@@ -6,27 +6,43 @@
 
   &__title {
     color: $theme-1-primary-color;
-    font-size: 60px;
+    font-size: $font-xl;
     font-weight: bold;
-    padding: 10px;
+    padding: $p-xs;
   }
 
   &__label {
+    @extend %flex-center;
+    width: 100%;
     color: $text-primary-color;
-    font-size: $font-lg;
+    font-size: $font-sm;
     font-weight: bold;
     padding: $p-xxs;
   }
 
   &__btn {
-    padding: 12px 48px;
+    @extend %flex-row-center;
+    padding: $p-xs $p-md;
     background-color: $theme-1-primary-color;
     color: $white-color;
-    border-radius: 100px;
+    border-radius: $border-lg;
+    font-size: $font-md;
+    font-weight: bold;
+    cursor: pointer;
+
+    div {
+      margin: 0 $m-xs;
+    }
+  }
+
+  &__chooserBox {
+    @extend %flex-col-center;
+    width: 100%;
   }
 
   &__chooser {
-    @extend %flex-row-between;
+    @extend %flex-row-center;
+    width: 100%;
 
     &__dropdown {
       position: relative;
@@ -36,10 +52,11 @@
         background-color: $white-color;
         border: 0.8px solid $text-primary-color;
         border-radius: $border-sm;
-        font-size: $font-sm;
+        font-size: $font-xs;
         font-weight: bold;
         color: $text-primary-color;
         cursor: pointer;
+        min-width: 300px;
       }
 
       &__items {
@@ -48,6 +65,7 @@
         padding: $p-xs;
         border-radius: $border-sm;
         box-shadow: 0 4px 4px 0 rgba(166, 166, 166, 0.1);
+        width: 300px;
 
         &__item {
           padding: $p-xs;
@@ -62,11 +80,32 @@
     }
 
     &__degree {
-      padding: $p-xxs;
+      margin: 0 $m-md;
       cursor: pointer;
     }
 
-    &__year {
+    &__year__selected {
+      margin: 0 $m-md;
+      padding: $p-sm $p-md;
+      border-radius: $border-sm;
+      font-size: $font-sm;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: $white-color;
+      border: 0.8px solid $text-primary-color;
+      color: $text-primary-color;
+    }
+
+    &__year__unselected {
+      margin: 0 $m-md;
+      padding: $p-sm $p-md;
+      border-radius: $border-sm;
+      font-size: $font-sm;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: none;
+      border: 0.8px solid $unselected-color;
+      color: $unselected-color;
     }
   }
 }

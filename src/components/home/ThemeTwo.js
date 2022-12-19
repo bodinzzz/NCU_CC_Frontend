@@ -15,7 +15,9 @@ function ThemeTwo() {
             各個系所有什麼差別呢?
           </div>
         </div>
-        <div className="home-theme__nav-btn">看看學長姐都在做什麼</div>
+        <div className="home-theme__nav-btn">
+          <span>看看學長姐都在做什麼</span>
+        </div>
       </div>
       <img src={ThemeTwoImg} className="home-theme__img" alt="theme-img" />
     </div>
