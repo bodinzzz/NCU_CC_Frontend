@@ -4,7 +4,7 @@ import PageOne from "../components/career/PageOne";
 
 function Career() {
   return (
-    <div className="future scroll-container">
+    <div className="career scroll-container">
       <div className="career__section-1">
         <PageOne />
       </div>
