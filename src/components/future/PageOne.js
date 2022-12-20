@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./PageOne.scss";
 import BachelorDegreeSelectedImg from "../../assets/image/Future/BachelorDegreeSelectedImg.svg";
 import BachelorDegreeUnselectedImg from "../../assets/image/Future/BachelorDegreeUnselectedImg.svg";
@@ -84,6 +84,11 @@ function PageOne() {
   ];
 
   const years = ["畢滿1年", "畢滿3年", "畢滿5年"];
+
+  // API Call
+  useEffect(() => {
+    setSelectedDepartment(0);
+  }, [selectedCollege]);
 
   return (
     <div className="future-page-1">

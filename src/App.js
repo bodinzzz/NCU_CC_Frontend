@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Future from "./pages/Future";
 import Graduated from "./pages/Graduated";
+import Career from "./pages/Career";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/future" element={<Future />} />
         <Route path="/graduated" element={<Graduated />} />
-        <Route path="/future" element={<Future />} />
+        <Route path="/Career" element={<Career />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -14,7 +14,7 @@ function NavBar() {
         <Link className="navbar__links__link" to="/Graduated">
           畢業後在做什麼
         </Link>
-        <Link className="navbar__links__link" to="/Future">
+        <Link className="navbar__links__link" to="/Career">
           職務類型大比拚
         </Link>
       </div>

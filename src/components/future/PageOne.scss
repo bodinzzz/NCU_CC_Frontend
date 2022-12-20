@@ -1,14 +1,12 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
+@import "../../styles/index";
 
 .future-page-1 {
   @extend %flex-col-between;
 
   &__title {
-    color: $theme-1-primary-color;
-    font-size: $font-xl;
-    font-weight: bold;
-    padding: $p-xs;
+    @include theme-title($theme-1-primary-color);
   }
 
   &__label {
@@ -64,7 +62,7 @@
         background-color: $white-color;
         padding: $p-xs;
         border-radius: $border-sm;
-        box-shadow: 0 4px 4px 0 rgba(166, 166, 166, 0.1);
+        box-shadow: $box-shadow-dropdown;
         width: 300px;
 
         &__item {
