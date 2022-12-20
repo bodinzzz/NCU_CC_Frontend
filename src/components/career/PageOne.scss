@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+@import "../../styles/index";
+
+.career-page-1 {
+  @extend %flex-col-center;
+  width: 70vw;
+
+  &__title {
+    @include theme-title($theme-3-primary-color);
+  }
+
+  &__inputContainer {
+    width: 100%;
+  }
+}

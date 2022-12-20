@@ -5,11 +5,11 @@ import PageOne from "../components/career/PageOne";
 function Career() {
   return (
     <div className="future scroll-container">
-      <div className="career__section-1">
+      <div className="future__section-1">
         <PageOne />
       </div>
-      <div className="career__section-2">{/* <PageTwo /> */}</div>
-      <div className="career__section-3"></div>
+      <div className="future__section-2"></div>
+      <div className="future__section-3"></div>
     </div>
   );
 }

@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+@mixin submit-btn($bg-color) {
+  @extend %flex-row-center;
+  margin: $m-sm;
+  padding: $p-xxs $p-sm;
+  color: $white-color;
+  border-radius: $border-lg;
+  font-size: $font-sm;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: $bg-color;
+  @content;
+}
+
+.submit-btn {
+  &__theme-1 {
+    @include submit-btn($theme-1-primary-color);
+    div {
+      margin: 0 $m-xs;
+    }
+  }
+  &__theme-2 {
+    @include submit-btn($theme-2-primary-color);
+    div {
+      margin: 0 $m-xs;
+    }
+  }
+  &__theme-3 {
+    @include submit-btn($theme-3-primary-color);
+    div {
+      margin: 0 $m-xs;
+    }
+  }
+}

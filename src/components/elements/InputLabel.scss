@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+.input-label {
+  @extend %flex-start;
+  span {
+    padding: $p-xs $p-xxs;
+    font-size: $font-sm;
+    color: $text-primary-color;
+    font-weight: bold;
+  }
+}
