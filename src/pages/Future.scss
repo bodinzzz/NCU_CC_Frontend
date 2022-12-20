@@ -10,15 +10,13 @@
   }
   
   &__section-2 {
-    @include scroll-section($theme-3-secondary-color){
-      padding: 48px;
-    };
+    @include scroll-section($theme-3-secondary-color);
     @extend %flex-row-center;
 
   }
   
   &__section-3 {
-    @include scroll-section;
+      @include scroll-section;
   }
 }
 
