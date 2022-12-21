@@ -1,0 +1,63 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+// ARROW ICON
+.arrow-down {
+  @extend %arrow;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrow-up {
+  @extend %arrow;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+%arrow {
+  border: solid $text-primary-color;
+  border-width: 0 2.5px 2.5px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 0 $m-xxs;
+}
+
+// DROPDOWN
+.dropdown {
+  position: relative;
+
+  &__btn {
+    @extend %flex-row-between;
+    padding: $p-xxs;
+    background-color: $white-color;
+    border: 0.8px solid $text-primary-color;
+    border-radius: $border-sm;
+    font-size: $font-xs;
+    font-weight: bold;
+    color: $text-primary-color;
+    cursor: pointer;
+    min-width: 340px;
+  }
+
+  &__items {
+    position: absolute;
+    background-color: $white-color;
+    border-radius: $border-sm;
+    box-shadow: $box-shadow-dropdown;
+    width: 100%;
+    font-size: $font-xs;
+    font-weight: bold;
+    color: $text-primary-color;
+
+    &__item {
+      margin: $p-xxs $p-xxs;
+      padding: $p-xs;
+      cursor: pointer;
+      border-radius: $border-sm;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+}

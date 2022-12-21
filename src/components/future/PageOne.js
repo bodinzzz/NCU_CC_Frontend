@@ -6,37 +6,10 @@ import MasterDegreeSelectedImg from "../../assets/image/Future/MasterDegreeSelec
 import MasterDegreeUnselectedImg from "../../assets/image/Future/MasterDegreeUnselectedImg.svg";
 import DoctorDegreeSelectedImg from "../../assets/image/Future/DoctorDegreeSelectedImg.svg";
 import DoctorDegreeUnselectedImg from "../../assets/image/Future/DoctorDegreeUnselectedImg.svg";
-import submitIcon from "../../assets/icon/submitIcon.svg";
-
-// DROPDOWN USING SELECT
-
-function Dropdown({ options, selectedValue, setSelectedValue }) {
-  // DROPDOWN TOGGLE DATA
-  const [isDropdownOpen, toggleDropdown] = useState(false);
-
-  // TOGGLE DROPDOWN
-  const onClick = (index) => {
-    setSelectedValue(index);
-    toggleDropdown(!isDropdownOpen);
-  };
-
-  return (
-    <div className="future-page-1__chooser__dropdown">
-      <div className="future-page-1__chooser__dropdown__btn" onClick={() => toggleDropdown(!isDropdownOpen)}>
-        {options[selectedValue].name}
-      </div>
-      {isDropdownOpen && (
-        <div className="future-page-1__chooser__dropdown__items">
-          {options.map((option, index) => (
-            <div className="future-page-1__chooser__dropdown__items__item" onClick={() => onClick(index)}>
-              {options[index].name}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
+import InputLabel from "../elements/InputLabel";
+import SubmitBtn from "../elements/SubmitBtn";
+import RadioBtnGroup from "../elements/RadioBtnGroup";
+import Dropdown from "../elements/Dropdown";
 
 function PageOne() {
   // SELECTED DATA (College、Department、Degree、Year)
@@ -83,7 +56,7 @@ function PageOne() {
     },
   ];
 
-  const years = ["畢滿1年", "畢滿3年", "畢滿5年"];
+  const years = [{ name: "畢滿1年" }, { name: "畢滿3年" }, { name: "畢滿5年" }];
 
   // API Call
   useEffect(() => {
@@ -94,51 +67,44 @@ function PageOne() {
     <div className="future-page-1">
       <div className="future-page-1__title">未來道路選擇</div>
 
-      {/* CHOOSER 1 - COLLEGES AND DEPARTMENT */}
-      <div className="future-page-1__chooserBox">
-        <div className="future-page-1__label">院所</div>
-        <div className="future-page-1__chooser">
+      <div className="future-page-1__inputContainers">
+        {/* INOUT 1 - COLLEGES */}
+        <div className="future-page-1__inputContainer">
+          <InputLabel text={"學院"} theme={"1"} />
           <Dropdown options={colleges} selectedValue={selectedCollege} setSelectedValue={setSelectedCollege} />
+        </div>
+
+        {/* INOUT 2 - DEPARTMENT */}
+        <div className="future-page-1__inputContainer">
+          <InputLabel text={"系所"} theme={"1"} />
           <Dropdown options={colleges[selectedCollege].departments} selectedValue={selectedDepartment} setSelectedValue={setSelectedDepartment} />
         </div>
-      </div>
 
-      {/* CHOOSER 2 - DEGREE */}
-      <div className="future-page-1__chooserBox">
-        <div className="future-page-1__label">學位</div>
-        <div className="future-page-1__chooser">
-          {degrees.map((degree, index) => (
-            <div className="future-page-1__chooser__degree" onClick={() => setSelectedDegree(index)}>
-              <img
-                src={selectedDegree === index ? degree.selectedImg : degree.unselectedImg}
-                alt={degree.name}
-                className="future-page-1__chooser__degree"
-              />
-            </div>
-          ))}
+        {/* INOUT 3 - DEGREE */}
+        <div className="future-page-1__inputContainer">
+          <InputLabel text={"學位"} theme={"1"} />
+          <div className="future-page-1__chooser">
+            {degrees.map((degree, index) => (
+              <div className="future-page-1__chooser__degree" onClick={() => setSelectedDegree(index)}>
+                <img
+                  src={selectedDegree === index ? degree.selectedImg : degree.unselectedImg}
+                  alt={degree.name}
+                  className="future-page-1__chooser__degree"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* CHOOSER 2 - YEAR */}
-      <div className="future-page-1__chooserBox">
-        <div className="future-page-1__label">畢業年份</div>
-        <div className="future-page-1__chooser">
-          {years.map((year, index) => (
-            <div
-              className={index === selectedYear ? "future-page-1__chooser__year__selected" : "future-page-1__chooser__year__unselected"}
-              onClick={() => setSelectedYear(index)}
-            >
-              {year}
-            </div>
-          ))}
+        {/*  INOUT 4 - YEAR */}
+        <div className="future-page-1__inputContainer">
+          <InputLabel text={"畢業年份"} theme={"1"} />
+          <RadioBtnGroup options={years} selectedValue={selectedYear} setSelectedValue={setSelectedYear} type="Year" />
         </div>
       </div>
 
       {/* SUBMIT BUTTON */}
-      <div className="future-page-1__btn">
-        <div>看數據</div>
-        <img src={submitIcon} alt="submitIcon" />
-      </div>
+      <SubmitBtn theme={"1"} />
     </div>
   );
 }

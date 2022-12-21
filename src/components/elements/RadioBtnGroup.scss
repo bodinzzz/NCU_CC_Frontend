@@ -13,26 +13,24 @@
   }
 
   &__radio-btn__selected {
-    @extend %flex-center;
-    margin: $p-xxxs;
-    padding: $p-xs;
-    font-size: $font-xs;
+    @extend %radio-btn;
     color: $text-primary-color;
-    font-weight: bold;
-    border-radius: $border-sm;
     border: 0.8px solid $text-primary-color;
     background-color: $white-color;
-    cursor: pointer;
   }
   &__radio-btn__unselected {
-    @extend %flex-center;
-    margin: $p-xxxs;
-    padding: $p-xs;
-    font-size: $font-xs;
+    @extend %radio-btn;
     color: $unselected-color;
-    font-weight: bold;
-    border-radius: $border-sm;
     border: 0.8px solid $unselected-color;
-    cursor: pointer;
+    background-color: none;
   }
+}
+%radio-btn {
+  @extend %flex-center;
+  margin: $p-xxxs;
+  padding: $p-xs;
+  font-size: $font-xs;
+  font-weight: bold;
+  border-radius: $border-sm;
+  cursor: pointer;
 }

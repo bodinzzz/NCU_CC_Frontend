@@ -1,7 +1,6 @@
 @mixin theme-title($title-color) {
-  font-size: $font-xl;
+  font-size: $font-lg;
   font-weight: bold;
-  padding: $p-xs;
   color: $title-color;
   @content;
 }

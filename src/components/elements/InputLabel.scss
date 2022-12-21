@@ -3,6 +3,7 @@
 
 .input-label {
   @extend %flex-start;
+  width: 100%;
   span {
     padding: $p-xs $p-xxs;
     font-size: $font-sm;

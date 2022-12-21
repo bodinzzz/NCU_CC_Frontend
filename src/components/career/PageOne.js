@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./PageOne.scss";
-import labelThemeThreeIcon from "../../assets/icon/labelThemeThreeIcon.svg";
 import InputLabel from "../elements/InputLabel";
 import SubmitBtn from "../elements/SubmitBtn";
 import RadioBtnGroup from "../elements/RadioBtnGroup";
@@ -42,11 +41,11 @@ function PageOne() {
     <div className="career-page-1">
       <div className="career-page-1__title">職位類型大比拚</div>
       <div className="career-page-1__inputContainer">
-        <InputLabel text={"職務類型"} icon={labelThemeThreeIcon} />
+        <InputLabel text={"職務類型"} theme={"3"} />
         <RadioBtnGroup options={jobTags} selectedValue={selectedJob} setSelectedValue={setSelectedJob} type="Career" />
       </div>
       <div className="career-page-1__inputContainer">
-        <InputLabel text={"國內外"} icon={labelThemeThreeIcon} />
+        <InputLabel text={"國內外"} theme={"3"} />
         <RadioBtnGroup options={jobTags[0].areas} selectedValue={selectedArea} setSelectedValue={setSelectedArea} type="Area" />
       </div>
       <SubmitBtn theme={"3"} />
