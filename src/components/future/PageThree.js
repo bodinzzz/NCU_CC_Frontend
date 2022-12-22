@@ -15,24 +15,10 @@ import RetireesImg from "../../assets/image/Future/RetireesImg.svg";
 import TravelerImg from "../../assets/image/Future/TravelerImg.svg";
 import "./PageThree.scss";
 
-const renderTick = ({ x, y, payload }) => {
-  console.log(payload);
-  return (
-    <foreignObject x={x} y={y}>
-      <div xmlns="http://www.w3.org/1999/xhtml">11111</div>
-    </foreignObject>
-  );
-};
-
 function Chart({ data }) {
   return (
     <ResponsiveContainer width="60%" height={400}>
-      <BarChart
-        data={data}
-        layout={"vertical"}
-        barSize={32}
-        barCategoryGap={"25%"}
-      >
+      <BarChart data={data} layout={"vertical"} barSize={32}>
         <YAxis
           type="category"
           dataKey="name"
