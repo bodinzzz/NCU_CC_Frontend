@@ -2,7 +2,7 @@
 @import "../styles/layout";
 @import "../styles/scroll";
 
-.future {
+.career {
   &__section-1 {
     @include scroll-section;
     @extend %flex-row-center;
@@ -15,5 +15,6 @@
 
   &__section-3 {
     @include scroll-section;
+    @extend %flex-row-center;
   }
 }

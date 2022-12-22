@@ -4,19 +4,35 @@ import WorkRoadImg from "../../assets/image/Future/WorkRoadImg.svg";
 import OtherRoadImg from "../../assets/image/Future/OtherRoadImg.svg";
 import "./PageTwo.scss";
 
-function ChartElement({ data }) {
+// ChartElement: Contains image/percentage/title
+/*
+  Parameters:
+    data: object
+    index: string
+*/
+function ChartElement({ data, index }) {
   return (
-    <div className="future-page-2__chart__element">
+    <div
+      className="future-page-2__chart__element"
+      key={"future-page-2__chart__element" + index}
+    >
       <img
         src={data.image}
-        className="future-page-2__chart__element__img"
-        alt="StudyRoadImg"
+        className="future-page-2__chart__element__image"
+        alt={data.title}
       />
       <div className="future-page-2__chart__element__info">
-        <div className="future-page-2__chart__element__percentage">
-          {data.percentage}
+        {/* Declare different classes by index */}
+        <div
+          className={
+            "future-page-2__chart__element__info__percentage--" + index
+          }
+        >
+          {`${data.percentage}%`}
         </div>
-        <div className="future-page-2__chart__element__title">{data.title}</div>
+        <div className="future-page-2__chart__element__info__title">
+          {data.title}
+        </div>
       </div>
     </div>
   );
@@ -43,8 +59,8 @@ function PageTwo() {
         工學院 軟體工程研究所 學士 在畢滿一年後 :
       </div>
       <div className="future-page-2__chart">
-        {chartData.map((data) => (
-          <ChartElement data={data} />
+        {chartData.map((data, index) => (
+          <ChartElement data={data} index={(index + 1).toString()} />
         ))}
       </div>
     </div>
