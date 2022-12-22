@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+.tooltip {
+  &__tooltipText {
+    background-color: $white-color;
+    color: $text-primary-color;
+    font-size: $font-xxxs;
+    padding: $p-xxs;
+    border-radius: $border-sm;
+    visibility: hidden;
+    white-space: pre-line;
+    //Position the tooltip
+    position: absolute;
+    // z-index: 1;
+    // top: 100%;
+    // left: 50%;
+    // margin-left: -60px;
+  }
+
+  &:hover .tooltip__tooltipText {
+    visibility: visible;
+  }
+
+  img {
+    display: flex;
+    max-width: 32px;
+  }
+}

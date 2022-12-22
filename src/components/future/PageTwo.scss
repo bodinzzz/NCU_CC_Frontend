@@ -2,58 +2,59 @@
 @import "../../styles/layout";
 
 %percentage-text-basic {
-    font-size: $font-xl;
-    font-weight: bold;
+  font-size: $font-xl;
+  font-weight: bold;
 }
 
 .future-page-2 {
-    @extend %flex-col-center;
+  @extend %flex-col-center;
 
-    &__title {
-        color: $text-primary-color;
-        font-size: $font-md;
-        font-weight: bold;
-        padding: $p-xs;
-        margin-bottom: $m-xl;
+  &__title {
+    @extend %flex-center;
+
+    span {
+      color: $text-primary-color;
+      font-size: $font-md;
+      font-weight: bold;
+      padding: $p-xs;
     }
+  }
 
-    &__chart {
-        @extend %flex-row-start;
+  &__chart {
+    @extend %flex-row-start;
 
-        &__element {
-            @extend %flex-col-center;
-            margin: 0 $m-xl;
+    &__element {
+      @extend %flex-col-center;
+      margin: 0 $m-xl;
 
-            &__image {
-                height: 24vh;
-                margin: $m-sm;
-            }
+      &__image {
+        height: 24vh;
+        margin: $m-sm;
+      }
 
-            &__info {
-                @extend %flex-col-center;
+      &__info {
+        @extend %flex-col-center;
 
-                &__percentage {
-                    &--1 {
-                        @extend %percentage-text-basic;
-                        color: $future-chart-first-color;
-                    }
-                    &--2 {
-                        @extend %percentage-text-basic;
-                        color: $future-chart-second-color;
-                    }
-                    &--3 {
-                        @extend %percentage-text-basic;
-                        color: $future-chart-third-color;
-                    }
-                }
-                
-                &__title {
-                    color: $text-primary-color;
-                    font-size: $font-lg;
-                }
-            }
+        &__percentage {
+          &--1 {
+            @extend %percentage-text-basic;
+            color: $future-chart-first-color;
+          }
+          &--2 {
+            @extend %percentage-text-basic;
+            color: $future-chart-second-color;
+          }
+          &--3 {
+            @extend %percentage-text-basic;
+            color: $future-chart-third-color;
+          }
         }
-    }
-}
 
-  
+        &__title {
+          color: $text-primary-color;
+          font-size: $font-lg;
+        }
+      }
+    }
+  }
+}
