@@ -8,13 +8,13 @@ function NavBar() {
         NCU Career Center 就業力數據庫系統
       </Link>
       <div className="navbar__links">
-        <Link className="navbar__links__link" to="/Future">
+        <Link className="navbar__links__link__theme-1" to="/Future">
           未來道路選擇
         </Link>
-        <Link className="navbar__links__link" to="/Graduated">
+        <Link className="navbar__links__link__theme-2" to="/Graduated">
           畢業後在做什麼
         </Link>
-        <Link className="navbar__links__link" to="/Career">
+        <Link className="navbar__links__link__theme-3" to="/Career">
           職務類型大比拚
         </Link>
       </div>

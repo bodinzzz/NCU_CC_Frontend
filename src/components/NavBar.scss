@@ -1,6 +1,14 @@
 @import "../styles/variables";
 @import "../styles/layout";
 
+@mixin link($theme-color) {
+  font-weight: bold;
+  text-decoration: none;
+  padding: $p-sm $p-md;
+  color: $theme-color;
+  @content;
+}
+
 .navbar {
   @extend %flex-row-between;
   position: absolute;
@@ -19,8 +27,15 @@
     @extend %flex-row-between;
 
     &__link {
-      padding: $p-sm $p-md;
-      text-decoration: none;
+      &__theme-1 {
+        @include link($theme-1-primary-color);
+      }
+      &__theme-2 {
+        @include link($theme-2-primary-color);
+      }
+      &__theme-3 {
+        @include link($theme-3-primary-color);
+      }
     }
   }
 }
