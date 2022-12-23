@@ -1,34 +1,45 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 
+.custom-tooltip {
+  span {
+    color: $text-primary-color;
+    font-size: $font-xs;
+    padding: $p-xs;
+    background-color: $white-color;
+    border-radius: $border-sm;
+    box-shadow: $box-shadow-tooltip;
+  }
+}
+
 .future-page-3 {
-    @extend %flex-col-center;
+  @extend %flex-col-center;
+  width: 100%;
+
+  &__title {
+    color: $text-primary-color;
+    font-size: $font-md;
+    padding: $p-xs;
+    margin-bottom: $m-xl;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &__chart {
+    @extend %flex-row-center;
     width: 100%;
 
-    &__title {
-        color: $text-primary-color;
-        font-size: $font-md;
-        padding: $p-xs;
-        margin-bottom: $m-xl;
-        
-        span {
-            font-weight: bold;
-        }
+    &__icons {
+      @extend %flex-col-between;
+      // justify-content: space-around;
+      height: 360px;
+
+      &__icon {
+        height: 40px;
+        width: 40px;
+      }
     }
-
-    &__chart {
-        @extend %flex-row-center;
-        width: 100%;
-
-        &__icons {
-            @extend %flex-col-between;
-            // justify-content: space-around;
-            height: 360px;
-
-            &__icon{
-                height: 40px;
-                width: 40px;
-            }
-        }
-    }
+  }
 }
