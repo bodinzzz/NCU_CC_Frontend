@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CareerInfoImg from "../../assets/image/Career/CareerInfoImg.svg";
 import "./PageTwo.scss";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 function PageTwo() {
   const [selectedCareer, setSelectedCareer] = useState(0);

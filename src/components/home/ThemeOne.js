@@ -1,5 +1,6 @@
 import ThemeOneImg from "../../assets/image/Home/ThemeOneImg.svg";
 import "./Theme.scss";
+import { Link } from "react-router-dom";
 
 function ThemeOne() {
   return (
@@ -14,9 +15,9 @@ function ThemeOne() {
             <br /> 畢業後我該選擇往哪個道路走呢?
           </div>
         </div>
-        <div className="home-theme__nav-btn">
+        <Link className="home-theme__nav-btn" to="/Future">
           <span>看看學長姐如何選擇</span>
-        </div>
+        </Link>
       </div>
     </div>
   );

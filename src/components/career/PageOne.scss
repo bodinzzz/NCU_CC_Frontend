@@ -4,7 +4,7 @@
 
 .career-page-1 {
   @extend %flex-col-center;
-  width: 65vw;
+  width: 70vw;
 
   &__title {
     @include theme-title($theme-3-primary-color);

@@ -1,5 +1,6 @@
 import ThemeTwoImg from "../../assets/image/Home/ThemeTwoImg.svg";
 import "./Theme.scss";
+import { Link } from "react-router-dom";
 
 function ThemeTwo() {
   return (
@@ -15,9 +16,9 @@ function ThemeTwo() {
             各個系所有什麼差別呢?
           </div>
         </div>
-        <div className="home-theme__nav-btn">
+        <Link className="home-theme__nav-btn" to="/Graduated">
           <span>看看學長姐都在做什麼</span>
-        </div>
+        </Link>
       </div>
       <img src={ThemeTwoImg} className="home-theme__img" alt="theme-img" />
     </div>

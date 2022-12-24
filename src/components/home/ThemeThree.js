@@ -1,5 +1,6 @@
 import ThemeThreeImg from "../../assets/image/Home/ThemeThreeImg.svg";
 import "./Theme.scss";
+import { Link } from "react-router-dom";
 
 function ThemeThree() {
   return (
@@ -14,9 +15,9 @@ function ThemeThree() {
             <br /> 各個系所有什麼差別呢?
           </div>
         </div>
-        <div className="home-theme__nav-btn">
+        <Link className="home-theme__nav-btn" to="/Career">
           <span>看看畢業生各類職務資訊</span>
-        </div>
+        </Link>
       </div>
     </div>
   );
