@@ -16,6 +16,12 @@
   align-items: center;
 }
 
+%flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 %flex-row-center {
   @extend %flex-center;
   flex-direction: row;
@@ -43,5 +49,15 @@
 
 %flex-col-start {
   @extend %flex-start;
+  flex-direction: column;
+}
+
+%flex-row-end {
+  @extend %flex-end;
+  flex-direction: row;
+}
+
+%flex-col-end {
+  @extend %flex-end;
   flex-direction: column;
 }

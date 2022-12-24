@@ -1,0 +1,53 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+@import "../../styles/index";
+
+.career-page-2 {
+  @extend %flex-row-center;
+  height: 50vh;
+  width: 80vw;
+
+  &__description {
+    @extend %flex-col-start;
+    height: 100%;
+    width: 100%;
+    span {
+      background-color: $white-color;
+      padding: $p-sm;
+      border-radius: $border-sm;
+      font-size: $font-xs;
+      font-weight: bold;
+      color: $theme-3-primary-color;
+      box-shadow: $box-shadow-block;
+    }
+  }
+
+  &__title {
+    @extend %flex-center;
+    span {
+      position: absolute;
+      font-size: $font-md;
+      font-weight: bold;
+      color: $text-primary-color;
+    }
+    img {
+      height: 50vh;
+    }
+  }
+
+  &__subTypes {
+    @extend %flex-col-end;
+    height: 100%;
+    width: 100%;
+    &__subType {
+      background-color: $white-color;
+      padding: $p-sm;
+      border-radius: $border-sm;
+      margin: $m-sm;
+      font-size: $font-xs;
+      font-weight: bold;
+      color: $text-primary-color;
+      box-shadow: $box-shadow-block;
+    }
+  }
+}
