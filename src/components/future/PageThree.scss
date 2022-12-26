@@ -17,13 +17,13 @@
   width: 100%;
 
   &__title {
-    color: $text-primary-color;
-    font-size: $font-md;
-    // padding: $p-xs;
-    // margin-bottom: $m-xl;
+    @extend %flex-center;
 
     span {
+      color: $text-primary-color;
+      font-size: $font-md;
       font-weight: bold;
+      padding: $p-xs;
     }
   }
 

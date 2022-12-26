@@ -3,23 +3,28 @@
 @import "../styles/scroll";
 
 .home {
-    &__section-1 {
-        @include scroll-section($white-color);
-        @extend %flex-row-center;
+  &__section-1 {
+    @include scroll-section($white-color);
+    @extend %flex-row-center;
+    span {
+      font-size: $font-md;
+      color: $unselected-color;
+      font-weight: bold;
     }
-    
-    &__section-2 {
-        @include scroll-section($theme-1-secondary-color);
-        @extend %flex-row-center;
-    }
-    
-    &__section-3 {
-        @include scroll-section($theme-2-secondary-color);
-        @extend %flex-row-center;
-    }
-    
-    &__section-4 {
-        @include scroll-section($theme-3-secondary-color);
-        @extend %flex-row-center;
-    }
+  }
+
+  &__section-2 {
+    @include scroll-section($theme-1-secondary-color);
+    @extend %flex-row-center;
+  }
+
+  &__section-3 {
+    @include scroll-section($theme-2-secondary-color);
+    @extend %flex-row-center;
+  }
+
+  &__section-4 {
+    @include scroll-section($theme-3-secondary-color);
+    @extend %flex-row-center;
+  }
 }

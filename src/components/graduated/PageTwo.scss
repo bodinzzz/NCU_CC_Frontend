@@ -1,0 +1,44 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+.graduated-page-2 {
+  @extend %flex-col-center;
+  width: 100%;
+
+  &__title {
+    @extend %flex-center;
+
+    span {
+      color: $text-primary-color;
+      font-size: $font-md;
+      font-weight: bold;
+      padding: $p-xs;
+    }
+
+    &__ref-link {
+      @extend %flex-center;
+      background-color: $theme-2-primary-color;
+      border-radius: $border-lg;
+      padding: 0 $p-xs 0 $p-xxs;
+      text-decoration: none;
+
+      span {
+        font-size: $font-xs;
+        font-weight: bold;
+        color: $white-color;
+      }
+
+      img {
+        width: 16%;
+      }
+    }
+    &__ref-link:hover {
+      @extend %flex-center;
+      background-color: $theme-2-primary-color;
+      border-radius: $border-lg;
+      padding: 0 $p-xs 0 $p-xxs;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}

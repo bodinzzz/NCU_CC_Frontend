@@ -7,6 +7,8 @@ import HousekeeperImg from "../../assets/image/Future/HousekeeperImg.svg";
 import RetireesImg from "../../assets/image/Future/RetireesImg.svg";
 import TravelerImg from "../../assets/image/Future/TravelerImg.svg";
 import "./PageThree.scss";
+import InfoThemeOneIcon from "../../assets/icon/InfoThemeOneIcon.svg";
+import SourceTooltip from "../elements/SourceTooltip";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -71,9 +73,12 @@ function PageThree() {
     },
   ];
 
+  const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)`;
+
   return (
     <div className="future-page-3">
       <div className="future-page-3__title">
+        <SourceTooltip icon={InfoThemeOneIcon} text={tooltipText} />
         <span>工學院 軟體工程研究所 學士 </span>在<span>畢滿一年後 其他現況分布</span>:
       </div>
       <div className="future-page-3__chart">
