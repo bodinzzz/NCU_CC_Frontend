@@ -1,15 +1,27 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from "recharts"; //原本有tooltip
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts"; //原本有tooltip
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import MaleImg from "../../assets/image/Career/MaleImg.svg";
 import FemaleImg from "../../assets/image/Career/FemaleImg.svg";
 import "./PageThree.scss";
-import Tooltip from "../elements/Tooltip";
+import SourceTooltip from "../elements/SourceTooltip";
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <span className="label">{`${label} : ${payload[0].value}`}K</span>
+      </div>
+    );
+  }
+
+  return null;
+};
 
 function Chart({ data }) {
   return (
-    <ResponsiveContainer width={500} height={300}>
+    <ResponsiveContainer width="70%" height={300}>
       <BarChart data={data} layout={"vertical"} barSize={50}>
         <YAxis
           type="category"
@@ -24,7 +36,8 @@ function Chart({ data }) {
           hide={true}
         />
         <XAxis type="number" hide />
-        <Bar dataKey="percentage">
+        <Tooltip content={<CustomTooltip />} cursor={false} />
+        <Bar dataKey="range[1]">
           {data.map((entry, index) => (
             <Cell fill="#F5CA60" key={index} />
           ))}
@@ -99,7 +112,7 @@ function PageThree() {
       {/* GENDER CHART */}
       <div className="career-page-3__chart-container">
         <div className="career-page-3__chart-container__title">
-          <Tooltip icon={InfoThemeThreeIcon} text={tooltipText} />
+          <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
           <span>建築營造類 國內 職務男女比</span>
         </div>
         <div className="career-page-3__chart-container__gender-chart">
@@ -128,7 +141,7 @@ function PageThree() {
       {/* SALARY CHART */}
       <div className="career-page-3__chart-container">
         <div className="career-page-3__chart-container__title">
-          <Tooltip icon={InfoThemeThreeIcon} text={tooltipText} />
+          <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
           <span>建築營造類 國內 職場新鮮人月薪中位數 級距(畢滿一年)</span>
         </div>
         <div className="career-page-3__chart-container__salary-chart">

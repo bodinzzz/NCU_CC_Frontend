@@ -4,7 +4,7 @@ import WorkRoadImg from "../../assets/image/Future/WorkRoadImg.svg";
 import OtherRoadImg from "../../assets/image/Future/OtherRoadImg.svg";
 import InfoThemeOneIcon from "../../assets/icon/InfoThemeOneIcon.svg";
 import "./PageTwo.scss";
-import Tooltip from "../elements/Tooltip";
+import SourceTooltip from "../elements/SourceTooltip";
 
 // ChartElement: Contains image/percentage/title
 /*
@@ -45,7 +45,7 @@ function PageTwo() {
   return (
     <div className="future-page-2">
       <div className="future-page-2__title">
-        <Tooltip icon={InfoThemeOneIcon} text={tooltipText} />
+        <SourceTooltip icon={InfoThemeOneIcon} text={tooltipText} />
         <span>工學院 軟體工程研究所 學士 在畢滿一年後 :</span>
       </div>
       <div className="future-page-2__chart">

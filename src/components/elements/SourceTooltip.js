@@ -1,6 +1,6 @@
-import "./Tooltip.scss";
+import "./SourceTooltip.scss";
 
-function Tooltip({ icon, text }) {
+function SourceTooltip({ icon, text }) {
   return (
     <div className="tooltip">
       <img src={icon} alt="InfoIcon" />
@@ -9,4 +9,4 @@ function Tooltip({ icon, text }) {
   );
 }
 
-export default Tooltip;
+export default SourceTooltip;

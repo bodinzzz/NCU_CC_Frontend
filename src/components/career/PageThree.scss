@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
+
 .custom-tooltip {
   span {
     color: $text-primary-color;
@@ -30,16 +31,16 @@
     }
 
     &__salary-chart {
-      background-color: brown;
+      // background-color: brown;
       @extend %flex-row-center;
       width: 100%;
       &__labels {
-        background-color: aqua;
-        @extend %flex-col-center;
-        // height: 300px;
-        width: 100%;
+        // background-color: aqua;
+        @extend %flex-col-between;
+        height: 270px;
+        width: 30%;
         &__label {
-          //   @extend %flex-col-center;
+          // @extend %flex-col-center;
           &__name {
             @extend %flex-center;
             color: $text-primary-color;
@@ -51,7 +52,7 @@
           &__range {
             @extend %flex-center;
             color: $text-primary-color;
-            font-size: $font-sm;
+            font-size: $font-xs;
             margin: 0 0 $m-md 0;
           }
         }
