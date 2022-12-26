@@ -6,6 +6,7 @@ import MaleImg from "../../assets/image/Career/MaleImg.svg";
 import FemaleImg from "../../assets/image/Career/FemaleImg.svg";
 import "./PageThree.scss";
 import SourceTooltip from "../elements/SourceTooltip";
+import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {

@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from 
 import "./PageThree.scss";
 import InfoThemeTwoIcon from "../../assets/icon/InfoThemeTwoIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
+import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -102,6 +103,7 @@ function PageThree() {
         <span>工學院 軟體工程研究所 各系所畢業生職務類型 :</span>
       </div>
       <Chart data={sortedData} />
+      <ScrollToTopBtn theme={"2"} />
     </div>
   );
 }

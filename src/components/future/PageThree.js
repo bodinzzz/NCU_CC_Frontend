@@ -9,6 +9,7 @@ import TravelerImg from "../../assets/image/Future/TravelerImg.svg";
 import "./PageThree.scss";
 import InfoThemeOneIcon from "../../assets/icon/InfoThemeOneIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
+import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -79,7 +80,7 @@ function PageThree() {
     <div className="future-page-3">
       <div className="future-page-3__title">
         <SourceTooltip icon={InfoThemeOneIcon} text={tooltipText} />
-        <span>工學院 軟體工程研究所 學士 </span>在<span>畢滿一年後 其他現況分布</span>:
+        <span>工學院 軟體工程研究所 學士 在畢滿一年後 其他現況分布</span>:
       </div>
       <div className="future-page-3__chart">
         <div className="future-page-3__chart__icons">
@@ -92,6 +93,7 @@ function PageThree() {
         </div>
         <Chart data={data} />
       </div>
+      <ScrollToTopBtn theme={"1"} />
     </div>
   );
 }
