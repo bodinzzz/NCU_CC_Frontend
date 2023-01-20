@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFour.scss";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import WorldMap from "../../assets/map/WorldMap.json";
 
 import SourceTooltip from "../elements/SourceTooltip";
@@ -46,8 +41,7 @@ function PageFour() {
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   // MAP JSON FILE
-  const geoUrl =
-    "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+  const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
   // const [continentData, setContinentData] = useState(
   //   [
@@ -106,7 +100,7 @@ function PageFour() {
 
   const [continentData, setContinentData] = useState({
     China: {
-      //亞洲（香港QQ、澳門、大陸地區）
+      //亞洲（香港、澳門、大陸地區）
       percentage: 95,
       fillColor: "blue",
       isHover: false,
@@ -183,9 +177,7 @@ function PageFour() {
     //   fillColor = continentData[7].fillColor;
     // }
 
-    return continentData[continent]
-      ? continentData[continent].fillColor
-      : "black";
+    return continentData[continent] ? continentData[continent].fillColor : "black";
   }
 
   // 移進去一個國家跟移出去一個國家都會改isHover=!isHover(這裡有成功)
@@ -233,11 +225,7 @@ function PageFour() {
                       onMouseLeave={() => {
                         unHoverContinent(currentContinent);
                       }}
-                      className={
-                        continentData[currentContinent].isHover
-                          ? "geographies-style-hover"
-                          : "geographies-style"
-                      }
+                      className={continentData[currentContinent].isHover ? "geographies-style-hover" : "geographies-style"}
                     />
                   );
                 })
