@@ -111,7 +111,7 @@ function PageFour() {
       fillColor: "blue",
       isHover: false,
     },
-    Taiwan: {
+    "Asia(Taiwan)": {
       percentage: 0,
       fillColor: "black",
       isHover: false,
