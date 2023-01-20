@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFour.scss";
-import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  ZoomableGroup,
+} from "react-simple-maps";
 import WorldMap from "../../assets/map/WorldMap.json";
 
 import SourceTooltip from "../elements/SourceTooltip";
@@ -10,7 +15,14 @@ import SourceTooltip from "../elements/SourceTooltip";
 function sortData(data) {
   data.sort((a, b) => (a.percentage < b.percentage ? 1 : -1));
   // const fillColors = ["#0096C7", "#00b4d8", "#48cae4", "#90e0ef", "#ade8f4", "#caf0f8"];
-  const fillColors = ["#0096C7", "#cdb4db", "#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"];
+  const fillColors = [
+    "#0096C7",
+    "#cdb4db",
+    "#ffc8dd",
+    "#ffafcc",
+    "#bde0fe",
+    "#a2d2ff",
+  ];
   var fillColor = "black";
 
   const sortedData = data.map((data, index) => {
@@ -41,56 +53,73 @@ function PageFour() {
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   // MAP JSON FILE
-  const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+  const geoUrl =
+    "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
+  const fillColors = [
+    "#0096C7",
+    "#cdb4db",
+    "#ffc8dd",
+    "#ffafcc",
+    "#bde0fe",
+    "#a2d2ff",
+  ];
   // RAW DATA
   const data = [
     {
       name: "China", //亞洲（香港QQ、澳門、大陸地區）
       percentage: 95,
+      fill: "#0096C7",
     },
     {
       name: "Asia", //亞洲（香港、澳門、大陸地區以外國家）
       percentage: 85,
+      fill: "#0096C7",
     },
     {
       name: "Australia", //大洋洲
       percentage: 75,
+      fill: "#cdb4db",
     },
     {
       name: "Africa", //非洲
       percentage: 65,
+      fill: "#cdb4db",
     },
     {
       name: "Australia", //大洋洲
       percentage: 55,
+      fill: "#ffc8dd",
     },
     {
       name: "Europe", //歐洲
       percentage: 45,
+      fill: "#ffc8dd",
     },
     {
       name: "North America", //北美洲
       percentage: 35,
+      fill: "#ffafcc",
     },
     {
       name: "Central America", //中美洲
       percentage: 25,
+      fill: "#ffafcc",
     },
     {
       name: "South America", //南美洲
       percentage: 0,
+      fill: "#a2d2ff",
     },
   ].map((data, index) => {
     return {
-      name: data.name,
-      percentage: data.percentage,
+      ...data,
       isHover: false,
     };
   });
 
   // const sortedData = sortData(data);
-  const [sortedData, setSortedData] = useState(sortData(data));
+  const [sortedData, setSortedData] = useState(data);
 
   // GET FILL COLOR WITH SINGLE COUNTRY'S CONTINENT
   function getFill(continent) {
@@ -140,26 +169,41 @@ function PageFour() {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={getFill(WorldMap.features[index].properties.continent)}
+                    fill={getFill(
+                      WorldMap.features[index].properties.continent
+                    )}
                     stroke="#FFF"
                     strokeWidth="0.5"
                     // MOUSE EVENTS
-                    onMouseEnter={() => {
+                    onMouseEnter={(e) => {
+                      console.log(e);
                       sortedData.map((data, key) => {
-                        if (WorldMap.features[index].properties.continent === data.name) {
+                        if (
+                          WorldMap.features[index].properties.continent ===
+                          data.name
+                        ) {
                           updateSortedData(key);
                         }
                       });
                     }}
                     onMouseLeave={() => {
                       sortedData.map((data, key) => {
-                        if (WorldMap.features[index].properties.continent === data.name) {
+                        if (
+                          WorldMap.features[index].properties.continent ===
+                          data.name
+                        ) {
                           updateSortedData(key);
                         }
                       });
                     }}
                     className={
-                      sortedData[sortedData.findIndex((item) => item.name === WorldMap.features[1].properties.continent)].isHover
+                      sortedData[
+                        sortedData.findIndex(
+                          (item) =>
+                            item.name ===
+                            WorldMap.features[1].properties.continent
+                        )
+                      ].isHover
                         ? "geographies-style-hover"
                         : "geographies-style"
                     }
