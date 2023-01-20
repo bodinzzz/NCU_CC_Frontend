@@ -411,7 +411,7 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "French Southern and Antarctic Lands", "name": "Fr. S. Antarctic Lands", "continent": "Seven seas (open ocean)" },
+      "properties": { "admin": "French Southern and Antarctic Lands", "name": "Fr. S. Antarctic Lands", "continent": "Africa" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

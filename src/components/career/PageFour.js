@@ -183,21 +183,24 @@ function PageFour() {
     //   fillColor = continentData[7].fillColor;
     // }
 
-    if (!continentData[continent]) {
-      console.log(continent);
-    }
     return continentData[continent]
       ? continentData[continent].fillColor
       : "black";
   }
 
   // 移進去一個國家跟移出去一個國家都會改isHover=!isHover(這裡有成功)
-  function updateContinentData(currentContinent) {
-    const continentDataCopy = continentData;
-    continentDataCopy[currentContinent].isHover =
-      !continentDataCopy[currentContinent].isHover;
+  function hoverContinent(currentContinent) {
+    setContinentData((prev) => {
+      prev[currentContinent].isHover = true;
+      return { ...prev };
+    });
+  }
 
-    setContinentData(continentDataCopy);
+  function unHoverContinent(currentContinent) {
+    setContinentData((prev) => {
+      prev[currentContinent].isHover = false;
+      return { ...prev };
+    });
   }
 
   return (
@@ -214,9 +217,8 @@ function PageFour() {
           <ZoomableGroup zoom={1}>
             <Geographies geography={WorldMap}>
               {({ geographies }) =>
-                geographies.map((geo, index) => {
+                geographies.map((geo) => {
                   const currentContinent = geo.properties.continent;
-                  // console.log(continentData[currentContinent]);
                   return (
                     <Geography
                       key={geo.rsmKey}
@@ -226,13 +228,13 @@ function PageFour() {
                       strokeWidth="0.5"
                       // MOUSE EVENTS
                       onMouseEnter={() => {
-                        updateContinentData(currentContinent);
+                        hoverContinent(currentContinent);
                       }}
                       onMouseLeave={() => {
-                        updateContinentData(currentContinent);
+                        unHoverContinent(currentContinent);
                       }}
                       className={
-                        continentData["China"].isHover
+                        continentData[currentContinent].isHover
                           ? "geographies-style-hover"
                           : "geographies-style"
                       }
