@@ -2,6 +2,7 @@ import "./Career.scss";
 import PageOne from "../components/career/PageOne";
 import PageTwo from "../components/career/PageTwo";
 import PageThree from "../components/career/PageThree";
+import PageFour from "../components/career/PageFour";
 
 function Career() {
   return (
@@ -14,6 +15,9 @@ function Career() {
       </div>
       <div className="future__section-3">
         <PageThree />
+      </div>
+      <div className="future__section-3">
+        <PageFour />
       </div>
     </div>
   );
