@@ -46,7 +46,7 @@ function PageFour() {
   const [continentData, setContinentData] = useState(
     [
       {
-        name: "China", //亞洲（香港QQ、澳門、大陸地區）
+        name: "China", //亞洲（香港、澳門、大陸地區）
         percentage: 95,
         fillColor: "blue",
       },
@@ -155,19 +155,24 @@ function PageFour() {
                     // MOUSE EVENTS
                     onMouseEnter={() => {
                       continentData.map((data, key) => {
-                        if (WorldMap.features[index].properties.continent === data.name) {
+                        if (geo.properties.continent === data.name) {
                           updateContinentData(key);
+                          console.log(geo.properties.continent);
                         }
                       });
                     }}
                     onMouseLeave={() => {
                       continentData.map((data, key) => {
-                        if (WorldMap.features[index].properties.continent === data.name) {
+                        if (geo.properties.continent === data.name) {
                           updateContinentData(key);
                         }
                       });
                     }}
-                    className={continentData[1].isHover ? "geographies-style-hover" : "geographies-style"}
+                    className={
+                      continentData[continentData.findIndex((item) => WorldMap.features[40].properties.continent === item.name)].isHover
+                        ? "geographies-style-hover"
+                        : "geographies-style"
+                    }
                   />
                 ))
               }
