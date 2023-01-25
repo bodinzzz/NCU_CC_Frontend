@@ -50,8 +50,8 @@ function sortData(data) {
 
 function PageThree() {
   // SELECTED DATA (College、Department)
-  const [selectedCollege, setSelectedCollege] = useState(0);
-  const [selectedDepartment, setSelectedDepartment] = useState(0);
+  // const [selectedCollege, setSelectedCollege] = useState(0);
+  // const [selectedDepartment, setSelectedDepartment] = useState(0);
 
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n畢業滿1.3.5年合併統計`;
   const data = [
