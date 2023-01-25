@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from "recharts";
 import LearnerImg from "../../assets/image/Future/LearnerImg.svg";
 import SoldierImg from "../../assets/image/Future/SoldierImg.svg";
 import UnemployedImg from "../../assets/image/Future/UnemployedImg.svg";
@@ -14,7 +14,7 @@ import ChartTooltip from "../elements/ChartTooltip.js";
 function Chart({ data }) {
   return (
     <ResponsiveContainer width="60%" height={300}>
-      <BarChart data={data} layout={"vertical"} barSize={24}>
+      <BarChart data={data} layout={"vertical"} barSize={24} margin={{ right: 50 }}>
         <YAxis
           type="category"
           dataKey="name"
@@ -28,7 +28,10 @@ function Chart({ data }) {
         />
         <XAxis type="number" hide />
         <Tooltip content={<ChartTooltip />} cursor={false} />
-        <Bar dataKey="percentage" className="bar-style" />
+        <Bar dataKey="percentage" className="bar-style">
+          <LabelList dataKey="percentage" position="right" formatter={(value) => value + "%"} className="custom-label" />
+        </Bar>
+        <div>HEREs</div>
       </BarChart>
     </ResponsiveContainer>
   );

@@ -8,6 +8,12 @@
   }
 }
 
+.custom-label {
+  fill: $text-secondary-color;
+  font-size: $font-xs;
+  font-weight: bold;
+}
+
 .future-page-3 {
   @extend %flex-col-center;
   width: 100%;
