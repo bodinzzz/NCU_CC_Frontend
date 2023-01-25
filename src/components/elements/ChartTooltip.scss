@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+
+.custom-tooltip {
+  color: $text-primary-color;
+  font-size: $font-xxs;
+  background-color: $white-color;
+  padding: $p-xxs;
+  border-radius: $border-sm;
+  box-shadow: $box-shadow-tooltip;
+  font-weight: bold;
+}

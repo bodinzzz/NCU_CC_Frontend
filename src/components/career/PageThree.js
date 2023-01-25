@@ -6,19 +6,8 @@ import MaleImg from "../../assets/image/Career/MaleImg.svg";
 import FemaleImg from "../../assets/image/Career/FemaleImg.svg";
 import "./PageThree.scss";
 import SourceTooltip from "../elements/SourceTooltip";
-import ScrollToTopBtn from "../elements/ScrollToTopBtn";
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <span className="label">{`${label} : ${payload[0].value}`}K</span>
-      </div>
-    );
-  }
-
-  return null;
-};
+// import ScrollToTopBtn from "../elements/ScrollToTopBtn";
+import ChartTooltip from "../elements/ChartTooltip.js";
 
 function Chart({ data }) {
   return (
@@ -37,7 +26,7 @@ function Chart({ data }) {
           hide={true}
         />
         <XAxis type="number" hide />
-        <Tooltip content={<CustomTooltip />} cursor={false} />
+        <Tooltip content={<ChartTooltip />} cursor={false} />
         <Bar dataKey="range[1]">
           {data.map((entry, index) => (
             <Cell fill="#F5CA60" key={index} />

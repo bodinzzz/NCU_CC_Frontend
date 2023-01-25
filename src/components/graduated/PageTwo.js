@@ -1,22 +1,19 @@
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts";
 import "./PageTwo.scss";
 import InfoThemeTwoIcon from "../../assets/icon/InfoThemeTwoIcon.svg";
 import LinkIcon from "../../assets/icon/LinkIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
+import ChartTooltip from "../elements/ChartTooltip.js";
 
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <span className="label">{`${label} : ${payload[0].value}`}%</span>
-      </div>
-    );
-  }
+// const CustomTooltip = ({ active, payload, label }) => {
+//   if (active && payload && payload.length) {
+//     return <div className="graduated-page-2__chart__custom-tooltip">{`${label} : ${payload[0].value}`}%</div>;
+//   }
 
-  return null;
-};
+//   return null;
+// };
 
 function Chart({ data }) {
   return (
@@ -35,7 +32,7 @@ function Chart({ data }) {
           }}
         />
         <XAxis type="number" hide />
-        <Tooltip content={<CustomTooltip />} cursor={false} />
+        <Tooltip content={<ChartTooltip />} cursor={false} />
         <Bar dataKey="percentage">
           {data.map((entry, index) => (
             <Cell fill={entry.color} key={index} />
@@ -61,8 +58,8 @@ function sortData(data) {
 
 function PageTwo() {
   // SELECTED DATA (College、Department)
-  const [selectedCollege, setSelectedCollege] = useState(0);
-  const [selectedDepartment, setSelectedDepartment] = useState(0);
+  // const [selectedCollege, setSelectedCollege] = useState(0);
+  // const [selectedDepartment, setSelectedDepartment] = useState(0);
 
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n畢業滿1.3.5年合併統計\n\n學門參考至 https://ulist.moe.gov.tw/Query/Discipline `;
 
@@ -94,7 +91,7 @@ function PageTwo() {
   console.log(sortedData);
 
   // API Call
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <div className="graduated-page-2">

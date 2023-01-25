@@ -5,21 +5,9 @@ import "./PageThree.scss";
 import InfoThemeTwoIcon from "../../assets/icon/InfoThemeTwoIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <span className="label">{`${label} : ${payload[0].value}`}%</span>
-      </div>
-    );
-  }
-
-  return null;
-};
+import ChartTooltip from "../elements/ChartTooltip.js";
 
 function Chart({ data }) {
-  //   console.log(Array.isArray(data));
   return (
     <ResponsiveContainer width="75%" height={300}>
       <BarChart data={data} layout={"vertical"} barSize={20} reverseStackOrder="false">
@@ -36,7 +24,7 @@ function Chart({ data }) {
           }}
         />
         <XAxis type="number" hide />
-        <Tooltip content={<CustomTooltip />} cursor={false} />
+        <Tooltip content={<ChartTooltip />} cursor={false} />
         <Bar dataKey="percentage">
           {data.map((entry, index) => (
             <Cell fill={entry.color} key={index} />

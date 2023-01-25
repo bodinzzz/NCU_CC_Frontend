@@ -1,14 +1,10 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 
-.custom-tooltip {
-  span {
-    color: $text-primary-color;
-    font-size: $font-xs;
-    padding: $p-xs;
-    background-color: $white-color;
-    border-radius: $border-sm;
-    box-shadow: $box-shadow-tooltip;
+.bar-style {
+  fill: #96b48b;
+  path:hover {
+    opacity: 0.7;
   }
 }
 
@@ -40,6 +36,16 @@
         height: 40px;
         width: 40px;
       }
+    }
+
+    &__custom-tooltip {
+      color: $text-primary-color;
+      font-size: $font-xxs;
+      background-color: $white-color;
+      padding: $p-xxs;
+      border-radius: $border-sm;
+      box-shadow: $box-shadow-tooltip;
+      font-weight: bold;
     }
   }
 }

@@ -3,7 +3,6 @@ import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFour.scss";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import WorldMap from "../../assets/map/WorldMap.json";
-
 import SourceTooltip from "../elements/SourceTooltip";
 
 // TO SORT DATA ADD GET FILL COLOR

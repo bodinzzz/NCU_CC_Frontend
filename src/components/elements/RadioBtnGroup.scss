@@ -27,10 +27,11 @@
 }
 %radio-btn {
   @extend %flex-center;
-  // margin: $p-xxxs;
+  margin: $p-xxxs;
   padding: $p-xxs;
   font-size: $font-xs;
   font-weight: bold;
   border-radius: $border-sm;
   cursor: pointer;
+  transition: 0.2s ease-in;
 }

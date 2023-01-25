@@ -9,18 +9,7 @@ import "./PageThree.scss";
 import InfoThemeOneIcon from "../../assets/icon/InfoThemeOneIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <span className="label">{`${label} : ${payload[0].value}`}%</span>
-      </div>
-    );
-  }
-
-  return null;
-};
+import ChartTooltip from "../elements/ChartTooltip.js";
 
 function Chart({ data }) {
   return (
@@ -38,8 +27,8 @@ function Chart({ data }) {
           }}
         />
         <XAxis type="number" hide />
-        <Tooltip content={<CustomTooltip />} cursor={false} />
-        <Bar dataKey="percentage" fill="#96B48B" />
+        <Tooltip content={<ChartTooltip />} cursor={false} />
+        <Bar dataKey="percentage" className="bar-style" />
       </BarChart>
     </ResponsiveContainer>
   );
