@@ -23,23 +23,30 @@ function PageOne() {
 
   const degrees = [
     {
+      id: "bachelor",
       name: "學士",
       selectedImg: BachelorDegreeSelectedImg,
       unselectedImg: BachelorDegreeUnselectedImg,
     },
     {
+      id: "master",
       name: "碩士",
       selectedImg: MasterDegreeSelectedImg,
       unselectedImg: MasterDegreeUnselectedImg,
     },
     {
+      id: "doctor",
       name: "博士",
       selectedImg: DoctorDegreeSelectedImg,
       unselectedImg: DoctorDegreeUnselectedImg,
     },
   ];
 
-  const years = [{ name: "畢滿1年" }, { name: "畢滿3年" }, { name: "畢滿5年" }];
+  const years = [
+    { id: "y1", name: "畢滿1年" },
+    { id: "y2", name: "畢滿3年" },
+    { id: "y3", name: "畢滿5年" },
+  ];
 
   // API Call
   useEffect(() => {
@@ -68,7 +75,7 @@ function PageOne() {
           <InputLabel text={"學位"} theme={"1"} />
           <div className="future-page-1__chooser">
             {degrees.map((degree, index) => (
-              <div className="future-page-1__chooser__degree" onClick={() => setSelectedDegree(index)}>
+              <div className="future-page-1__chooser__degree" onClick={() => setSelectedDegree(index)} key={degree.id}>
                 <img
                   src={selectedDegree === index ? degree.selectedImg : degree.unselectedImg}
                   alt={degree.name}

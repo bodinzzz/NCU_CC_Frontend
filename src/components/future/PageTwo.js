@@ -63,7 +63,7 @@ function PageTwo() {
       </div>
       <div className="future-page-2__chart">
         {doWhatData.map((data, index) => (
-          <ChartElement data={data} index={(index + 1).toString()} element={element[index]} />
+          <ChartElement data={data} index={(index + 1).toString()} element={element[index]} key={data.id} />
         ))}
       </div>
     </div>

@@ -39,11 +39,11 @@ function Chart({ data }) {
 
 function PageThree() {
   const elements = [
-    { image: LearnerImg, title: "備考" },
-    { image: SoldierImg, title: "服役" },
-    { image: UnemployedImg, title: "待業" },
-    { image: HousekeeperImg, title: "家管" },
-    { image: RetireesImg, title: "其他" },
+    { id: "learner", image: LearnerImg, title: "備考" },
+    { id: "soldier", image: SoldierImg, title: "服役" },
+    { id: "unemployed", image: UnemployedImg, title: "待業" },
+    { id: "housekeeper", image: HousekeeperImg, title: "家管" },
+    { id: "retirees", image: RetireesImg, title: "其他" },
   ];
   const otherData = [
     {
@@ -84,7 +84,7 @@ function PageThree() {
       <div className="future-page-3__chart">
         <div className="future-page-3__chart__icons">
           {elements.map((element, index) => {
-            return <img src={element.image} className="future-page-3__chart__icons__icon" alt={element.title} />;
+            return <img src={element.image} className="future-page-3__chart__icons__icon" alt={element.title} key={element.id} />;
           })}
         </div>
         <Chart data={otherData} />

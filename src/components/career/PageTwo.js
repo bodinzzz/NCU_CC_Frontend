@@ -10,11 +10,12 @@ function PageTwo() {
       name: "建築營造類",
       description:
         "針對建築物及其實質環境，進行生產及作業之調查測量、規劃、組織、指導、協調、管制及考核等管理，並代辦申請建築許可、拆除執照、招商投標、擬定施工契約及其他工程上接洽事項之相關建築或營造工作。",
-      subTypes: ["建築規劃設計", "營造及維護"],
+      subTypes: [
+        { id: "c1-t1", name: "建築規劃設計" },
+        { id: "c1-t2", name: "營造及維護" },
+      ],
     },
   ];
-
-  const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   // API Call
   useEffect(() => {}, []);
@@ -23,7 +24,9 @@ function PageTwo() {
     <div className="career-page-2">
       <div className="career-page-2__subTypes">
         {careerInfos[selectedCareer].subTypes.map((subType, index) => (
-          <div className="career-page-2__subTypes__subType">{subType}</div>
+          <div className="career-page-2__subTypes__subType" key={subType.id}>
+            {subType.name}
+          </div>
         ))}
       </div>
       <div className="career-page-2__title">

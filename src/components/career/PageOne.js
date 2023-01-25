@@ -31,8 +31,8 @@ function PageOne() {
       id: "careerID-" + index.toString(),
       name: careerName,
       areas: [
-        { name: "國內", percentage: 75 },
-        { name: "國外", percentage: 25 },
+        { id: "areaDomestic-" + index.toString(), name: "國內", percentage: 75 },
+        { id: "areaForeign-" + index.toString(), name: "國外", percentage: 25 },
       ],
     };
   });

@@ -39,9 +39,6 @@ import SourceTooltip from "../elements/SourceTooltip";
 function PageFour() {
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
-  // MAP JSON FILE
-  const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
-
   const [continentData, setContinentData] = useState({
     China: {
       //亞洲（香港、澳門、大陸地區）

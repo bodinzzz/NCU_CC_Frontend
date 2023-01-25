@@ -58,16 +58,19 @@ function PageThree() {
 
   const data = [
     {
+      id: "salary-bachelor",
       name: "學士",
       percentage: 2000,
       range: [31, 34],
     },
     {
+      id: "salary-master",
       name: "碩士",
       percentage: 3000,
       range: [100, 110],
     },
     {
+      id: "salary-doctor",
       name: "博士",
       percentage: 1000,
       range: [500, 1000],
@@ -137,7 +140,7 @@ function PageThree() {
         <div className="career-page-3__chart-container__salary-chart">
           <div className="career-page-3__chart-container__salary-chart__labels">
             {data.map((salary, index) => (
-              <div className="career-page-3__chart-container__salary-chart__labels__label">
+              <div className="career-page-3__chart-container__salary-chart__labels__label" key={salary.id}>
                 <div className="career-page-3__chart-container__salary-chart__labels__label__name">{salary.name}</div>
                 <div className="career-page-3__chart-container__salary-chart__labels__label__range">
                   {salary.range[0]}K-{salary.range[1]}K

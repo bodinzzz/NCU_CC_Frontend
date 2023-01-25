@@ -22,6 +22,7 @@ function RadioBtnGroup({ options, selectedValue, setSelectedValue, type }) {
           <div
             className={index === selectedValue ? "radio-btn-group__radio-btn__selected" : "radio-btn-group__radio-btn__unselected"}
             onClick={() => setSelectedValue(index)}
+            key={option.id}
           >
             {getText({ option }, type)}
           </div>

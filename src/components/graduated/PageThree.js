@@ -79,7 +79,7 @@ function PageThree() {
 
   const sortedData = sortData(data);
   // console.log(data);
-  console.log(sortedData);
+  // console.log(sortedData);
 
   // API Call
   useEffect(() => {}, []);
