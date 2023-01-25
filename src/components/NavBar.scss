@@ -30,6 +30,14 @@
       &__theme-1 {
         @include link($theme-1-primary-color);
       }
+      &__theme:after {
+        content: "";
+        position: absolute;
+        background-color: aqua;
+        height: 3px;
+        width: 100%;
+        left: 0;
+      }
       &__theme-2 {
         @include link($theme-2-primary-color);
       }

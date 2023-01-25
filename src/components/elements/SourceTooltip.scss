@@ -1,6 +1,8 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 .tooltip {
+  z-index: 1;
+
   &__tooltipText {
     background-color: $white-color;
     color: $text-primary-color;

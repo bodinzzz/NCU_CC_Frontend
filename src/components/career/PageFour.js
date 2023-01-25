@@ -43,61 +43,6 @@ function PageFour() {
   // MAP JSON FILE
   const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
-  // const [continentData, setContinentData] = useState(
-  //   [
-  //     {
-  //       name: "China", //亞洲（香港QQ、澳門、大陸地區）
-  //       percentage: 95,
-  //       fillColor: "blue",
-  //     },
-  //     {
-  //       name: "Asia", //亞洲（香港、澳門、大陸地區以外國家）
-  //       percentage: 85,
-  //       fillColor: "red",
-  //     },
-  //     {
-  //       name: "Australia", //大洋洲
-  //       percentage: 75,
-  //       fillColor: "green",
-  //     },
-  //     {
-  //       name: "Africa", //非洲
-  //       percentage: 65,
-  //       fillColor: "yellow",
-  //     },
-  //     {
-  //       name: "Australia", //大洋洲
-  //       percentage: 55,
-  //       fillColor: "orange",
-  //     },
-  //     {
-  //       name: "Europe", //歐洲
-  //       percentage: 45,
-  //       fillColor: "gray",
-  //     },
-  //     {
-  //       name: "North America", //北美洲
-  //       percentage: 35,
-  //       fillColor: "purple",
-  //     },
-  //     {
-  //       name: "Central America", //中美洲
-  //       percentage: 25,
-  //       fillColor: "red",
-  //     },
-  //     {
-  //       name: "South America", //南美洲
-  //       percentage: 0,
-  //       fillColor: "pink",
-  //     },
-  //   ].map((data, index) => {
-  //     return {
-  //       ...data,
-  //       isHover: false,
-  //     };
-  //   })
-  // );
-
   const [continentData, setContinentData] = useState({
     China: {
       //亞洲（香港、澳門、大陸地區）
@@ -156,31 +101,9 @@ function PageFour() {
   // GET FILL COLOR WITH SINGLE COUNTRY'S CONTINENT
   function getFill(continent) {
     var fillColor = "black";
-    // console.log(typeof continent);
-    // return sortedData[sortedData.findIndex((item) => item.name === "China")].fill;
-    // return sortedData[sortedData.findIndex((item) => item.name === continent)].fill;
-    // if (continent === "China") {
-    //   fillColor = continentData[0].fillColor;
-    // } else if (continent === "Asia") {
-    //   fillColor = continentData[1].fillColor;
-    // } else if (continent === "Australia") {
-    //   fillColor = continentData[2].fillColor;
-    // } else if (continent === "Africa") {
-    //   fillColor = continentData[3].fillColor;
-    // } else if (continent === "Europe") {
-    //   fillColor = continentData[4].fillColor;
-    // } else if (continent === "North America") {
-    //   fillColor = continentData[5].fillColor;
-    // } else if (continent === "Central America") {
-    //   fillColor = continentData[6].fillColor;
-    // } else if (continent === "South America") {
-    //   fillColor = continentData[7].fillColor;
-    // }
-
     return continentData[continent] ? continentData[continent].fillColor : "black";
   }
 
-  // 移進去一個國家跟移出去一個國家都會改isHover=!isHover(這裡有成功)
   function hoverContinent(currentContinent) {
     setContinentData((prev) => {
       prev[currentContinent].isHover = true;

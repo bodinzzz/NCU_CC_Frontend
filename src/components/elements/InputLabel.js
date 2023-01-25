@@ -4,7 +4,6 @@ import labelThemeTwoIcon from "../../assets/icon/labelThemeTwoIcon.svg";
 import labelThemeThreeIcon from "../../assets/icon/labelThemeThreeIcon.svg";
 
 function InputLabel({ text, theme }) {
-  console.log(getIcon({ theme }));
   function getIcon({ theme }) {
     if (theme === "1") {
       return <img src={labelThemeOneIcon} alt="labelIcon" />;

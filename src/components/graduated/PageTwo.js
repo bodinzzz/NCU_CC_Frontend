@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts"; //原本有tooltip
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts";
 import "./PageTwo.scss";
 import InfoThemeTwoIcon from "../../assets/icon/InfoThemeTwoIcon.svg";
 import LinkIcon from "../../assets/icon/LinkIcon.svg";
@@ -19,7 +19,6 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 function Chart({ data }) {
-  //   console.log(Array.isArray(data));
   return (
     <ResponsiveContainer width="75%" height={300}>
       <BarChart data={data} layout={"vertical"} barSize={20} reverseStackOrder="false">

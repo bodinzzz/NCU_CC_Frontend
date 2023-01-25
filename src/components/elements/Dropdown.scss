@@ -49,6 +49,9 @@
     font-weight: bold;
     color: $text-primary-color;
 
+    overflow-y: auto;
+    max-height: 40vh;
+
     &__item {
       margin: $p-xxs $p-xxs;
       padding: $p-xs;

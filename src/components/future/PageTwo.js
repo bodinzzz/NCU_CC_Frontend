@@ -26,11 +26,6 @@ function ChartElement({ data, index }) {
 }
 
 function PageTwo() {
-  // const [chartData, setChartData] = useState([
-  //   { image: StudyRoadImg },
-  //   { image: WorkRoadImg },
-  //   { image: OtherRoadImg },
-  // ]);
   const chartData = [
     { image: StudyRoadImg, percentage: 60, title: "選擇繼續升學" },
     { image: WorkRoadImg, percentage: 30, title: "選擇就業" },

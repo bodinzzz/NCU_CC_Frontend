@@ -2,11 +2,11 @@ import "./ScrollToTopBtn.scss";
 import ScrollToTopIcon from "../../assets/icon/ScrollToTopIcon.svg";
 
 function ScrollToTopBtn({ theme }) {
-  console.log(window.pageYOffset);
+  // console.log(window.pageYOffset);
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
-  console.log(window.pageYOffset);
+  // console.log(window.pageYOffset);
 
   return (
     <div className={"scroll-to-top-btn__theme-" + theme} onClick={scrollToTop}>

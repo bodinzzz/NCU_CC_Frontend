@@ -65,12 +65,8 @@ function PageThree() {
       percentage: 9,
     },
     {
-      name: "退休",
-      percentage: 24,
-    },
-    {
       name: "其他",
-      percentage: 15,
+      percentage: 24,
     },
   ];
 
@@ -89,7 +85,7 @@ function PageThree() {
           <img src={UnemployedImg} className="future-page-3__chart__icons__icon" alt={UnemployedImg} />
           <img src={HousekeeperImg} className="future-page-3__chart__icons__icon" alt={HousekeeperImg} />
           <img src={RetireesImg} className="future-page-3__chart__icons__icon" alt={RetireesImg} />
-          <img src={TravelerImg} className="future-page-3__chart__icons__icon" alt={TravelerImg} />
+          {/* <img src={TravelerImg} className="future-page-3__chart__icons__icon" alt={TravelerImg} /> */}
         </div>
         <Chart data={data} />
       </div>

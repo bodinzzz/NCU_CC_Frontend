@@ -3,25 +3,25 @@ import "./Dropdown.scss";
 
 function Dropdown({ options, selectedValue, setSelectedValue }) {
   // DROPDOWN TOGGLE DATA
-  const [isDropdownOpen, toggleDropdown] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   // TOGGLE DROPDOWN
-  const onClick = (index) => {
+  const toggleDropdown = (index) => {
     setSelectedValue(index);
-    toggleDropdown(!isDropdownOpen);
+    setIsOpen(!isOpen);
   };
 
   return (
     <div>
       <div className="dropdown">
-        <div className="dropdown__btn" onClick={() => toggleDropdown(!isDropdownOpen)}>
+        <div className="dropdown__btn" onClick={() => setIsOpen(!isOpen)}>
           {options[selectedValue].name}
-          {isDropdownOpen ? <i className="arrow-up" /> : <i className="arrow-down" />}
+          {isOpen ? <i className="arrow-up" /> : <i className="arrow-down" />}
         </div>
-        {isDropdownOpen && (
+        {isOpen && (
           <div className="dropdown__items">
             {options.map((option, index) => (
-              <div className="dropdown__items__item" onClick={() => onClick(index)}>
+              <div className="dropdown__items__item" onClick={() => toggleDropdown(index)}>
                 {options[index].name}
               </div>
             ))}
