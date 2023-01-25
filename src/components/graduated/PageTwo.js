@@ -7,14 +7,6 @@ import LinkIcon from "../../assets/icon/LinkIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
 import ChartTooltip from "../elements/ChartTooltip.js";
 
-// const CustomTooltip = ({ active, payload, label }) => {
-//   if (active && payload && payload.length) {
-//     return <div className="graduated-page-2__chart__custom-tooltip">{`${label} : ${payload[0].value}`}%</div>;
-//   }
-
-//   return null;
-// };
-
 function Chart({ data }) {
   return (
     <ResponsiveContainer width="75%" height={300}>
