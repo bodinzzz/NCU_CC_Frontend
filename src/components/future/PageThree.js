@@ -5,7 +5,6 @@ import SoldierImg from "../../assets/image/Future/SoldierImg.svg";
 import UnemployedImg from "../../assets/image/Future/UnemployedImg.svg";
 import HousekeeperImg from "../../assets/image/Future/HousekeeperImg.svg";
 import RetireesImg from "../../assets/image/Future/RetireesImg.svg";
-import TravelerImg from "../../assets/image/Future/TravelerImg.svg";
 import "./PageThree.scss";
 import InfoThemeOneIcon from "../../assets/icon/InfoThemeOneIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
@@ -25,7 +24,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 function Chart({ data }) {
   return (
-    <ResponsiveContainer width="60%" height={400}>
+    <ResponsiveContainer width="60%" height={300}>
       <BarChart data={data} layout={"vertical"} barSize={24}>
         <YAxis
           type="category"
@@ -47,24 +46,36 @@ function Chart({ data }) {
 }
 
 function PageThree() {
-  const data = [
+  const elements = [
+    { image: LearnerImg, title: "備考" },
+    { image: SoldierImg, title: "服役" },
+    { image: UnemployedImg, title: "待業" },
+    { image: HousekeeperImg, title: "家管" },
+    { image: RetireesImg, title: "其他" },
+  ];
+  const otherData = [
     {
+      id: "f3-1",
       name: "備考",
       percentage: 16,
     },
     {
+      id: "f3-2",
       name: "服役",
       percentage: 18,
     },
     {
+      id: "f3-3",
       name: "待業",
       percentage: 15,
     },
     {
+      id: "f3-4",
       name: "家管",
       percentage: 9,
     },
     {
+      id: "f3-5",
       name: "其他",
       percentage: 24,
     },
@@ -80,14 +91,11 @@ function PageThree() {
       </div>
       <div className="future-page-3__chart">
         <div className="future-page-3__chart__icons">
-          <img src={LearnerImg} className="future-page-3__chart__icons__icon" alt={LearnerImg} />
-          <img src={SoldierImg} className="future-page-3__chart__icons__icon" alt={SoldierImg} />
-          <img src={UnemployedImg} className="future-page-3__chart__icons__icon" alt={UnemployedImg} />
-          <img src={HousekeeperImg} className="future-page-3__chart__icons__icon" alt={HousekeeperImg} />
-          <img src={RetireesImg} className="future-page-3__chart__icons__icon" alt={RetireesImg} />
-          {/* <img src={TravelerImg} className="future-page-3__chart__icons__icon" alt={TravelerImg} /> */}
+          {elements.map((element, index) => {
+            return <img src={element.image} className="future-page-3__chart__icons__icon" alt={element.title} />;
+          })}
         </div>
-        <Chart data={data} />
+        <Chart data={otherData} />
       </div>
       <ScrollToTopBtn theme={"1"} />
     </div>
