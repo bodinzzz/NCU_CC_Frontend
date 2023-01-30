@@ -13,6 +13,16 @@
   @extend %flex-col-center;
   width: 70vw;
 
+  &__chart-tooltip {
+    font-size: $font-xxs;
+    color: $text-primary-color;
+    padding: $p-xxs;
+    background-color: $white-color;
+    font-weight: bold;
+    border-radius: $border-sm;
+    pointer-events: none; // prevent tooltip flickering when hovering the mouse
+  }
+
   &__title {
     @include theme-title($theme-3-primary-color);
   }

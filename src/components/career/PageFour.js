@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFour.scss";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
-import WorldMap from "../../assets/map/WorldMap.json";
+import WorldMap from "../../constant/map/WorldMap.json";
+import TaiwanMap from "../../constant/map/TaiwanMap.json";
 import SourceTooltip from "../elements/SourceTooltip";
 
-// TO SORT DATA ADD GET FILL COLOR
+// (NOT USE) TO SORT DATA ADD GET FILL COLOR
 // function sortData(data) {
 //   data.sort((a, b) => (a.percentage < b.percentage ? 1 : -1));
 //   // const fillColors = ["#0096C7", "#00b4d8", "#48cae4", "#90e0ef", "#ade8f4", "#caf0f8"];
@@ -39,72 +40,104 @@ import SourceTooltip from "../elements/SourceTooltip";
 function PageFour() {
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
+  const [chartTooltipContent, setChartTooltipContent] = useState("");
+
   const [continentData, setContinentData] = useState({
     China: {
-      //亞洲（香港、澳門、大陸地區）
+      name: "亞洲（香港、澳門、大陸地區）",
       percentage: 95,
       fillColor: "blue",
       isHover: false,
     },
     "Asia(Taiwan)": {
+      name: "臺灣",
       percentage: 0,
       fillColor: "black",
       isHover: false,
     },
     Asia: {
-      //亞洲（香港、澳門、大陸地區以外國家）
+      name: "亞洲（香港、澳門、大陸地區以外國家）",
       percentage: 85,
       fillColor: "red",
       isHover: false,
     },
     Africa: {
-      //非洲
+      name: "非洲",
       percentage: 65,
       fillColor: "yellow",
       isHover: false,
     },
     Australia: {
-      //大洋洲
+      name: "大洋洲",
       percentage: 55,
       fillColor: "orange",
       isHover: false,
     },
     Europe: {
+      name: "歐洲",
       percentage: 45,
       fillColor: "gray",
       isHover: false,
     },
     "North America": {
-      //北美洲
+      name: "北美洲",
       percentage: 35,
       fillColor: "purple",
       isHover: false,
     },
     "Central America": {
-      //中美洲
+      name: "中美洲",
       percentage: 25,
       fillColor: "red",
       isHover: false,
     },
     "South America": {
-      //南美洲
+      name: "南美洲",
       percentage: 0,
       fillColor: "pink",
       isHover: false,
     },
   });
 
-  // GET FILL COLOR WITH SINGLE COUNTRY'S CONTINENT
-  function getFill(continent) {
-    var fillColor = "black";
-    return continentData[continent] ? continentData[continent].fillColor : "black";
-  }
+  // (NOT USE) GET FILL COLOR WITH SINGLE COUNTRY'S CONTINENT
+  // function getFill(continent) {
+  //   var fillColor = "black";
+  //   return continentData[continent] ? continentData[continent].fillColor : "black";
+  // }
+
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleMouseMove = (event) => {
+    setMousePos({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  // const [tooltipStyle, setTooltipStyle] = useState({
+  //   position: "fixed",
+  //   top: mousePos.y + "px",
+  //   left: mousePos.x + "px",
+  // });
+
+  const tooltipStyle = {
+    position: "fixed",
+    top: mousePos.y + "px",
+    left: mousePos.x + "px",
+  };
 
   function hoverContinent(currentContinent) {
     setContinentData((prev) => {
       prev[currentContinent].isHover = true;
       return { ...prev };
     });
+    // setTooltipStyles((pre) => {
+    //   return { ...pre, visibility: "visible" };
+    // });
+    setChartTooltipContent(continentData[currentContinent].name + ":  " + continentData[currentContinent].percentage + "%");
+    setShowTooltip(true);
   }
 
   function unHoverContinent(currentContinent) {
@@ -112,10 +145,21 @@ function PageFour() {
       prev[currentContinent].isHover = false;
       return { ...prev };
     });
+    // setTooltipStyles((pre) => {
+    //   return { ...pre, visibility: "hidden" };
+    // });
+    setChartTooltipContent("");
+    setShowTooltip(false);
   }
 
   return (
     <div className="career-page-4">
+      {/* TOOLTIP */}
+      {showTooltip && (
+        <div className="career-page-4__chart-tooltip" style={tooltipStyle}>
+          {chartTooltipContent}
+        </div>
+      )}
       {/* TITLE */}
       <div className="career-page-4__title">
         <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
@@ -123,7 +167,7 @@ function PageFour() {
       </div>
       {/* MAP CHART */}
       <div className="career-page-4__chart-container">
-        <ComposableMap>
+        <ComposableMap onMouseMove={handleMouseMove}>
           {/* MAKE IT POSSIBLE TO ZOOM IN AND OUT */}
           <ZoomableGroup zoom={1}>
             <Geographies geography={WorldMap}>
@@ -134,7 +178,7 @@ function PageFour() {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={getFill(currentContinent)}
+                      fill={continentData[currentContinent].fillColor}
                       stroke="#FFF"
                       strokeWidth="0.5"
                       // MOUSE EVENTS
