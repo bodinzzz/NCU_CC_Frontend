@@ -10,7 +10,7 @@ import InputLabel from "../elements/InputLabel";
 import SubmitBtn from "../elements/SubmitBtn";
 import RadioBtnGroup from "../elements/RadioBtnGroup";
 import Dropdown from "../elements/Dropdown";
-import Colleges from "../../constant/colleges.json";
+import Colleges from "../../constant/Colleges.json";
 
 function PageOne() {
   // SELECTED DATA (College、Department、Degree、Year)

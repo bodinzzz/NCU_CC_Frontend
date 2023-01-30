@@ -1,0 +1,134 @@
+{
+  "Keelung City": {
+    "name": "基隆市",
+    "percentage": 1,
+    "fillColor": "Lavender",
+    "isHover": false
+  },
+  "New Taipei City": {
+    "name": "新北市",
+    "percentage": 2,
+    "fillColor": "LawnGreen",
+    "isHove": false
+  },
+  "Taipei City": {
+    "name": "臺北市",
+    "percentage": 3,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Taoyuan City": {
+    "name": "桃園市",
+    "percentage": 4,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Hsinchu County": {
+    "name": "新竹縣",
+    "percentage": 5,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Hsinchu City": {
+    "name": "新竹市",
+    "percentage": 6,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Miaoli County": {
+    "name": "苗栗縣",
+    "percentage": 7,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Taichung City": {
+    "name": "臺中市",
+    "percentage": 8,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Nantou County": {
+    "name": "南投縣",
+    "percentage": 9,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Changhua County": {
+    "name": "彰化縣",
+    "percentage": 10,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Yunlin County": {
+    "name": "雲林縣",
+    "percentage": 11,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Chiayi County": {
+    "name": "嘉義縣",
+    "percentage": 12,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Chiayi City": {
+    "name": "嘉義市",
+    "percentage": 13,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Tainan City": {
+    "name": "臺南市",
+    "percentage": 14,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Kaohsiung City": {
+    "name": "高雄市",
+    "percentage": 15,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Pingtung County": {
+    "name": "屏東縣",
+    "percentage": 16,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Taitung County": {
+    "name": "臺東縣",
+    "percentage": 17,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Hualien County": {
+    "name": "花蓮縣",
+    "percentage": 18,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Yilan County": {
+    "name": "宜蘭縣",
+    "percentage": 19,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Lienchiang County": {
+    "name": "連江縣",
+    "percentage": 20,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Kinmen County": {
+    "name": "金門縣",
+    "percentage": 21,
+    "fillColor": "black",
+    "isHove": false
+  },
+  "Penghu County": {
+    "name": "澎湖縣",
+    "percentage": 22,
+    "fillColor": "black",
+    "isHove": false
+  }
+}

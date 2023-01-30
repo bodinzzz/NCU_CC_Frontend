@@ -4,6 +4,7 @@ import "./PageFour.scss";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import WorldMap from "../../constant/map/WorldMap.json";
 import TaiwanMap from "../../constant/map/TaiwanMap.json";
+import TaiwanAreaData from "../../constant/TaiwanAreaData.json";
 import SourceTooltip from "../elements/SourceTooltip";
 
 // (NOT USE) TO SORT DATA ADD GET FILL COLOR
@@ -38,6 +39,9 @@ import SourceTooltip from "../elements/SourceTooltip";
 // }
 
 function PageFour() {
+  const [selectedCareer, setSelectedCareer] = useState("建築營造類");
+  const [selectedArea, setSelectedArea] = useState("境外");
+
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   const [chartTooltipContent, setChartTooltipContent] = useState("");
@@ -99,6 +103,8 @@ function PageFour() {
     },
   });
 
+  const [taiwanAreaData, setTaiwanAreaData] = useState({ TaiwanAreaData });
+
   // (NOT USE) GET FILL COLOR WITH SINGLE COUNTRY'S CONTINENT
   // function getFill(continent) {
   //   var fillColor = "black";
@@ -128,26 +134,26 @@ function PageFour() {
     left: mousePos.x + "px",
   };
 
-  function hoverContinent(currentContinent) {
-    setContinentData((prev) => {
-      prev[currentContinent].isHover = true;
+  function hoverContinent(currentArea, setData, areaData) {
+    setData((prev) => {
+      prev[currentArea].isHover = true;
       return { ...prev };
     });
-    // setTooltipStyles((pre) => {
-    //   return { ...pre, visibility: "visible" };
-    // });
-    setChartTooltipContent(continentData[currentContinent].name + ":  " + continentData[currentContinent].percentage + "%");
+    setChartTooltipContent(areaData[currentArea].name + ":  " + areaData[currentArea].percentage + "%");
     setShowTooltip(true);
+    // setContinentData((prev) => {
+    //   prev[currentArea].isHover = true;
+    //   return { ...prev };
+    // });
+    // setChartTooltipContent(continentData[currentArea].name + ":  " + continentData[currentArea].percentage + "%");
+    // setShowTooltip(true);
   }
 
-  function unHoverContinent(currentContinent) {
+  function unHoverContinent(currentArea) {
     setContinentData((prev) => {
-      prev[currentContinent].isHover = false;
+      prev[currentArea].isHover = false;
       return { ...prev };
     });
-    // setTooltipStyles((pre) => {
-    //   return { ...pre, visibility: "hidden" };
-    // });
     setChartTooltipContent("");
     setShowTooltip(false);
   }
@@ -167,34 +173,42 @@ function PageFour() {
       </div>
       {/* MAP CHART */}
       <div className="career-page-4__chart-container">
-        <ComposableMap onMouseMove={handleMouseMove}>
-          {/* MAKE IT POSSIBLE TO ZOOM IN AND OUT */}
+        {/* <ComposableMap onMouseMove={handleMouseMove}>
           <ZoomableGroup zoom={1}>
             <Geographies geography={WorldMap}>
               {({ geographies }) =>
                 geographies.map((geo) => {
-                  const currentContinent = geo.properties.continent;
+                  const currentArea = selectedArea === "境內" ? geo.properties.area : geo.properties.continent;
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={continentData[currentContinent].fillColor}
+                      fill={selectedArea === "境內" ? taiwanAreaData[currentArea].fillColor : continentData[currentArea].fillColor}
                       stroke="#FFF"
                       strokeWidth="0.5"
                       // MOUSE EVENTS
                       onMouseEnter={() => {
-                        hoverContinent(currentContinent);
+                        hoverContinent(currentArea, setContinentData, continentData);
                       }}
                       onMouseLeave={() => {
-                        unHoverContinent(currentContinent);
+                        unHoverContinent(currentArea);
                       }}
-                      className={continentData[currentContinent].isHover ? "geographies-style-hover" : "geographies-style"}
+                      className={continentData[currentArea].isHover ? "geographies-style-hover" : "geographies-style"}
                     />
                   );
                 })
               }
             </Geographies>
           </ZoomableGroup>
+        </ComposableMap> */}
+        <ComposableMap>
+          <Geographies geography={TaiwanMap}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                return <Geography key={geo.rsmKey} geography={geo} />;
+              })
+            }
+          </Geographies>
         </ComposableMap>
       </div>
     </div>
