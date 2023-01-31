@@ -3,7 +3,10 @@ import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFour.scss";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import WorldMap from "../../constant/map/WorldMap.json";
+import WorldMapCopy from "../../constant/map/WorldMapCopy.json";
 import TaiwanMap from "../../constant/map/TaiwanMap.json";
+import TaiwanMap2 from "../../constant/map/TaiwanMap2.json";
+import TEST from "../../constant/map/2.json";
 import TaiwanAreaData from "../../constant/TaiwanAreaData.json";
 import SourceTooltip from "../elements/SourceTooltip";
 
@@ -201,14 +204,34 @@ function PageFour() {
             </Geographies>
           </ZoomableGroup>
         </ComposableMap> */}
-        <ComposableMap>
-          <Geographies geography={TaiwanMap}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                return <Geography key={geo.rsmKey} geography={geo} />;
-              })
-            }
-          </Geographies>
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{
+            // center: [120.9876, 23.83876],
+            scale: 8000,
+          }}
+        >
+          <ZoomableGroup zoom={1} center={[120.9876, 23.83876]}>
+            <Geographies geography={TEST}>
+              {({ geographies }) =>
+                geographies.map((geo, index) => {
+                  return (
+                    <Geography
+                      id={index}
+                      fill={geo.properties.fillColor}
+                      stroke="#FFF"
+                      strokeWidth="1"
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={() => {
+                        console.log(geo.properties.area);
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ZoomableGroup>
         </ComposableMap>
       </div>
     </div>
