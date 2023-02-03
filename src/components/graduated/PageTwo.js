@@ -1,43 +1,44 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip, Brush } from "recharts";
+// import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts";
 import "./PageTwo.scss";
+import ScrollableBarChart from "./ScrollableBarChart.js";
 import InfoThemeTwoIcon from "../../assets/icon/InfoThemeTwoIcon.svg";
 import LinkIcon from "../../assets/icon/LinkIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
-import ChartTooltip from "../elements/ChartTooltip.js";
+// import ChartTooltip from "../elements/ChartTooltip.js";
 
-function Chart({ data }) {
-  const size = Object.keys(data).length;
-  console.log(size);
-  return (
-    <div className="scroll-wrapper">
-      <ResponsiveContainer width="100%" height={size > 15 ? 1200 : 700}>
-        <BarChart data={data} layout={"vertical"} barSize={20} reverseStackOrder="false">
-          <YAxis
-            type="category"
-            dataKey="name"
-            axisLine={false}
-            tickLine={false}
-            tickMargin={10}
-            width={250}
-            style={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-            }}
-          />
-          <XAxis type="number" hide />
-          <Tooltip content={<ChartTooltip />} cursor={false} />
-          <Bar dataKey="percentage">
-            {data.map((entry, index) => (
-              <Cell fill={entry.fillColor} key={index} />
-            ))}
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  );
-}
+// function Chart({ data }) {
+//   const size = Object.keys(data).length;
+//   console.log(size);
+//   return (
+//     <div className="scroll-wrapper">
+//       <ResponsiveContainer width="100%" height={1200}>
+//         <BarChart data={data} layout={"vertical"} barGap={40} reverseStackOrder="false">
+//           <YAxis
+//             type="category"
+//             dataKey="name"
+//             axisLine={false}
+//             tickLine={false}
+//             tickMargin={10}
+//             width={250}
+//             style={{
+//               fontSize: "1rem",
+//               fontWeight: "bold",
+//             }}
+//           />
+//           <XAxis type="number" hide />
+//           <Tooltip content={<ChartTooltip />} cursor={false} />
+//           <Bar dataKey="percentage">
+//             {data.map((entry, index) => (
+//               <Cell fill={entry.fillColor} key={index} />
+//             ))}
+//           </Bar>
+//         </BarChart>
+//       </ResponsiveContainer>
+//     </div>
+//   );
+// }
 
 // function sortData(data) {
 //   data.sort((a, b) => (a.percentage < b.percentage ? 1 : -1));
@@ -58,6 +59,8 @@ function PageTwo() {
   // const [selectedDepartment, setSelectedDepartment] = useState(0);
 
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n畢業滿1.3.5年合併統計\n\n學門參考至 https://ulist.moe.gov.tw/Query/Discipline `;
+
+  // TEST DATA
 
   const [disciplineData, setDisciplineData] = useState([
     {
@@ -92,9 +95,7 @@ function PageTwo() {
     },
   ]);
 
-  let arr = Array.from(new Array(10), (val, index) => index + 1);
-
-  console.log(arr);
+  let arr = Array.from(new Array(21), (val, index) => index + 1);
 
   arr.map(() => {
     disciplineData.push({
@@ -102,11 +103,7 @@ function PageTwo() {
       percentage: 3,
       fillColor: "#E4E4E4",
     });
-
-    console.log("YES");
   });
-
-  console.log(disciplineData);
 
   // const sortedData = sortData(data);
 
@@ -123,9 +120,7 @@ function PageTwo() {
           <img src={LinkIcon} alt="LinkIcon" />
         </a>
       </div>
-      <div className="scroll-wrapper">
-        <Chart data={disciplineData} />
-      </div>
+      <ScrollableBarChart data={disciplineData} />
     </div>
   );
 }
