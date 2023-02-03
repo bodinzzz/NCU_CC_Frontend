@@ -1,5 +1,6 @@
 @import "../styles/variables";
 @import "../styles/layout";
+@import "../styles/breakpoints";
 
 @mixin link($theme-color) {
   font-weight: bold;
@@ -21,6 +22,9 @@
     color: #d4d4d4;
     text-decoration: none;
     padding: $p-sm $p-md;
+    @include breakpoint(mobile) {
+      color: #cd2525;
+    }
   }
 
   &__links {
@@ -29,14 +33,6 @@
     &__link {
       &__theme-1 {
         @include link($theme-1-primary-color);
-      }
-      &__theme:after {
-        content: "";
-        position: absolute;
-        background-color: aqua;
-        height: 3px;
-        width: 100%;
-        left: 0;
       }
       &__theme-2 {
         @include link($theme-2-primary-color);

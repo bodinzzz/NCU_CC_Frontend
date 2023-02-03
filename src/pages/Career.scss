@@ -17,4 +17,9 @@
     @include scroll-section;
     @extend %flex-row-center;
   }
+
+  &__section-4 {
+    @include scroll-section;
+    @extend %flex-row-center;
+  }
 }

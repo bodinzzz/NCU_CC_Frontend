@@ -20,7 +20,7 @@ function ThemeTwo() {
           <span>看看學長姐都在做什麼</span>
         </Link>
       </div>
-      <img src={ThemeTwoImg} className="home-theme__img" alt="theme-img" />
+      <img src={ThemeTwoImg} className="home-theme__image" alt="theme-img" />
     </div>
   );
 }

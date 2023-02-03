@@ -6,13 +6,13 @@ import PageThree from "../components/future/PageThree";
 function Future() {
   return (
     <div className="future scroll-container">
-      <div className="future__section-1">
+      <div className="future__section-1" id="future__section-1">
         <PageOne />
       </div>
-      <div className="future__section-2">
+      <div className="future__section-2" id="future__section-2">
         <PageTwo />
       </div>
-      <div className="future__section-3">
+      <div className="future__section-3" id="future__section-3">
         <PageThree />
       </div>
     </div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ThemeThree() {
   return (
     <div className="home-theme-3">
-      <img src={ThemeThreeImg} className="home-theme__img" alt="theme-img" />
+      <img src={ThemeThreeImg} className="home-theme__image" alt="theme-img" />
       <div className="home-theme__info">
         <div>
           <div className="home-theme__title">職務類型大比拚</div>

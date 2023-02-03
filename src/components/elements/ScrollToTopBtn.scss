@@ -12,25 +12,23 @@
   cursor: pointer;
   background-color: $bg-color;
   @content;
+
+  :hover {
+    opacity: 0.7;
+  }
+  div {
+    margin: 0 $m-xs;
+  }
 }
 
 .scroll-to-top-btn {
   &__theme-1 {
     @include scroll-to-top-btn($theme-1-primary-color);
-    div {
-      margin: 0 $m-xs;
-    }
   }
   &__theme-2 {
     @include scroll-to-top-btn($theme-2-primary-color);
-    div {
-      margin: 0 $m-xs;
-    }
   }
   &__theme-3 {
     @include scroll-to-top-btn($theme-3-primary-color);
-    div {
-      margin: 0 $m-xs;
-    }
   }
 }

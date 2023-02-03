@@ -89,7 +89,7 @@ function PageThree() {
         </div>
         <Chart data={otherData} />
       </div>
-      <ScrollToTopBtn theme={"1"} />
+      <ScrollToTopBtn theme={"1"} themeName={"future"} />
     </div>
   );
 }

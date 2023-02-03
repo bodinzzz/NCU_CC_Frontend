@@ -6,6 +6,7 @@ import WorldMap from "../../constant/map/WorldMap.json";
 import TaiwanMap from "../../constant/map/TaiwanMap.json";
 import TaiwanAreaData from "../../constant/TaiwanAreaData.json";
 import SourceTooltip from "../elements/SourceTooltip";
+import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 
 function PageFour() {
   const [selectedCareer, setSelectedCareer] = useState("建築營造類");
@@ -197,6 +198,7 @@ function PageFour() {
           </ComposableMap>
         )}
       </div>
+      <ScrollToTopBtn theme={"3"} themeName={"career"} />
     </div>
   );
 }

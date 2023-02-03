@@ -7,16 +7,16 @@ import PageFour from "../components/career/PageFour";
 function Career() {
   return (
     <div className="career scroll-container">
-      <div className="career__section-1">
+      <div className="career__section-1" id="career__section-1">
         <PageOne />
       </div>
-      <div className="future__section-2">
+      <div className="career__section-2" id="career__section-2">
         <PageTwo />
       </div>
-      <div className="future__section-3">
+      <div className="career__section-3" id="career__section-3">
         <PageThree />
       </div>
-      <div className="future__section-3">
+      <div className="career__section-3" id="career__section-4">
         <PageFour />
       </div>
     </div>

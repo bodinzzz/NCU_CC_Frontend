@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <div className="navbar">
       <Link className="navbar__title" to="/">
-        NCU Career Center 就業力數據庫系統
+        NCC
       </Link>
       <div className="navbar__links">
         <Link className="navbar__links__link__theme-1" to="/Future">

@@ -12,11 +12,20 @@
   .home-theme {
     &__image {
       height: 36vh;
+      @include breakpoint(tablet) {
+        height: 24vh;
+      }
+      @include breakpoint(mobile) {
+        height: 24vh;
+      }
     }
 
     &__info {
       @extend %flex-col-between;
       margin: 40px;
+      @include breakpoint(mobile) {
+        margin: 0px;
+      }
     }
 
     &__title {
@@ -24,10 +33,13 @@
       font-size: $font-xxl;
       font-weight: bold;
       padding: 10px;
+      @include breakpoint(mobile) {
+        font-size: $font-mobile-xxl;
+      }
     }
 
     &__intro {
-      color: #686868;
+      color: $text-primary-color;
       line-height: 36px;
       padding: 10px;
       font-weight: bold;
