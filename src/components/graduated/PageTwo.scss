@@ -1,6 +1,15 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 
+.scroll-wrapper {
+  height: 60vh;
+  width: 80%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
 .graduated-page-2 {
   @extend %flex-col-center;
   width: 100%;
