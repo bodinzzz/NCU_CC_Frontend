@@ -1,101 +1,57 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
-
-.custom-tooltip {
-  span {
-    color: $text-primary-color;
-    font-size: $font-xs;
-    padding: $p-xs;
-    background-color: $white-color;
-    border-radius: $border-sm;
-    box-shadow: $box-shadow-tooltip;
-  }
-}
+@import "../../styles/breakpoints";
 
 .career-page-3 {
   @extend %flex-row-center;
   width: 100%;
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+  }
+
   &__chart-container {
     @extend %flex-col-center;
-    width: 40%;
-    &__title {
-      @extend %flex-center;
+    // width: 40%;
 
-      span {
-        color: $text-primary-color;
-        font-size: $font-md;
-        font-weight: bold;
-        padding: $p-xs;
+    &__title {
+      @include chart-title-base;
+    }
+  }
+
+  &__gender-chart {
+    @extend %flex-col-center;
+    &__items {
+      @extend %flex-row-center;
+      &__item {
+        @extend %flex-col-center;
+
+        span {
+          color: $text-primary-color;
+          font-size: $font-md;
+          font-weight: bold;
+          padding: $p-xxs;
+        }
+
+        &__percentage {
+          color: $theme-3-primary-color;
+          font-size: $font-xxl;
+          font-weight: bold;
+          margin: 0 $m-md;
+        }
       }
     }
-
-    &__salary-chart {
-      // background-color: brown;
+    &__bars {
       @extend %flex-row-center;
       width: 100%;
-      &__labels {
-        // background-color: aqua;
-        @extend %flex-col-between;
-        height: 270px;
-        width: 30%;
-        &__label {
-          // @extend %flex-col-center;
-          &__name {
-            @extend %flex-center;
-            color: $text-primary-color;
-            font-size: $font-md;
-            font-weight: bold;
-            margin: $m-xxxs;
-          }
-
-          &__range {
-            @extend %flex-center;
-            color: $text-primary-color;
-            font-size: $font-xs;
-            margin: 0 0 $m-md 0;
-          }
-        }
+      &__male-bar {
+        padding: $p-xs 0;
+        border-radius: $border-lg 0 0 $border-lg;
       }
-    }
-
-    &__gender-chart {
-      @extend %flex-col-center;
-      &__items {
-        @extend %flex-row-center;
-        &__item {
-          @extend %flex-col-center;
-
-          span {
-            color: $text-primary-color;
-            font-size: $font-md;
-            font-weight: bold;
-            padding: $p-xxs;
-          }
-
-          &__percentage {
-            color: $theme-3-primary-color;
-            font-size: $font-xxl;
-            font-weight: bold;
-            margin: 0 $m-md;
-          }
-        }
-      }
-      &__bars {
-        @extend %flex-row-center;
-        width: 100%;
-        &__male-bar {
-          padding: $p-xs 0;
-          // width: 65%;
-          // background-color: $theme-3-primary-color;
-          border-radius: $border-lg 0 0 $border-lg;
-        }
-        &__female-bar {
-          padding: $p-xs 0;
-          // width: 35%;
-          // background-color: $theme-2-secondary-color;
-          border-radius: 0 $border-lg $border-lg 0;
-        }
+      &__female-bar {
+        padding: $p-xs 0;
+        border-radius: 0 $border-lg $border-lg 0;
       }
     }
   }

@@ -38,7 +38,7 @@ function Chart({ data }) {
 
 function PageThree() {
   const [selectedCareer, setSelectedCareer] = useState(1);
-  const genderData = [
+  const genderData1 = [
     {
       careerName: "建築營造類",
       data: [
@@ -52,6 +52,19 @@ function PageThree() {
         { gender: "male", percentage: 20 },
         { gender: "female", percentage: 80 },
       ],
+    },
+  ];
+
+  const genderData = [
+    {
+      name: "男",
+      percentage: 65,
+      fillColor: "#00BCD4",
+    },
+    {
+      name: "女",
+      percentage: 35,
+      fillColor: "#40FFFF",
     },
   ];
 
@@ -79,19 +92,30 @@ function PageThree() {
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   function setGenderChart() {
-    const malePercentage = genderData[selectedCareer].data[0].percentage;
-    const femalePercentage = genderData[selectedCareer].data[1].percentage;
+    // const malePercentage = genderData[selectedCareer].data[0].percentage;
+    // const femalePercentage = genderData[selectedCareer].data[1].percentage;
     // SET BAR COLOR
-    if (malePercentage >= femalePercentage) {
-      document.getElementById("male-bar").style.backgroundColor = "#00BCD4";
-      document.getElementById("female-bar").style.backgroundColor = "#40FFFF";
-    } else {
-      document.getElementById("male-bar").style.backgroundColor = "#00BCD4";
-      document.getElementById("female-bar").style.backgroundColor = "#40FFFF";
-    }
+    // if (malePercentage >= femalePercentage) {
+    //   document.getElementById("male-bar").style.backgroundColor = "#00BCD4";
+    //   document.getElementById("female-bar").style.backgroundColor = "#40FFFF";
+    // } else {
+    //   document.getElementById("male-bar").style.backgroundColor = "#00BCD4";
+    //   document.getElementById("female-bar").style.backgroundColor = "#40FFFF";
+    // }
     // SET BAR WIDTH
-    document.getElementById("male-bar").style.width = malePercentage + "%";
-    document.getElementById("female-bar").style.width = femalePercentage + "%";
+    // document.getElementById("male-bar").style.width = malePercentage + "%";
+    // document.getElementById("female-bar").style.width = femalePercentage + "%";
+
+    const malePercentage = genderData[0].percentage + "%";
+    const femalePercentage = genderData[1].percentage + "%";
+
+    // SET BAR COLOR
+    document.getElementById("male-bar").style.backgroundColor = genderData[0].fillColor;
+    document.getElementById("female-bar").style.backgroundColor = genderData[1].fillColor;
+
+    // SET BAR WIDTH
+    document.getElementById("male-bar").style.width = malePercentage;
+    document.getElementById("female-bar").style.width = femalePercentage;
   }
 
   // API Call
@@ -107,47 +131,23 @@ function PageThree() {
           <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
           <span>建築營造類 國內 職務男女比</span>
         </div>
-        <div className="career-page-3__chart-container__gender-chart">
-          <div className="career-page-3__chart-container__gender-chart__items">
-            <div className="career-page-3__chart-container__gender-chart__items__item">
+        <div className="career-page-3__gender-chart">
+          <div className="career-page-3__gender-chart__items">
+            <div className="career-page-3__gender-chart__items__item">
               <img src={MaleImg} />
               <span>男</span>
-              <div className="career-page-3__chart-container__gender-chart__items__item__percentage">
-                {genderData[selectedCareer].data[0].percentage}%
-              </div>
+              <div className="career-page-3__gender-chart__items__item__percentage">{genderData[0].percentage}%</div>
             </div>
-            <div className="career-page-3__chart-container__gender-chart__items__item">
+            <div className="career-page-3__gender-chart__items__item">
               <img src={FemaleImg} />
               <span>女</span>
-              <div className="career-page-3__chart-container__gender-chart__items__item__percentage">
-                {genderData[selectedCareer].data[1].percentage}%
-              </div>
+              <div className="career-page-3__gender-chart__items__item__percentage">{genderData[1].percentage}%</div>
             </div>
           </div>
-          <div className="career-page-3__chart-container__gender-chart__bars">
-            <div className="career-page-3__chart-container__gender-chart__bars__male-bar" id="male-bar" />
-            <div className="career-page-3__chart-container__gender-chart__bars__female-bar" id="female-bar" />
+          <div className="career-page-3__gender-chart__bars">
+            <div className="career-page-3__gender-chart__bars__male-bar" id="male-bar" />
+            <div className="career-page-3__gender-chart__bars__female-bar" id="female-bar" />
           </div>
-        </div>
-      </div>
-      {/* SALARY CHART */}
-      <div className="career-page-3__chart-container">
-        <div className="career-page-3__chart-container__title">
-          <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-          <span>建築營造類 國內 職場新鮮人月薪中位數 級距(畢滿一年)</span>
-        </div>
-        <div className="career-page-3__chart-container__salary-chart">
-          <div className="career-page-3__chart-container__salary-chart__labels">
-            {data.map((salary, index) => (
-              <div className="career-page-3__chart-container__salary-chart__labels__label" key={salary.id}>
-                <div className="career-page-3__chart-container__salary-chart__labels__label__name">{salary.name}</div>
-                <div className="career-page-3__chart-container__salary-chart__labels__label__range">
-                  {salary.range[0]}K-{salary.range[1]}K
-                </div>
-              </div>
-            ))}
-          </div>
-          <Chart data={data} />
         </div>
       </div>
     </div>

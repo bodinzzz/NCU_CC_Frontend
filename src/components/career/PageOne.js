@@ -3,6 +3,7 @@ import "./PageOne.scss";
 import InputLabel from "../elements/InputLabel";
 import SubmitBtn from "../elements/SubmitBtn";
 import RadioBtnGroup from "../elements/RadioBtnGroup";
+import Dropdown from "../elements/Dropdown";
 
 function PageOne() {
   const [selectedCareer, setSelectedCareer] = useState(0);
@@ -40,9 +41,13 @@ function PageOne() {
   return (
     <div className="career-page-1">
       <div className="career-page-1__title">職位類型大比拚</div>
-      <div className="career-page-1__inputContainer">
+      <div className="career-page-1__inputContainer__career--desktop">
         <InputLabel text={"職務類型"} theme={"3"} />
         <RadioBtnGroup options={careerTags} selectedValue={selectedCareer} setSelectedValue={setSelectedCareer} type="Career" />
+      </div>
+      <div className="career-page-1__inputContainer__career--mobile">
+        <InputLabel text={"職務類型"} theme={"3"} />
+        <Dropdown options={careerTags} selectedValue={selectedCareer} setSelectedValue={setSelectedCareer} />
       </div>
       <div className="career-page-1__inputContainer">
         <InputLabel text={"國內外"} theme={"3"} />

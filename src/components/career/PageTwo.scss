@@ -1,11 +1,16 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
+@import "../../styles/breakpoints";
 
 .career-page-2 {
   @extend %flex-row-center;
   height: 50vh;
   width: 80vw;
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+  }
 
   &__description {
     @extend %flex-col-start;

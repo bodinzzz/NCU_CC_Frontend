@@ -1,6 +1,11 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
+@import "../../styles/breakpoints";
+
+@mixin input-container-basic {
+  width: 70%;
+}
 
 .career-page-1 {
   @extend %flex-col-center;
@@ -11,6 +16,19 @@
   }
 
   &__inputContainer {
-    width: 100%;
+    @include input-container-basic;
+
+    &__career--desktop {
+      display: block;
+      @include breakpoint(mobile) {
+        display: none;
+      }
+    }
+    &__career--mobile {
+      display: none;
+      @include breakpoint(mobile) {
+        display: block;
+      }
+    }
   }
 }

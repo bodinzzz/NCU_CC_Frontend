@@ -22,4 +22,8 @@
     @include scroll-section;
     @extend %flex-row-center;
   }
+  &__section-5 {
+    @include scroll-section;
+    @extend %flex-row-center;
+  }
 }

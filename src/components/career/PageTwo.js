@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CareerInfoImg from "../../assets/image/Career/CareerInfoImg.svg";
 import "./PageTwo.scss";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import ScrollPageNav from "../elements/ScrollPageNav";
 
 function PageTwo() {
   const [selectedCareer, setSelectedCareer] = useState(0);
@@ -36,6 +36,7 @@ function PageTwo() {
       <div className="career-page-2__description">
         <span className="career-page-2__description__text">{careerInfos[selectedCareer].description}</span>
       </div>
+      <ScrollPageNav />
     </div>
   );
 }

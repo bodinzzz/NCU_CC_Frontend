@@ -1,53 +1,91 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
-
-.geographies-style {
-  opacity: 1;
-}
-.geographies-style-hover {
-  opacity: 0.7;
-}
+@import "../../styles/breakpoints";
 
 .career-page-4 {
-  @extend %flex-col-center;
-  width: 70vw;
+  @extend %flex-row-center;
+  width: 100%;
 
-  &__chart-tooltip {
-    font-size: $font-xxs;
-    color: $text-primary-color;
-    padding: $p-xxs;
-    background-color: $white-color;
-    font-weight: bold;
-    border-radius: $border-sm;
-    pointer-events: none; // prevent tooltip flickering when hovering the mouse
-  }
-
-  &__title {
-    @include theme-title($theme-3-primary-color);
-  }
-
-  &__inputContainer {
-    width: 100%;
-  }
-
-  &__title {
-    @extend %flex-center;
-
-    span {
-      color: $text-primary-color;
-      font-size: $font-md;
-      font-weight: bold;
-      padding: $p-xs;
-    }
+  @include breakpoint(mobile) {
+    flex-direction: column;
   }
 
   &__chart-container {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @extend %flex-col-center;
+    // width: 40%;
+
+    &__title {
+      @include chart-title-base;
+    }
+  }
+
+  &__salary-chart {
+    // background-color: brown;
+    @extend %flex-row-center;
+    width: 100%;
+    &__labels {
+      // background-color: aqua;
+      @extend %flex-col-between;
+      height: 270px;
+      width: 30%;
+      &__label {
+        // @extend %flex-col-center;
+        &__name {
+          @extend %flex-center;
+          color: $text-primary-color;
+          font-size: $font-md;
+          font-weight: bold;
+          margin: $m-xxxs;
+        }
+
+        &__range {
+          @extend %flex-center;
+          color: $text-primary-color;
+          font-size: $font-xs;
+          margin: 0 0 $m-md 0;
+        }
+      }
+    }
+  }
+
+  &__gender-chart {
+    @extend %flex-col-center;
+    &__items {
+      @extend %flex-row-center;
+      &__item {
+        @extend %flex-col-center;
+
+        span {
+          color: $text-primary-color;
+          font-size: $font-md;
+          font-weight: bold;
+          padding: $p-xxs;
+        }
+
+        &__percentage {
+          color: $theme-3-primary-color;
+          font-size: $font-xxl;
+          font-weight: bold;
+          margin: 0 $m-md;
+        }
+      }
+    }
+    &__bars {
+      @extend %flex-row-center;
+      width: 100%;
+      &__male-bar {
+        padding: $p-xs 0;
+        // width: 65%;
+        // background-color: $theme-3-primary-color;
+        border-radius: $border-lg 0 0 $border-lg;
+      }
+      &__female-bar {
+        padding: $p-xs 0;
+        // width: 35%;
+        // background-color: $theme-2-secondary-color;
+        border-radius: 0 $border-lg $border-lg 0;
+      }
+    }
   }
 }
