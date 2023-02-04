@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
+@import "../../styles/breakpoints";
 
 .future-page-1 {
   @extend %flex-col-between;
@@ -11,13 +12,15 @@
 
   &__inputContainers {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: $m-md;
     grid-row-gap: $m-md;
     padding: $m-sm $m-md $m-lg $m-md;
 
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+    @include breakpoint(mobile) {
+      grid-template-columns: repeat(1, 1fr);
+      // width: 60vw;
+      // align-self: center;
     }
   }
 

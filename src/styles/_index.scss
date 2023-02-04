@@ -1,6 +1,38 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
 @mixin theme-title($title-color) {
   font-size: $font-lg;
   font-weight: bold;
   color: $title-color;
   @content;
+}
+
+@mixin chart-title-base {
+  @extend %flex-center;
+
+  span {
+    color: $text-primary-color;
+    font-size: $font-md;
+    font-weight: bold;
+    padding: $p-xs;
+    text-align: center;
+    br {
+      display: none;
+    }
+
+    @include breakpoint(tablet) {
+      font-size: $font-sm;
+      br {
+        display: none;
+      }
+    }
+    @include breakpoint(mobile) {
+      font-size: $font-xs;
+      padding: $p-xxs;
+      br {
+        display: block;
+      }
+    }
+  }
 }

@@ -1,8 +1,52 @@
-.scroll-wrapper {
-  height: 60vh;
-  width: 80%;
-  justify-content: center;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+@import "../../styles/index";
+@import "../../styles/breakpoints";
+
+.scrollable-bar-chart {
+  &__scroll-wrapper {
+    height: 60vh;
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    // background-color: beige;
+
+    @include breakpoint(mobile) {
+      height: 60vh;
+    }
+
+    > text {
+      font-size: "1rem";
+      font-weight: "bold";
+      background-color: aqua;
+    }
+  }
+
+  &__custom-tick {
+    tspan {
+      font-size: 1rem;
+      font-weight: bold;
+      fill: $text-primary-color;
+      word-wrap: break-word;
+
+      // display: flex;
+      // flex-wrap: nowrap;
+      width: 100%;
+    }
+  }
+
+  &__custom-label {
+    fill: $text-secondary-color;
+    font-size: $font-xs;
+    font-weight: bold;
+    width: 20px;
+    display: flex;
+    // display: block;
+  }
+
+  &__cell {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }

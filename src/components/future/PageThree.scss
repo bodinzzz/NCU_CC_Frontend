@@ -1,5 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
+@import "../../styles/index";
+@import "../../styles/breakpoints";
 
 .bar-style {
   fill: #96b48b;
@@ -8,25 +10,12 @@
   }
 }
 
-.custom-label {
-  fill: $text-secondary-color;
-  font-size: $font-xs;
-  font-weight: bold;
-}
-
 .future-page-3 {
   @extend %flex-col-center;
   width: 100%;
 
   &__title {
-    @extend %flex-center;
-
-    span {
-      color: $text-primary-color;
-      font-size: $font-md;
-      font-weight: bold;
-      padding: $p-xs;
-    }
+    @include chart-title-base;
   }
 
   &__chart {
@@ -52,6 +41,21 @@
       border-radius: $border-sm;
       box-shadow: $box-shadow-tooltip;
       font-weight: bold;
+    }
+
+    &__custom-tick {
+      tspan {
+        font-size: 1rem;
+        font-weight: bold;
+        fill: $text-primary-color;
+      }
+    }
+
+    &__custom-label {
+      fill: $text-secondary-color;
+      font-size: $font-xs;
+      font-weight: bold;
+      // display: block;
     }
   }
 }

@@ -59,7 +59,10 @@ function PageTwo() {
     <div className="future-page-2">
       <div className="future-page-2__title">
         <SourceTooltip icon={InfoThemeOneIcon} text={tooltipText} />
-        <span>工學院 軟體工程研究所 學士 在畢滿一年後 :</span>
+        <span>
+          工學院 軟體工程研究所 學士 <br />
+          在畢滿一年後 :
+        </span>
       </div>
       <div className="future-page-2__chart">
         {doWhatData.map((data, index) => (

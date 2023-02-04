@@ -1,35 +1,21 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
-
-.scroll-wrapper {
-  height: 60vh;
-  width: 80%;
-  justify-content: center;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
+@import "../../styles/index";
 
 .graduated-page-2 {
   @extend %flex-col-center;
   width: 100%;
 
   &__title {
-    @extend %flex-center;
-
-    span {
-      color: $text-primary-color;
-      font-size: $font-md;
-      font-weight: bold;
-      padding: $p-xs;
-    }
+    @include chart-title-base;
+    flex-wrap: wrap;
 
     &__ref-link {
       @extend %flex-center;
-      background-color: $theme-2-primary-color;
       border-radius: $border-lg;
       padding: 0 $p-xs 0 $p-xxs;
       text-decoration: none;
+      background-color: $theme-2-primary-color;
 
       span {
         font-size: $font-xs;

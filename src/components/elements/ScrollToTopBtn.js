@@ -9,7 +9,7 @@ function ScrollToTopBtn({ theme, themeName }) {
 
   return (
     <div className={"scroll-to-top-btn__theme-" + theme} onClick={scrollToTop}>
-      <div>重新選擇</div>
+      <span>重新選擇</span>
       <img src={ScrollToTopIcon} alt="scrollToTopBtn" />
     </div>
   );

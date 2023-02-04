@@ -13,10 +13,10 @@
   background-color: $bg-color;
   @content;
 
-  :hover {
+  &:hover {
     opacity: 0.7;
   }
-  div {
+  span {
     margin: 0 $m-xs;
   }
 }

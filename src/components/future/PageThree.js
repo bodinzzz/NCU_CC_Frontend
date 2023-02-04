@@ -10,6 +10,27 @@ import InfoThemeOneIcon from "../../assets/icon/InfoThemeOneIcon.svg";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 import ChartTooltip from "../elements/ChartTooltip.js";
+import { ReactComponent as LearnerImgTest } from "../../assets/image/Future/LearnerImg.svg";
+
+const CustomizedTick = ({ x, y, payload }) => {
+  return (
+    // <g>
+    //   <svg src={LearnerImgTest} x={x - 60} y={y - 12} width="24" height="24">
+    //     <LearnerImgTest width={24} height={24} />
+    //   </svg>
+    //   <text type="category" x={x} y={y} className="future-page-3__chart__custom-tick" textAnchor="end">
+    //     <tspan x="52" dy="0.355em">
+    //       {payload.value}
+    //     </tspan>
+    //   </text>
+    // </g>
+    <text type="category" x={x} y={y} className="future-page-3__chart__custom-tick" textAnchor="end">
+      <tspan x="52" dy="0.355em">
+        {payload.value}
+      </tspan>
+    </text>
+  );
+};
 
 function Chart({ data }) {
   return (
@@ -19,32 +40,22 @@ function Chart({ data }) {
           type="category"
           dataKey="name"
           axisLine={false}
+          tick={<CustomizedTick />}
           tickLine={false}
-          tickMargin={10}
-          style={{
-            fontSize: "1rem",
-            fontWeight: "bold",
-          }}
+          // tickSize={2}
+          // tickMargin={10}
         />
         <XAxis type="number" hide />
         <Tooltip content={<ChartTooltip />} cursor={false} />
         <Bar dataKey="percentage" className="bar-style">
-          <LabelList dataKey="percentage" position="right" formatter={(value) => value + "%"} className="custom-label" />
+          <LabelList dataKey="percentage" position="right" formatter={(value) => value + "%"} className="future-page-3__chart__custom-label" />
         </Bar>
-        <div>HEREs</div>
       </BarChart>
     </ResponsiveContainer>
   );
 }
 
 function PageThree() {
-  const elements = [
-    { id: "learner", image: LearnerImg, title: "備考" },
-    { id: "soldier", image: SoldierImg, title: "服役" },
-    { id: "unemployed", image: UnemployedImg, title: "待業" },
-    { id: "housekeeper", image: HousekeeperImg, title: "家管" },
-    { id: "retirees", image: RetireesImg, title: "其他" },
-  ];
   const otherData = [
     {
       id: "f3-1",
@@ -73,13 +84,24 @@ function PageThree() {
     },
   ];
 
+  const elements = [
+    { id: "learner", image: LearnerImg, title: "備考" },
+    { id: "soldier", image: SoldierImg, title: "服役" },
+    { id: "unemployed", image: UnemployedImg, title: "待業" },
+    { id: "housekeeper", image: HousekeeperImg, title: "家管" },
+    { id: "retirees", image: RetireesImg, title: "其他" },
+  ];
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)`;
 
   return (
     <div className="future-page-3">
       <div className="future-page-3__title">
         <SourceTooltip icon={InfoThemeOneIcon} text={tooltipText} />
-        <span>工學院 軟體工程研究所 學士 在畢滿一年後 其他現況分布</span>:
+        <span>
+          工學院 軟體工程研究所 學士 <br />
+          在畢滿一年後 其他現況分布
+        </span>
+        :
       </div>
       <div className="future-page-3__chart">
         <div className="future-page-3__chart__icons">

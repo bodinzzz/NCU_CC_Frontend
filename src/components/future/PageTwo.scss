@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
-@import "../../styles/breakpoints";
+@import "../../styles/index";
 
 %percentage-text-basic {
   font-size: $font-xl;
@@ -11,14 +11,7 @@
   @extend %flex-col-center;
 
   &__title {
-    @extend %flex-center;
-
-    span {
-      color: $text-primary-color;
-      font-size: $font-md;
-      font-weight: bold;
-      padding: $p-xs;
-    }
+    @include chart-title-base;
   }
 
   &__chart {
@@ -30,10 +23,8 @@
     &__element {
       @extend %flex-col-between;
       margin: 0 $m-xl;
-      flex-wrap: wrap;
-      width: 100%;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(mobile) {
         flex-direction: row;
       }
 
@@ -66,7 +57,12 @@
 
         &__title {
           color: $text-primary-color;
-          font-size: $font-lg;
+          font-size: $font-md;
+          font-weight: bold;
+
+          @include breakpoint(tablet) {
+            font-size: $font-sm;
+          }
 
           @include breakpoint(mobile) {
             font-size: $font-mobile-lg;

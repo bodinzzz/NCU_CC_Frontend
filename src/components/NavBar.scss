@@ -7,7 +7,14 @@
   text-decoration: none;
   padding: $p-sm $p-md;
   color: $theme-color;
+  display: block;
   @content;
+  @include breakpoint(tablet) {
+    display: none;
+  }
+  @include breakpoint(mobile) {
+    display: none;
+  }
 }
 
 .navbar {
@@ -22,12 +29,9 @@
     color: #d4d4d4;
     text-decoration: none;
     padding: $p-sm $p-md;
-    @include breakpoint(mobile) {
-      color: #cd2525;
-    }
   }
 
-  &__links {
+  &__menu {
     @extend %flex-row-between;
 
     &__link {
@@ -39,6 +43,18 @@
       }
       &__theme-3 {
         @include link($theme-3-primary-color);
+      }
+    }
+
+    &__btn {
+      padding: $p-sm $p-md;
+      display: none;
+
+      @include breakpoint(tablet) {
+        display: block;
+      }
+      @include breakpoint(mobile) {
+        display: block;
       }
     }
   }
