@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+@import "../../styles/index";
+
+.scroll-page-nav {
+  position: absolute;
+  right: 1.5em;
+  background-color: antiquewhite;
+
+  &__menu {
+    &__link {
+      background-color: $white-color;
+    }
+  }
+}

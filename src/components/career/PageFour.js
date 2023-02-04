@@ -2,11 +2,10 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts";
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
-import MaleImg from "../../assets/image/Career/MaleImg.svg";
-import FemaleImg from "../../assets/image/Career/FemaleImg.svg";
 import "./PageFour.scss";
 import SourceTooltip from "../elements/SourceTooltip";
 import ChartTooltip from "../elements/ChartTooltip.js";
+import ScrollPageNav from "../elements/ScrollPageNav";
 
 function Chart({ data }) {
   return (
@@ -64,6 +63,7 @@ function PageFour() {
 
   return (
     <div className="career-page-4">
+      {/* <ScrollPageNav nowPage={4} /> */}
       {/* SALARY CHART */}
       <div className="career-page-4__chart-container">
         <div className="career-page-4__chart-container__title">

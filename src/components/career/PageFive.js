@@ -7,6 +7,7 @@ import TaiwanMap from "../../constant/map/TaiwanMap.json";
 import TaiwanAreaData from "../../constant/TaiwanAreaData.json";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
+import ScrollPageNav from "../elements/ScrollPageNav";
 
 function PageFive() {
   const [selectedCareer, setSelectedCareer] = useState("建築營造類");
@@ -123,6 +124,7 @@ function PageFive() {
           {chartTooltipContent}
         </div>
       )}
+      {/* <ScrollPageNav nowPage={5} /> */}
       {/* TITLE */}
       <div className="career-page-5__title">
         <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
@@ -172,7 +174,7 @@ function PageFive() {
                 {({ geographies }) =>
                   geographies.map((geo, index) => {
                     const currentTaiwanArea = geo.properties.area;
-                    console.log(geo.properties);
+                    // console.log(geo.properties);
                     return (
                       <Geography
                         id={index}

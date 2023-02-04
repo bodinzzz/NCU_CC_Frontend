@@ -7,6 +7,7 @@ import FemaleImg from "../../assets/image/Career/FemaleImg.svg";
 import "./PageThree.scss";
 import SourceTooltip from "../elements/SourceTooltip";
 import ChartTooltip from "../elements/ChartTooltip.js";
+import ScrollPageNav from "../elements/ScrollPageNav";
 
 function Chart({ data }) {
   return (
@@ -125,6 +126,7 @@ function PageThree() {
 
   return (
     <div className="career-page-3">
+      {/* <ScrollPageNav nowPage={3} /> */}
       {/* GENDER CHART */}
       <div className="career-page-3__chart-container">
         <div className="career-page-3__chart-container__title">

@@ -22,6 +22,7 @@ function PageTwo() {
 
   return (
     <div className="career-page-2">
+      {/* <ScrollPageNav nowPage={2} /> */}
       <div className="career-page-2__subTypes">
         {careerInfos[selectedCareer].subTypes.map((subType, index) => (
           <div className="career-page-2__subTypes__subType" key={subType.id}>
@@ -36,7 +37,6 @@ function PageTwo() {
       <div className="career-page-2__description">
         <span className="career-page-2__description__text">{careerInfos[selectedCareer].description}</span>
       </div>
-      <ScrollPageNav />
     </div>
   );
 }
