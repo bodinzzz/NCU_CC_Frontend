@@ -15,11 +15,11 @@ function PageTwo() {
       subTypes: [
         { id: "c1-t1", name: "影視傳播" },
         { id: "c1-t2", name: "印刷出版" },
-        { id: "c1-t2", name: "視覺藝術" },
-        { id: "c1-t2", name: "表演藝術" },
-        { id: "c1-t2", name: "新聞傳播" },
-        { id: "c1-t2", name: "通訊傳播" },
-        { id: "c1-t2", name: "設計產業阿阿阿阿阿" },
+        { id: "c1-t3", name: "視覺藝術" },
+        { id: "c1-t4", name: "表演藝術" },
+        { id: "c1-t5", name: "新聞傳播" },
+        { id: "c1-t6", name: "通訊傳播" },
+        { id: "c1-t7", name: "設計產業阿阿阿阿阿" },
       ],
     },
   ];
