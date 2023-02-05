@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/index";
+@import "../../styles/breakpoints";
 
 .geographies-style {
   opacity: 1;
@@ -32,22 +33,22 @@
   }
 
   &__title {
-    @extend %flex-center;
-
-    span {
-      color: $text-primary-color;
-      font-size: $font-md;
-      font-weight: bold;
-      padding: $p-xs;
-    }
+    @include chart-title-base;
   }
 
   &__chart-container {
-    width: 60%;
+    width: 30vw;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include breakpoint(tablet) {
+      width: 50vw;
+    }
+    @include breakpoint(mobile) {
+      width: 50vw;
+    }
   }
 }

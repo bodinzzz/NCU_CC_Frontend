@@ -8,6 +8,7 @@ import TaiwanAreaData from "../../constant/TaiwanAreaData.json";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 import ScrollPageNav from "../elements/ScrollPageNav";
+import ScrollableBarChart from "../graduated/ScrollableBarChart";
 
 function PageFive() {
   const [selectedCareer, setSelectedCareer] = useState("建築營造類");
@@ -74,6 +75,11 @@ function PageFive() {
   });
   const [taiwanAreaData, setTaiwanAreaData] = useState(TaiwanAreaData);
 
+  const continentData2 = [
+    { name: "亞洲（香港、澳門、大陸地區）", percentage: 95, fillColor: "blue", isHover: false },
+    { name: "臺灣", percentage: 0, fillColor: "black", isHover: false },
+  ];
+
   /* CHART TOOLTIP */
 
   // States related to chartTooltip
@@ -131,74 +137,76 @@ function PageFive() {
         <span>建築營造類 國內 工作地區分布</span>
       </div>
       {/* MAP CHART */}
-      <div className="career-page-5__chart-container">
-        {false ? (
-          <ComposableMap onMouseMove={handleMouseMove}>
-            <ZoomableGroup zoom={1}>
-              <Geographies geography={WorldMap}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
-                    const currentContinent = geo.properties.continent;
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={continentData[currentContinent].fillColor}
-                        stroke="#FFF"
-                        strokeWidth="0.5"
-                        // MOUSE EVENTS
-                        onMouseEnter={() => {
-                          hoverArea(currentContinent, setContinentData, continentData);
-                        }}
-                        onMouseLeave={() => {
-                          unHoverArea(currentContinent, setContinentData, continentData);
-                        }}
-                        className={continentData[currentContinent].isHover ? "geographies-style-hover" : "geographies-style"}
-                      />
-                    );
-                  })
-                }
-              </Geographies>
-            </ZoomableGroup>
-          </ComposableMap>
-        ) : (
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{
-              scale: 5000,
-            }}
-            onMouseMove={handleMouseMove}
-          >
-            <ZoomableGroup zoom={1} center={[120.9876, 23.83876]}>
-              <Geographies geography={TaiwanMap}>
-                {({ geographies }) =>
-                  geographies.map((geo, index) => {
-                    const currentTaiwanArea = geo.properties.area;
-                    // console.log(geo.properties);
-                    return (
-                      <Geography
-                        id={index}
-                        fill={geo.properties.fillColor} //暫定
-                        stroke="#FFF"
-                        strokeWidth="1"
-                        key={geo.rsmKey}
-                        geography={geo}
-                        // MOUSE EVENTS
-                        onMouseEnter={() => {
-                          hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
-                        }}
-                        onMouseLeave={() => {
-                          unHoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
-                        }}
-                        className={taiwanAreaData[currentTaiwanArea].isHover ? "geographies-style-hover" : "geographies-style"}
-                      />
-                    );
-                  })
-                }
-              </Geographies>
-            </ZoomableGroup>
-          </ComposableMap>
-        )}
+      <div style={{ display: "flex" }}>
+        <div className="career-page-5__chart-container">
+          {true ? (
+            <ComposableMap onMouseMove={handleMouseMove}>
+              <ZoomableGroup zoom={1}>
+                <Geographies geography={WorldMap}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const currentContinent = geo.properties.continent;
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={continentData[currentContinent].fillColor}
+                          stroke="#FFF"
+                          strokeWidth="0.5"
+                          // MOUSE EVENTS
+                          onMouseEnter={() => {
+                            hoverArea(currentContinent, setContinentData, continentData);
+                          }}
+                          onMouseLeave={() => {
+                            unHoverArea(currentContinent, setContinentData, continentData);
+                          }}
+                          className={continentData[currentContinent].isHover ? "geographies-style-hover" : "geographies-style"}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
+              </ZoomableGroup>
+            </ComposableMap>
+          ) : (
+            <ComposableMap
+              projection="geoMercator"
+              projectionConfig={{
+                scale: 5000,
+              }}
+              onMouseMove={handleMouseMove}
+            >
+              <ZoomableGroup zoom={1} center={[120.9876, 23.83876]}>
+                <Geographies geography={TaiwanMap}>
+                  {({ geographies }) =>
+                    geographies.map((geo, index) => {
+                      const currentTaiwanArea = geo.properties.area;
+                      // console.log(geo.properties);
+                      return (
+                        <Geography
+                          id={index}
+                          fill={geo.properties.fillColor} //暫定
+                          stroke="#FFF"
+                          strokeWidth="1"
+                          key={geo.rsmKey}
+                          geography={geo}
+                          // MOUSE EVENTS
+                          onMouseEnter={() => {
+                            hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
+                          }}
+                          onMouseLeave={() => {
+                            unHoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
+                          }}
+                          className={taiwanAreaData[currentTaiwanArea].isHover ? "geographies-style-hover" : "geographies-style"}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
+              </ZoomableGroup>
+            </ComposableMap>
+          )}
+        </div>
       </div>
       <ScrollToTopBtn theme={"3"} themeName={"career"} />
     </div>

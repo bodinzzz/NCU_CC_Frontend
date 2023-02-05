@@ -12,13 +12,13 @@
     flex-basis: 20%;
   }
 
-  &__radio-btn__selected {
+  &__radio-btn--selected {
     @extend %radio-btn;
     color: $text-primary-color;
     border: 0.8px solid $text-primary-color;
     background-color: $white-color;
   }
-  &__radio-btn__unselected {
+  &__radio-btn--unselected {
     @extend %radio-btn;
     color: $unselected-color;
     border: 0.8px solid $unselected-color;

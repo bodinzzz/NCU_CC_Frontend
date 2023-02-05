@@ -20,7 +20,7 @@ function RadioBtnGroup({ options, selectedValue, setSelectedValue, type }) {
       {options.map((option, index) => {
         return (
           <div
-            className={index === selectedValue ? "radio-btn-group__radio-btn__selected" : "radio-btn-group__radio-btn__unselected"}
+            className={index === selectedValue ? "radio-btn-group__radio-btn--selected" : "radio-btn-group__radio-btn--unselected"}
             onClick={() => setSelectedValue(index)}
             key={option.id}
           >

@@ -1,18 +1,25 @@
 import { useState, useEffect } from "react";
-import CareerInfoImg from "../../assets/image/Career/CareerInfoImg.svg";
+import QImg from "../../assets/image/Career/QImg.svg";
+import QReverseImg from "../../assets/image/Career/QReverseImg.svg";
 import "./PageTwo.scss";
 import ScrollPageNav from "../elements/ScrollPageNav";
+import InputLabel from "../elements/InputLabel";
 
 function PageTwo() {
   const [selectedCareer, setSelectedCareer] = useState(0);
   const careerInfos = [
     {
-      name: "建築營造類",
+      name: "藝文與影音傳播類",
       description:
-        "針對建築物及其實質環境，進行生產及作業之調查測量、規劃、組織、指導、協調、管制及考核等管理，並代辦申請建築許可、拆除執照、招商投標、擬定施工契約及其他工程上接洽事項之相關建築或營造工作。",
+        "規劃設計、製作、展出表演和出版藝文及影音相關作品，包括視覺設計、通訊傳播、表演藝術、印刷出版、新聞電視廣播及電影、包裝說明、工藝設計等。",
       subTypes: [
-        { id: "c1-t1", name: "建築規劃設計" },
-        { id: "c1-t2", name: "營造及維護" },
+        { id: "c1-t1", name: "影視傳播" },
+        { id: "c1-t2", name: "印刷出版" },
+        { id: "c1-t2", name: "視覺藝術" },
+        { id: "c1-t2", name: "表演藝術" },
+        { id: "c1-t2", name: "新聞傳播" },
+        { id: "c1-t2", name: "通訊傳播" },
+        { id: "c1-t2", name: "設計產業阿阿阿阿阿" },
       ],
     },
   ];
@@ -23,6 +30,14 @@ function PageTwo() {
   return (
     <div className="career-page-2">
       {/* <ScrollPageNav nowPage={2} /> */}
+      <div className="career-page-2__title">
+        <span>什麼是</span>
+        <div>{careerInfos[selectedCareer].name}</div>
+      </div>
+      <div className="career-page-2__description">
+        <InputLabel text={"職類說明"} theme={"3"} />
+        <div className="career-page-2__description__info">{careerInfos[selectedCareer].description}</div>
+      </div>
       <div className="career-page-2__subTypes">
         {careerInfos[selectedCareer].subTypes.map((subType, index) => (
           <div className="career-page-2__subTypes__subType" key={subType.id}>
@@ -30,13 +45,8 @@ function PageTwo() {
           </div>
         ))}
       </div>
-      <div className="career-page-2__title">
-        <img src={CareerInfoImg} alt="CareerInfoImg" />
-        <span>{careerInfos[selectedCareer].name}</span>
-      </div>
-      <div className="career-page-2__description">
-        <span className="career-page-2__description__text">{careerInfos[selectedCareer].description}</span>
-      </div>
+      <img className="career-page-2__background-img--left" src={QImg} />
+      <img className="career-page-2__background-img--right" src={QReverseImg} />
     </div>
   );
 }

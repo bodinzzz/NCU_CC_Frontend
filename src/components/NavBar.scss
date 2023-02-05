@@ -5,16 +5,25 @@
 @mixin link($theme-color) {
   font-weight: bold;
   text-decoration: none;
-  padding: $p-sm $p-md;
+  margin: $m-xxs $m-xs;
+  padding: $p-xxs $p-sm;
   color: $theme-color;
+  border-radius: $border-lg;
+  transition: all 0.15s;
   display: block;
-  @content;
+
+  &:hover {
+    background-color: $theme-color;
+    color: $white-color;
+    transform: translateY(-3px);
+  }
   @include breakpoint(tablet) {
     display: none;
   }
   @include breakpoint(mobile) {
     display: none;
   }
+  @content;
 }
 
 .navbar {

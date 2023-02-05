@@ -37,6 +37,7 @@ function Chart({ data }) {
 
 function PageFour() {
   const [selectedCareer, setSelectedCareer] = useState(1);
+  const [selectedArea, setSelectedArea] = useState(1);
 
   const data = [
     {
@@ -68,7 +69,10 @@ function PageFour() {
       <div className="career-page-4__chart-container">
         <div className="career-page-4__chart-container__title">
           <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-          <span>建築營造類 國內 職場新鮮人月薪中位數 級距(畢滿一年)</span>
+          <span>
+            建築營造類 國內
+            <br /> 職場新鮮人月薪中位數 級距(畢滿一年)
+          </span>
         </div>
         <div className="career-page-4__salary-chart">
           <div className="career-page-4__salary-chart__labels">
