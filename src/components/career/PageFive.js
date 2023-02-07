@@ -20,56 +20,56 @@ function PageFive() {
   const [continentData, setContinentData] = useState({
     China: {
       name: "亞洲（香港、澳門、大陸地區）",
-      percentage: 95,
-      fillColor: "blue",
+      percentage: 40,
+      fillColor: "#1BD1E9",
       isHover: false,
     },
     "Asia(Taiwan)": {
       name: "臺灣",
       percentage: 0,
-      fillColor: "black",
+      fillColor: "#D8EFF2",
       isHover: false,
     },
     Asia: {
       name: "亞洲（香港、澳門、大陸地區以外國家）",
-      percentage: 85,
-      fillColor: "red",
+      percentage: 30,
+      fillColor: "#6DE3F2",
       isHover: false,
     },
     Africa: {
       name: "非洲",
-      percentage: 65,
-      fillColor: "yellow",
+      percentage: 10,
+      fillColor: "#ADEFF7",
       isHover: false,
     },
     Australia: {
       name: "大洋洲",
-      percentage: 55,
-      fillColor: "orange",
+      percentage: 3,
+      fillColor: "#ADEFF7",
       isHover: false,
     },
     Europe: {
       name: "歐洲",
-      percentage: 45,
-      fillColor: "gray",
+      percentage: 2,
+      fillColor: "#ADEFF7",
       isHover: false,
     },
     "North America": {
       name: "北美洲",
-      percentage: 35,
-      fillColor: "purple",
+      percentage: 2,
+      fillColor: "#ADEFF7",
       isHover: false,
     },
     "Central America": {
       name: "中美洲",
-      percentage: 25,
-      fillColor: "red",
+      percentage: 1,
+      fillColor: "#ADEFF7",
       isHover: false,
     },
     "South America": {
       name: "南美洲",
-      percentage: 0,
-      fillColor: "pink",
+      percentage: 2,
+      fillColor: "#ADEFF7",
       isHover: false,
     },
   });
@@ -137,7 +137,8 @@ function PageFive() {
         <span>建築營造類 國內 工作地區分布</span>
       </div>
       {/* MAP CHART */}
-      <div style={{ display: "flex" }}>
+      <div className="career-page-5__chart-container">
+        {/* WORLD MAP CHART */}
         <div className="career-page-5__chart-container--world-map">
           <ComposableMap onMouseMove={handleMouseMove}>
             <ZoomableGroup zoom={1}>
@@ -168,6 +169,7 @@ function PageFive() {
             </ZoomableGroup>
           </ComposableMap>
         </div>
+        {/* TAIWAN MAP CHART */}
         <div className="career-page-5__chart-container--taiwan-map">
           <ComposableMap
             projection="geoMercator"
@@ -185,7 +187,8 @@ function PageFive() {
                     return (
                       <Geography
                         id={index}
-                        fill={geo.properties.fillColor} //暫定
+                        fill={taiwanAreaData[currentTaiwanArea].fillColor}
+                        // fill={geo.properties.fillColor}
                         stroke="#FFF"
                         strokeWidth="1"
                         key={geo.rsmKey}
@@ -204,13 +207,55 @@ function PageFive() {
                 }
               </Geographies>
               <Marker coordinates={[119.196, 23.843]}>
-                <rect style={{ width: 80, height: 80, stroke: "cyan", strokeWidth: 5, fill: "none" }} />
+                <rect
+                  style={{
+                    width: 80,
+                    height: 80,
+                    stroke: taiwanAreaData["Penghu County"].fillColor,
+                    strokeWidth: 5,
+                    fill: "rgba(248, 248, 248, 0.01)",
+                  }}
+                  onMouseEnter={() => {
+                    hoverArea("Penghu County", setTaiwanAreaData, taiwanAreaData);
+                  }}
+                  onMouseLeave={() => {
+                    unHoverArea("Penghu County", setTaiwanAreaData, taiwanAreaData);
+                  }}
+                />
               </Marker>
               <Marker coordinates={[118.155, 24.67]}>
-                <rect style={{ width: 50, height: 50, stroke: "cyan", strokeWidth: 5, fill: "none" }} />
+                <rect
+                  style={{
+                    width: 50,
+                    height: 50,
+                    stroke: taiwanAreaData["Kinmen County"].fillColor,
+                    strokeWidth: 5,
+                    fill: "rgba(248, 248, 248, 0.01)",
+                  }}
+                  onMouseEnter={() => {
+                    hoverArea("Kinmen County", setTaiwanAreaData, taiwanAreaData);
+                  }}
+                  onMouseLeave={() => {
+                    unHoverArea("Kinmen County", setTaiwanAreaData, taiwanAreaData);
+                  }}
+                />
               </Marker>
               <Marker coordinates={[119.74, 26.45]}>
-                <rect style={{ width: 100, height: 70, stroke: "cyan", strokeWidth: 5, fill: "none" }} />
+                <rect
+                  style={{
+                    width: 100,
+                    height: 70,
+                    stroke: taiwanAreaData["Lienchiang County"].fillColor,
+                    strokeWidth: 5,
+                    fill: "rgba(248, 248, 248, 0.01)",
+                  }}
+                  onMouseEnter={() => {
+                    hoverArea("Lienchiang County", setTaiwanAreaData, taiwanAreaData);
+                  }}
+                  onMouseLeave={() => {
+                    unHoverArea("Lienchiang County", setTaiwanAreaData, taiwanAreaData);
+                  }}
+                />
               </Marker>
             </ZoomableGroup>
           </ComposableMap>

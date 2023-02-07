@@ -21,24 +21,31 @@
   }
 
   &__gender-chart {
-    @extend %flex-col-center;
-    &__items {
-      @extend %flex-row-center;
-      &__item {
-        @extend %flex-col-center;
-
+    @extend %flex-row-center;
+    width: 60vw;
+    &__label {
+      @extend %flex-col-center;
+      img {
+        padding: $p-sm;
+        width: 10vw;
+      }
+      span {
+        font-weight: bold;
+        color: $text-primary-color;
+        font-size: $font-sm;
+      }
+    }
+    &__bar-container {
+      @extend %flex-col-center;
+      width: 100%;
+      &__label {
+        @extend %flex-row-between;
+        width: 100%;
+        // padding: $p-xs;
         span {
+          font-weight: bold;
           color: $text-primary-color;
-          font-size: $font-md;
-          font-weight: bold;
-          padding: $p-xxs;
-        }
-
-        &__percentage {
-          color: $theme-3-primary-color;
-          font-size: $font-xxl;
-          font-weight: bold;
-          margin: 0 $m-md;
+          font-size: $font-sm;
         }
       }
     }
@@ -55,4 +62,39 @@
       }
     }
   }
+  // &__gender-chart {
+  //   @extend %flex-col-center;
+  //   &__items {
+  //     @extend %flex-row-center;
+  //     &__item {
+  //       @extend %flex-col-center;
+
+  //       span {
+  //         color: $text-primary-color;
+  //         font-size: $font-md;
+  //         font-weight: bold;
+  //         padding: $p-xxs;
+  //       }
+
+  //       &__percentage {
+  //         color: $theme-3-primary-color;
+  //         font-size: $font-xxl;
+  //         font-weight: bold;
+  //         margin: 0 $m-md;
+  //       }
+  //     }
+  //   }
+  //   &__bar {
+  //     @extend %flex-row-center;
+  //     width: 100%;
+  //     &--male {
+  //       padding: $p-xs 0;
+  //       border-radius: $border-lg 0 0 $border-lg;
+  //     }
+  //     &--female {
+  //       padding: $p-xs 0;
+  //       border-radius: 0 $border-lg $border-lg 0;
+  //     }
+  //   }
+  // }
 }
