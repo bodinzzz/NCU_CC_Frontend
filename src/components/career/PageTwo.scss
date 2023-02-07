@@ -22,7 +22,7 @@
     margin-bottom: $m-sm;
 
     span {
-      font-size: $font-md;
+      font-size: $font-sm;
       font-weight: bold;
       color: $text-primary-color;
     }
@@ -42,7 +42,7 @@
     font-weight: bold;
     &__title {
       width: 100%;
-      margin-bottom: $m-xs;
+      // margin-bottom: $m-xs;
       span {
         font-size: $font-sm;
         font-weight: bold;
@@ -72,6 +72,32 @@
       font-size: $font-xs;
       font-weight: bold;
       border-radius: $border-sm;
+    }
+  }
+
+  &__area-chart {
+    @extend %flex-col-center;
+    width: 100%;
+    &__title {
+      font-size: $font-xs;
+      color: $theme-3-primary-color;
+      font-weight: bold;
+      padding-bottom: $p-xxs;
+    }
+    &__bar {
+      @extend %flex-row-center;
+      height: 0.75rem;
+      width: 100%;
+      &--left {
+        width: 75%;
+        height: 100%;
+        background-color: $theme-3-primary-color;
+      }
+      &--right {
+        width: 25%;
+        height: 100%;
+        background-color: $unselected-color;
+      }
     }
   }
 

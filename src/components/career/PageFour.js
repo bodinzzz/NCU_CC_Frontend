@@ -1,62 +1,76 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip, LabelList } from "recharts";
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
+import MoneyBagImg from "../../assets/image/Career/MoneyBagImg.svg";
 import "./PageFour.scss";
 import SourceTooltip from "../elements/SourceTooltip";
 import ChartTooltip from "../elements/ChartTooltip.js";
 import ScrollPageNav from "../elements/ScrollPageNav";
 
-function Chart({ data }) {
-  return (
-    <ResponsiveContainer width="70%" height={300}>
-      <BarChart data={data} layout={"vertical"} barSize={50}>
-        <YAxis
-          type="category"
-          dataKey="name"
-          axisLine={false}
-          tickLine={false}
-          tickMargin={10}
-          style={{
-            fontSize: "1rem",
-            fontWeight: "bold",
-          }}
-          hide={true}
-        />
-        <XAxis type="number" hide />
-        <Tooltip content={<ChartTooltip />} cursor={false} />
-        <Bar dataKey="range[1]">
-          {data.map((entry, index) => (
-            <Cell fill="#F5CA60" key={index} />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  );
-}
+// function Chart({ data }) {
+//   return (
+//     <ResponsiveContainer width="70%" height={300}>
+//       <BarChart data={data} layout={"vertical"} barSize={50} margin={{ right: 50 }}>
+//         <YAxis
+//           type="category"
+//           dataKey="name"
+//           axisLine={false}
+//           tickLine={false}
+//           tickMargin={10}
+//           style={{
+//             fontSize: "1rem",
+//             fontWeight: "bold",
+//           }}
+//           hide={true}
+//         />
+//         <XAxis type="number" hide />
+//         <Tooltip content={<ChartTooltip />} cursor={false} />
+//         <Bar dataKey="range[0][1]">
+//           {data.map((entry, index) => (
+//             <Cell fill="#FFDB83" key={index} />
+//           ))}
+//           <LabelList dataKey="percentage" position="right" formatter={(value) => value + "%"} />
+//         </Bar>
+//         <Bar dataKey="range[1][1]">
+//           {data.map((entry, index) => (
+//             <Cell fill="#FFC63B" key={index} />
+//           ))}
+//           <LabelList dataKey="percentage" position="right" formatter={(value) => value + "%"} />
+//         </Bar>
+//       </BarChart>
+//     </ResponsiveContainer>
+//   );
+// }
 
 function PageFour() {
   const [selectedCareer, setSelectedCareer] = useState(1);
-  const [selectedArea, setSelectedArea] = useState(1);
+  // const [selectedArea, setSelectedArea] = useState(1);
 
-  const data = [
+  const salaryData = [
     {
       id: "salary-bachelor",
       name: "學士",
-      percentage: 2000,
-      range: [31, 34],
+      range: [
+        [31, 34],
+        [100, 110],
+      ],
     },
     {
       id: "salary-master",
       name: "碩士",
-      percentage: 3000,
-      range: [100, 110],
+      range: [
+        [100, 110],
+        [500, 1000],
+      ],
     },
     {
       id: "salary-doctor",
       name: "博士",
-      percentage: 1000,
-      range: [500, 1000],
+      range: [
+        [500, 1000],
+        [500, 1000],
+      ],
     },
   ];
 
@@ -75,6 +89,28 @@ function PageFour() {
           </span>
         </div>
         <div className="career-page-4__salary-chart">
+          {salaryData.map((data) => (
+            <div className="career-page-4__salary-chart__element">
+              <div className="career-page-4__salary-chart__element__title">
+                <img src={MoneyBagImg} alt="MoneyBagImg" />
+                <span>{data.name}</span>
+              </div>
+              <div className="career-page-4__salary-chart__element__data">
+                <div className="career-page-4__salary-chart__element__label">國內</div>
+                <div className="career-page-4__salary-chart__element__range">
+                  {data.range[0][0]}K - {data.range[0][0]}K
+                </div>
+              </div>
+              <div className="career-page-4__salary-chart__element__data">
+                <div className="career-page-4__salary-chart__element__label">國外</div>
+                <div className="career-page-4__salary-chart__element__range">
+                  {data.range[1][0]}K - {data.range[1][0]}K
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* <div className="career-page-4__salary-chart">
           <div className="career-page-4__salary-chart__labels">
             {data.map((salary, index) => (
               <div className="career-page-4__salary-chart__labels__label" key={salary.id}>
@@ -86,7 +122,7 @@ function PageFour() {
             ))}
           </div>
           <Chart data={data} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

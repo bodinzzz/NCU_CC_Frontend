@@ -49,10 +49,10 @@ function PageOne() {
         <InputLabel text={"職務類型"} theme={"3"} />
         <Dropdown options={careerTags} selectedValue={selectedCareer} setSelectedValue={setSelectedCareer} />
       </div>
-      <div className="career-page-1__inputContainer">
+      {/* <div className="career-page-1__inputContainer">
         <InputLabel text={"國內外"} theme={"3"} />
         <RadioBtnGroup options={careerTags[0].areas} selectedValue={selectedArea} setSelectedValue={setSelectedArea} type="Area" />
-      </div>
+      </div> */}
       <SubmitBtn theme={"3"} />
     </div>
   );

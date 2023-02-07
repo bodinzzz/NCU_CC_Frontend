@@ -42,14 +42,14 @@
         }
       }
     }
-    &__bars {
+    &__bar {
       @extend %flex-row-center;
       width: 100%;
-      &__male-bar {
+      &--male {
         padding: $p-xs 0;
         border-radius: $border-lg 0 0 $border-lg;
       }
-      &__female-bar {
+      &--female {
         padding: $p-xs 0;
         border-radius: 0 $border-lg $border-lg 0;
       }

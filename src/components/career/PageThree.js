@@ -8,105 +8,28 @@ import "./PageThree.scss";
 import SourceTooltip from "../elements/SourceTooltip";
 import ChartTooltip from "../elements/ChartTooltip.js";
 import ScrollPageNav from "../elements/ScrollPageNav";
-
-function Chart({ data }) {
-  return (
-    <ResponsiveContainer width="70%" height={300}>
-      <BarChart data={data} layout={"vertical"} barSize={50}>
-        <YAxis
-          type="category"
-          dataKey="name"
-          axisLine={false}
-          tickLine={false}
-          tickMargin={10}
-          style={{
-            fontSize: "1rem",
-            fontWeight: "bold",
-          }}
-          hide={true}
-        />
-        <XAxis type="number" hide />
-        <Tooltip content={<ChartTooltip />} cursor={false} />
-        <Bar dataKey="range[1]">
-          {data.map((entry, index) => (
-            <Cell fill="#F5CA60" key={index} />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  );
-}
+import RadioBtnGroup from "../elements/RadioBtnGroup";
 
 function PageThree() {
-  const [selectedCareer, setSelectedCareer] = useState(1);
-  const genderData1 = [
-    {
-      careerName: "建築營造類",
-      data: [
-        { gender: "male", percentage: 65 },
-        { gender: "female", percentage: 35 },
-      ],
-    },
-    {
-      careerName: "製造類",
-      data: [
-        { gender: "male", percentage: 20 },
-        { gender: "female", percentage: 80 },
-      ],
-    },
-  ];
+  const [selectedCareer, setSelectedCareer] = useState(0);
+  const [selectedArea, setSelectedArea] = useState(0);
 
   const genderData = [
     {
       name: "男",
-      percentage: 65,
+      percentage: [65, 25],
       fillColor: "#00BCD4",
     },
     {
       name: "女",
-      percentage: 35,
+      percentage: [35, 75],
       fillColor: "#40FFFF",
-    },
-  ];
-
-  const data = [
-    {
-      id: "salary-bachelor",
-      name: "學士",
-      percentage: 2000,
-      range: [31, 34],
-    },
-    {
-      id: "salary-master",
-      name: "碩士",
-      percentage: 3000,
-      range: [100, 110],
-    },
-    {
-      id: "salary-doctor",
-      name: "博士",
-      percentage: 1000,
-      range: [500, 1000],
     },
   ];
 
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   function setGenderChart() {
-    // const malePercentage = genderData[selectedCareer].data[0].percentage;
-    // const femalePercentage = genderData[selectedCareer].data[1].percentage;
-    // SET BAR COLOR
-    // if (malePercentage >= femalePercentage) {
-    //   document.getElementById("male-bar").style.backgroundColor = "#00BCD4";
-    //   document.getElementById("female-bar").style.backgroundColor = "#40FFFF";
-    // } else {
-    //   document.getElementById("male-bar").style.backgroundColor = "#00BCD4";
-    //   document.getElementById("female-bar").style.backgroundColor = "#40FFFF";
-    // }
-    // SET BAR WIDTH
-    // document.getElementById("male-bar").style.width = malePercentage + "%";
-    // document.getElementById("female-bar").style.width = femalePercentage + "%";
-
     const malePercentage = genderData[0].percentage + "%";
     const femalePercentage = genderData[1].percentage + "%";
 
@@ -131,7 +54,9 @@ function PageThree() {
       <div className="career-page-3__chart-container">
         <div className="career-page-3__chart-container__title">
           <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-          <span>建築營造類 國內 職務男女比</span>
+          <span>建築營造類</span>
+          <RadioBtnGroup options={[{ name: "國內" }, { name: "國外" }]} selectedValue={selectedArea} setSelectedValue={setSelectedArea} type="" />
+          <span>職務男女比</span>
         </div>
         <div className="career-page-3__gender-chart">
           <div className="career-page-3__gender-chart__items">
@@ -146,9 +71,9 @@ function PageThree() {
               <div className="career-page-3__gender-chart__items__item__percentage">{genderData[1].percentage}%</div>
             </div>
           </div>
-          <div className="career-page-3__gender-chart__bars">
-            <div className="career-page-3__gender-chart__bars__male-bar" id="male-bar" />
-            <div className="career-page-3__gender-chart__bars__female-bar" id="female-bar" />
+          <div className="career-page-3__gender-chart__bar">
+            <div className="career-page-3__gender-chart__bar--male" id="male-bar" />
+            <div className="career-page-3__gender-chart__bar--female" id="female-bar" />
           </div>
         </div>
       </div>

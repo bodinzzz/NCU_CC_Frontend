@@ -11,7 +11,7 @@
 
   .home-theme {
     &__image {
-      height: 36vh;
+      height: 60vh;
       @include breakpoint(tablet) {
         height: 24vh;
       }
