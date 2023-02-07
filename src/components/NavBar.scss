@@ -2,6 +2,15 @@
 @import "../styles/layout";
 @import "../styles/breakpoints";
 
+@mixin display-reverse($display) {
+  @include breakpoint(tablet) {
+    display: $display;
+  }
+  @include breakpoint(mobile) {
+    display: $display;
+  }
+}
+
 @mixin link($theme-color) {
   font-weight: bold;
   text-decoration: none;
@@ -10,18 +19,10 @@
   color: $theme-color;
   border-radius: $border-lg;
   transition: all 0.15s;
-  display: block;
-
   &:hover {
     background-color: $theme-color;
     color: $white-color;
     transform: translateY(-3px);
-  }
-  @include breakpoint(tablet) {
-    display: none;
-  }
-  @include breakpoint(mobile) {
-    display: none;
   }
   @content;
 }
@@ -42,7 +43,6 @@
 
   &__menu {
     @extend %flex-row-between;
-
     &__link {
       &__theme-1 {
         @include link($theme-1-primary-color);
@@ -57,13 +57,44 @@
 
     &__btn {
       padding: $p-sm $p-md;
+      width: 1.5em;
+      height: 1.5em;
+      cursor: pointer;
       display: none;
-
-      @include breakpoint(tablet) {
-        display: block;
+      @include display-reverse(block);
+      &:hover {
+        opacity: 0.7;
       }
-      @include breakpoint(mobile) {
-        display: block;
+    }
+
+    &__top-bar {
+      @extend %flex-row-between;
+      @include display-reverse(none);
+    }
+
+    &__side-bar {
+      @extend %flex-col-center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 40vh;
+
+      padding: $p-xl $p-sm;
+      background-color: $white-color;
+      border-radius: 0 0 0 50%;
+      display: none;
+      @include display-reverse(flex);
+      img {
+        padding: $p-sm $p-md;
+        width: 1.5em;
+        height: 1.5em;
+        right: 0;
+        top: 0;
+        position: absolute;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
       }
     }
   }
