@@ -1,14 +1,14 @@
 @import "./variables.scss";
 @import "./breakpoints.scss";
 
-@mixin theme-title($title-color) {
+@mixin theme-page-1-title($theme-color) {
   font-size: $font-lg;
   font-weight: bold;
-  color: $title-color;
+  color: $theme-color;
   @content;
 }
 
-@mixin chart-title-base {
+@mixin chart-title-basic {
   @extend %flex-center;
 
   span {
@@ -34,5 +34,29 @@
         display: block;
       }
     }
+  }
+}
+
+@mixin input-container-basic {
+  width: 70%;
+}
+
+/* RWD ADJUST */
+
+@mixin flex-direction-switch($direction-tablet, $direction-mobile) {
+  @include breakpoint(tablet) {
+    flex-direction: $direction-tablet;
+  }
+  @include breakpoint(mobile) {
+    flex-direction: $direction-mobile;
+  }
+}
+
+@mixin display-switch($display-tablet, $display-mobile) {
+  @include breakpoint(tablet) {
+    display: $display-tablet;
+  }
+  @include breakpoint(mobile) {
+    display: $display-mobile;
   }
 }

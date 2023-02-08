@@ -6,10 +6,14 @@
 .geographies-style {
   opacity: 1;
   outline: none;
+  stroke-width: 1px;
+  stroke: $white-color;
 }
 .geographies-style-hover {
   opacity: 0.7;
   outline: none;
+  stroke-width: 1px;
+  stroke: $white-color;
 }
 
 .career-page-5 {
@@ -17,17 +21,13 @@
   width: 70vw;
 
   &__chart-tooltip {
-    font-size: $font-xxs;
-    color: $text-primary-color;
     padding: $p-xxs;
     background-color: $white-color;
-    font-weight: bold;
     border-radius: $border-sm;
+    font-size: $font-xxs;
+    font-weight: bold;
+    color: $text-primary-color;
     pointer-events: none; // prevent tooltip flickering when hovering the mouse
-  }
-
-  &__title {
-    @include theme-title($theme-3-primary-color);
   }
 
   &__inputContainer {
@@ -35,51 +35,29 @@
   }
 
   &__title {
-    @include chart-title-base;
+    @include chart-title-basic;
   }
 
-  &__chart-container {
+  &__chart-containers {
     @extend %flex-row-center;
-    @include breakpoint(tablet) {
-      flex-direction: row;
-    }
-    @include breakpoint(mobile) {
+    @include flex-direction-switch(row, column);
+
+    &__chart-container {
+      display: flex;
       flex-direction: column;
-    }
-  }
+      justify-content: center;
+      align-items: center;
+      margin-right: $m-sm;
+      width: 35vw;
+      height: 100%;
+      border: 2px solid #adeff7;
 
-  &__chart-container--world-map {
-    // margin: $m-sm;
-    width: 35vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #adeff7;
-
-    @include breakpoint(tablet) {
-      width: 50vw;
-    }
-    @include breakpoint(mobile) {
-      width: 50vw;
-    }
-  }
-  &__chart-container--taiwan-map {
-    margin-left: $m-sm;
-    width: 35vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #adeff7;
-
-    @include breakpoint(tablet) {
-      width: 50vw;
-    }
-    @include breakpoint(mobile) {
-      width: 50vw;
+      @include breakpoint(tablet) {
+        width: 50vw;
+      }
+      @include breakpoint(mobile) {
+        width: 50vw;
+      }
     }
   }
 }

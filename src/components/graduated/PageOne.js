@@ -6,7 +6,7 @@ import Dropdown from "../elements/Dropdown";
 import Colleges from "../../constant/Colleges.json";
 
 function PageOne() {
-  // SELECTED DATA (College、Department、Degree、Year)
+  // SELECTED DATA (College、Department)
   const [selectedCollege, setSelectedCollege] = useState(0);
   const [selectedDepartment, setSelectedDepartment] = useState(0);
 

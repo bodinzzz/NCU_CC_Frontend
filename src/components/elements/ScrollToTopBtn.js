@@ -1,9 +1,15 @@
 import "./ScrollToTopBtn.scss";
 import ScrollToTopIcon from "../../assets/icon/ScrollToTopIcon.svg";
 
+/*
+  Parameters:
+    theme: number
+    themeName: number
+*/
 function ScrollToTopBtn({ theme, themeName }) {
   function scrollToTop() {
-    var element = document.getElementById(`${themeName}__section-1`);
+    // Declare element we want to scroll to by id
+    let element = document.getElementById(`${themeName}__section-1`);
     element.scrollIntoView({ behavior: "smooth" });
   }
 

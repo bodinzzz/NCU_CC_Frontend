@@ -3,32 +3,24 @@
 @import "../../styles/index";
 @import "../../styles/breakpoints";
 
-@mixin input-container-basic {
-  width: 70%;
-}
-
 .career-page-1 {
   @extend %flex-col-center;
   width: 70vw;
 
   &__title {
-    @include theme-title($theme-3-primary-color);
+    @include theme-page-1-title($theme-3-primary-color);
   }
 
-  &__inputContainer {
+  &__input-container {
     @include input-container-basic;
 
-    &__career--desktop {
+    &--desktop {
       display: block;
-      @include breakpoint(mobile) {
-        display: none;
-      }
+      @include display-switch(block, none);
     }
-    &__career--mobile {
+    &--mobile {
       display: none;
-      @include breakpoint(mobile) {
-        display: block;
-      }
+      @include display-switch(none, block);
     }
   }
 }

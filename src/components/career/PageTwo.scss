@@ -58,14 +58,12 @@
     }
   }
 
-  &__subTypes {
-    // background-color: antiquewhite;
+  &__sub-types {
     padding: $p-sm;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    &__subType {
-      // background-color: aqua;
+    &__sub-type {
       background-color: $white-color;
       padding: $p-xs;
       margin: $m-xxxs;
@@ -75,7 +73,7 @@
     }
   }
 
-  &__area-chart {
+  &__chart-container {
     @extend %flex-col-center;
     width: 100%;
     &__title {
@@ -89,42 +87,30 @@
       height: 0.75rem;
       width: 100%;
       &--left {
-        width: 75%;
         height: 100%;
-        background-color: $theme-3-primary-color;
+        background-color: $career-chart-first-color;
       }
       &--right {
-        width: 25%;
         height: 100%;
-        background-color: $unselected-color;
+        background-color: $career-chart-second-color;
       }
     }
   }
 
-  &__background-img--left {
+  &__background-image--left {
     position: absolute;
     top: 0.5%;
     left: 3%;
     z-index: -1;
-    // background-color: aquamarine;
-    // @include breakpoint(tablet) {
-    //   left: 50%;
-    // }
     @include breakpoint(mobile) {
       left: -20%;
     }
   }
-  &__background-img--right {
+  &__background-image--right {
     position: absolute;
     bottom: 0.5%;
     right: 3%;
     z-index: -1;
-    // background-color: aqua;
-    display: block;
-
-    // @include breakpoint(tablet) {
-    //   right: -3%;
-    // }
     @include breakpoint(mobile) {
       right: -20%;
     }

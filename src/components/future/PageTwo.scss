@@ -11,7 +11,7 @@
   @extend %flex-col-center;
 
   &__title {
-    @include chart-title-base;
+    @include chart-title-basic;
   }
 
   &__chart {

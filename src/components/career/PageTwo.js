@@ -6,7 +6,10 @@ import ScrollPageNav from "../elements/ScrollPageNav";
 import InputLabel from "../elements/InputLabel";
 
 function PageTwo() {
-  const [selectedCareer, setSelectedCareer] = useState(0);
+  /* SELECTED DATA */
+  // const [selectedCareer, setSelectedCareer] = useState(0);
+
+  /* FETCHING DATA */
   const careerInfos = {
     name: "藝文與影音傳播類",
     description:
@@ -27,7 +30,7 @@ function PageTwo() {
   };
 
   // API Call
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <div className="career-page-2">
@@ -40,24 +43,26 @@ function PageTwo() {
         <InputLabel text={"職類說明"} theme={"3"} />
         <div className="career-page-2__description__info">{careerInfos.description}</div>
       </div>
-      <div className="career-page-2__subTypes">
+      <div className="career-page-2__sub-types">
         {careerInfos.subTypes.map((subType, index) => (
-          <div className="career-page-2__subTypes__subType" key={subType.id}>
+          <div className="career-page-2__sub-types__sub-type" key={subType.id}>
             {subType.name}
           </div>
         ))}
       </div>
-      <div className="career-page-2__area-chart">
-        <div className="career-page-2__area-chart__title">
-          {careerInfos.areas[0].percentage}%的人在國內發展、{careerInfos.areas[1].percentage}%的人在國外發展
+      {/* AREA CHART */}
+      <div className="career-page-2__chart-container">
+        <div className="career-page-2__chart-container__title">
+          有{careerInfos.areas[0].percentage}%的人在國內發展、{careerInfos.areas[1].percentage}%的人在國外發展
         </div>
-        <div className="career-page-2__area-chart__bar">
-          <div className="career-page-2__area-chart__bar--left"></div>
-          <div className="career-page-2__area-chart__bar--right"></div>
+        <div className="career-page-2__chart-container__bar">
+          <div className="career-page-2__chart-container__bar--left" style={{ width: `${careerInfos.areas[0].percentage}%` }} />
+          <div className="career-page-2__chart-container__bar--right" style={{ width: `${careerInfos.areas[1].percentage}%` }} />
         </div>
       </div>
-      <img className="career-page-2__background-img--left" src={QImg} />
-      <img className="career-page-2__background-img--right" src={QReverseImg} />
+      {/* BACKGROUND IMAGE */}
+      <img className="career-page-2__background-image--left" src={QImg} />
+      <img className="career-page-2__background-image--right" src={QReverseImg} />
     </div>
   );
 }

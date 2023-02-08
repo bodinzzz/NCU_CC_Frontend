@@ -6,7 +6,7 @@
   @extend %flex-col-between;
 
   &__title {
-    @include theme-title($theme-2-primary-color);
+    @include theme-page-1-title($theme-2-primary-color);
   }
 
   &__inputContainers {

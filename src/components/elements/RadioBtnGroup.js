@@ -1,20 +1,14 @@
 import "./RadioBtnGroup.scss";
 
-/* DIFFERENT TYPE OF RADIO BUTTON (YEAR、CAREER、AREA)*/
+// Dropdown: Contains dropdown button / dropdown items
+/*
+  Parameters:
+    options: object  // Need the property "name"
+    selectedValue: number
+    setSelectedValue: function // [selectedValue, setSelectedValue] = useState()
+    type: string //different type of radio button (not used yet)
+*/
 function RadioBtnGroup({ options, selectedValue, setSelectedValue, type }) {
-  // function getText({ option }, type) {
-  //   if (type === "Area") {
-  //     return (
-  //       <span>
-  //         {option.name}
-  //         {option.percentage}%
-  //       </span>
-  //     );
-  //   } else {
-  //     return <span>{option.name}</span>;
-  //   }
-  // }
-
   return (
     <div className="radio-btn-group">
       {options.map((option, index) => {
@@ -25,7 +19,6 @@ function RadioBtnGroup({ options, selectedValue, setSelectedValue, type }) {
             key={index}
           >
             {option.name}
-            {/* {getText({ option }, type)} */}
           </div>
         );
       })}

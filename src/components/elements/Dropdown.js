@@ -1,6 +1,13 @@
 import { useState } from "react";
 import "./Dropdown.scss";
 
+// Dropdown: Contains dropdown button / dropdown items
+/*
+  Parameters:
+    options: object
+    selectedValue: number
+    setSelectedValue: function
+*/
 function Dropdown({ options, selectedValue, setSelectedValue }) {
   // DROPDOWN TOGGLE DATA
   const [isOpen, setIsOpen] = useState(false);

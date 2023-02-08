@@ -3,65 +3,32 @@
 @import "../../styles/index";
 @import "../../styles/breakpoints";
 
-@mixin flex-direction-reverse($direction) {
-  @include breakpoint(tablet) {
-    flex-direction: $direction;
-  }
-  @include breakpoint(mobile) {
-    flex-direction: $direction;
-  }
-}
+// @mixin flex-direction-reverse($direction) {
+//   @include breakpoint(tablet) {
+//     flex-direction: $direction;
+//   }
+//   @include breakpoint(mobile) {
+//     flex-direction: $direction;
+//   }
+// }
 
 .career-page-4 {
   @extend %flex-row-center;
   width: 100%;
-
-  @include breakpoint(mobile) {
-    flex-direction: column;
-  }
+  @include flex-direction-switch(row, column);
 
   &__chart-container {
     @extend %flex-col-center;
     // width: 40%;
 
     &__title {
-      @include chart-title-base;
+      @include chart-title-basic;
     }
   }
 
-  // &__salary-chart {
-  //   // background-color: brown;
-  //   @extend %flex-row-center;
-  //   width: 100%;
-  //   &__labels {
-  //     // background-color: aqua;
-  //     @extend %flex-col-between;
-  //     height: 270px;
-  //     width: 30%;
-  //     &__label {
-  //       // @extend %flex-col-center;
-  //       &__name {
-  //         @extend %flex-center;
-  //         color: $text-primary-color;
-  //         font-size: $font-md;
-  //         font-weight: bold;
-  //         margin: $m-xxxs;
-  //       }
-
-  //       &__range {
-  //         @extend %flex-center;
-  //         color: $text-primary-color;
-  //         font-size: $font-xs;
-  //         margin: 0 0 $m-md 0;
-  //         padding-bottom: $p-sm;
-  //       }
-  //     }
-  //   }
-  // }
-
   &__salary-chart {
     @extend %flex-row-center;
-    @include flex-direction-reverse(column);
+    @include flex-direction-switch(column, column);
 
     &__element {
       @extend %flex-col-center;
@@ -70,7 +37,7 @@
       margin: 0 0 $m-sm $m-sm;
       background-color: rgba(255, 255, 255, 0.5);
       border-radius: $border-sm;
-      @include flex-direction-reverse(row);
+      @include flex-direction-switch(row, row);
       &__title {
         @extend %flex-center;
         img {
@@ -86,7 +53,7 @@
       &__data {
         @extend %flex-row-start;
         width: 100%;
-        @include flex-direction-reverse(column);
+        @include flex-direction-switch(column, column);
       }
       &__label {
         padding: $p-xxs;

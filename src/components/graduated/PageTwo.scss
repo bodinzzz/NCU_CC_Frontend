@@ -7,7 +7,7 @@
   width: 100%;
 
   &__title {
-    @include chart-title-base;
+    @include chart-title-basic;
     flex-wrap: wrap;
 
     &__ref-link {

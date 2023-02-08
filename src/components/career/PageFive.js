@@ -11,12 +11,10 @@ import ScrollPageNav from "../elements/ScrollPageNav";
 import ScrollableBarChart from "../graduated/ScrollableBarChart";
 
 function PageFive() {
+  /* SELECTED DATA */
   const [selectedCareer, setSelectedCareer] = useState("建築營造類");
-  const [selectedArea, setSelectedArea] = useState("境外");
 
-  const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
-
-  // CHART DATA
+  /* FETCHING DATA */
   const [continentData, setContinentData] = useState({
     China: {
       name: "亞洲（香港、澳門、大陸地區）",
@@ -74,19 +72,13 @@ function PageFive() {
     },
   });
   const [taiwanAreaData, setTaiwanAreaData] = useState(TaiwanAreaData);
-
-  const continentData2 = [
-    { name: "亞洲（香港、澳門、大陸地區）", percentage: 95, fillColor: "blue", isHover: false },
-    { name: "臺灣", percentage: 0, fillColor: "black", isHover: false },
-  ];
+  const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   /* CHART TOOLTIP */
 
   // States related to chartTooltip
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
   const [chartTooltipContent, setChartTooltipContent] = useState("");
-
   const [showTooltip, setShowTooltip] = useState(false);
 
   // Functions related to chartTooltip
@@ -122,6 +114,36 @@ function PageFive() {
     left: mousePos.x + "px",
   };
 
+  /* OUTLYING ISLAND MARKER */
+
+  const islandMarkerData = [
+    { name: "Penghu County", coordinates: [119.196, 23.843], size: [80, 80] },
+    { name: "Kinmen County", coordinates: [118.155, 24.67], size: [50, 50] },
+    { name: "Lienchiang County", coordinates: [119.74, 26.45], size: [70, 100] },
+  ];
+
+  function IslandMarker({ name, coordinates, size }) {
+    return (
+      <Marker coordinates={coordinates}>
+        <rect
+          style={{
+            width: 80,
+            height: 80,
+            stroke: taiwanAreaData[name].fillColor,
+            strokeWidth: 5,
+            fill: "rgba(248, 248, 248, 0.01)",
+          }}
+          onMouseEnter={() => {
+            hoverArea(name, setTaiwanAreaData, taiwanAreaData);
+          }}
+          onMouseLeave={() => {
+            unHoverArea(name, setTaiwanAreaData, taiwanAreaData);
+          }}
+        />
+      </Marker>
+    );
+  }
+
   return (
     <div className="career-page-5">
       {/* TOOLTIP */}
@@ -137,9 +159,9 @@ function PageFive() {
         <span>建築營造類 國內 工作地區分布</span>
       </div>
       {/* MAP CHART */}
-      <div className="career-page-5__chart-container">
+      <div className="career-page-5__chart-containers">
         {/* WORLD MAP CHART */}
-        <div className="career-page-5__chart-container--world-map">
+        <div className="career-page-5__chart-containers__chart-container">
           <ComposableMap onMouseMove={handleMouseMove}>
             <ZoomableGroup zoom={1}>
               <Geographies geography={WorldMap}>
@@ -170,7 +192,7 @@ function PageFive() {
           </ComposableMap>
         </div>
         {/* TAIWAN MAP CHART */}
-        <div className="career-page-5__chart-container--taiwan-map">
+        <div className="career-page-5__chart-containers__chart-container">
           <ComposableMap
             projection="geoMercator"
             projectionConfig={{
@@ -183,17 +205,13 @@ function PageFive() {
                 {({ geographies }) =>
                   geographies.map((geo, index) => {
                     const currentTaiwanArea = geo.properties.area;
-                    // console.log(geo.properties);
                     return (
                       <Geography
                         id={index}
-                        fill={taiwanAreaData[currentTaiwanArea].fillColor}
-                        // fill={geo.properties.fillColor}
-                        stroke="#FFF"
-                        strokeWidth="1"
                         key={geo.rsmKey}
                         geography={geo}
-                        // MOUSE EVENTS
+                        fill={taiwanAreaData[currentTaiwanArea].fillColor}
+                        /* MOUSE EVENTS */
                         onMouseEnter={() => {
                           hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
                         }}
@@ -206,23 +224,7 @@ function PageFive() {
                   })
                 }
               </Geographies>
-              <Marker coordinates={[119.196, 23.843]}>
-                <rect
-                  style={{
-                    width: 80,
-                    height: 80,
-                    stroke: taiwanAreaData["Penghu County"].fillColor,
-                    strokeWidth: 5,
-                    fill: "rgba(248, 248, 248, 0.01)",
-                  }}
-                  onMouseEnter={() => {
-                    hoverArea("Penghu County", setTaiwanAreaData, taiwanAreaData);
-                  }}
-                  onMouseLeave={() => {
-                    unHoverArea("Penghu County", setTaiwanAreaData, taiwanAreaData);
-                  }}
-                />
-              </Marker>
+              <IslandMarker name={islandMarkerData[0].name} coordinates={islandMarkerData[0].coordinates} size={[80, 80]} />
               <Marker coordinates={[118.155, 24.67]}>
                 <rect
                   style={{
