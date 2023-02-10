@@ -28,7 +28,10 @@ function Dropdown({ options, selectedValue, setSelectedValue }) {
         {isOpen && (
           <div className="dropdown__items">
             {options.map((option, index) => (
-              <div className="dropdown__items__item" onClick={() => toggleDropdown(index)}>
+              <div
+                className="dropdown__items__item"
+                onClick={() => toggleDropdown(index)}
+              >
                 {options[index].name}
               </div>
             ))}
