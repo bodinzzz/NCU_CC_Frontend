@@ -6,10 +6,9 @@ import ThemeThree from "../components/home/ThemeThree";
 function Home() {
   return (
     <div className="home scroll-container">
-      <div className="home__section-1">
+      {/* <div className="home__section-1">
         <span>NCU Career Center 就業力數據庫系統</span>
-        {/* <ThemeOne /> */}
-      </div>
+      </div> */}
       <div className="home__section-2">
         <ThemeOne />
       </div>

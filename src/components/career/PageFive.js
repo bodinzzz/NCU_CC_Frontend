@@ -90,6 +90,7 @@ function PageFive() {
   };
 
   function hoverArea(currentArea, setAreaData, areaData) {
+    console.log("HERE");
     setAreaData((prev) => {
       prev[currentArea].isHover = true;
       return { ...prev };
@@ -99,6 +100,7 @@ function PageFive() {
   }
 
   function unHoverArea(currentArea, setAreaData, areaData) {
+    console.log("HERE2");
     setAreaData((prev) => {
       prev[currentArea].isHover = false;
       return { ...prev };
@@ -122,27 +124,36 @@ function PageFive() {
     { name: "Lienchiang County", coordinates: [119.74, 26.45], size: [70, 100] },
   ];
 
-  function IslandMarker({ name, coordinates, size }) {
-    return (
-      <Marker coordinates={coordinates}>
-        <rect
-          style={{
-            width: 80,
-            height: 80,
-            stroke: taiwanAreaData[name].fillColor,
-            strokeWidth: 5,
-            fill: "rgba(248, 248, 248, 0.01)",
-          }}
-          onMouseEnter={() => {
-            hoverArea(name, setTaiwanAreaData, taiwanAreaData);
-          }}
-          onMouseLeave={() => {
-            unHoverArea(name, setTaiwanAreaData, taiwanAreaData);
-          }}
-        />
-      </Marker>
-    );
-  }
+  // IslandMarker (NOT WORK I DON'T KNOW WHY)
+  /*
+  Parameters:
+    name: string  // name of the island
+    coordinates: object
+    size: object // [height, width] of the rect
+  */
+  // function IslandMarker({ name, coordinates, size }) {
+  //   return (
+  //     <Marker
+  //       coordinates={coordinates}
+  //       onMouseEnter={() => {
+  //         hoverArea(name, setTaiwanAreaData, taiwanAreaData);
+  //       }}
+  //       onMouseLeave={() => {
+  //         unHoverArea(name, setTaiwanAreaData, taiwanAreaData);
+  //       }}
+  //     >
+  //       <rect
+  //         style={{
+  //           height: size[0],
+  //           width: size[1],
+  //           stroke: taiwanAreaData[name].fillColor,
+  //           strokeWidth: 5,
+  //           fill: "rgba(248, 248, 248, 0.01)",
+  //         }}
+  //       />
+  //     </Marker>
+  //   );
+  // }
 
   return (
     <div className="career-page-5">
@@ -156,112 +167,99 @@ function PageFive() {
       {/* TITLE */}
       <div className="career-page-5__title">
         <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-        <span>建築營造類 國內 工作地區分布</span>
+        <span>建築營造類 工作地區分布</span>
       </div>
       {/* MAP CHART */}
-      <div className="career-page-5__chart-containers">
+      <div className="career-page-5__chart-container">
         {/* WORLD MAP CHART */}
-        <div className="career-page-5__chart-containers__chart-container">
-          <ComposableMap onMouseMove={handleMouseMove}>
-            <ZoomableGroup zoom={1}>
-              <Geographies geography={WorldMap}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
-                    const currentContinent = geo.properties.continent;
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={continentData[currentContinent].fillColor}
-                        stroke="#FFF"
-                        strokeWidth="0.5"
-                        // MOUSE EVENTS
-                        onMouseEnter={() => {
-                          hoverArea(currentContinent, setContinentData, continentData);
-                        }}
-                        onMouseLeave={() => {
-                          unHoverArea(currentContinent, setContinentData, continentData);
-                        }}
-                        className={continentData[currentContinent].isHover ? "geographies-style-hover" : "geographies-style"}
-                      />
-                    );
-                  })
-                }
-              </Geographies>
-            </ZoomableGroup>
-          </ComposableMap>
-        </div>
+        <ComposableMap onMouseMove={handleMouseMove} className="composable-map-style">
+          <ZoomableGroup zoom={1}>
+            <Geographies geography={WorldMap}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const currentContinent = geo.properties.continent;
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={continentData[currentContinent].fillColor}
+                      stroke="#FFF"
+                      strokeWidth="0.5"
+                      // MOUSE EVENTS
+                      onMouseEnter={() => {
+                        hoverArea(currentContinent, setContinentData, continentData);
+                      }}
+                      onMouseLeave={() => {
+                        unHoverArea(currentContinent, setContinentData, continentData);
+                      }}
+                      className={continentData[currentContinent].isHover ? "geographies-style--hover" : "geographies-style--default"}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
         {/* TAIWAN MAP CHART */}
-        <div className="career-page-5__chart-containers__chart-container">
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{
-              scale: 6000,
-            }}
-            onMouseMove={handleMouseMove}
-          >
-            <ZoomableGroup zoom={1} center={[120.7, 24]}>
-              <Geographies geography={TaiwanMap}>
-                {({ geographies }) =>
-                  geographies.map((geo, index) => {
-                    const currentTaiwanArea = geo.properties.area;
-                    return (
-                      <Geography
-                        id={index}
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={taiwanAreaData[currentTaiwanArea].fillColor}
-                        /* MOUSE EVENTS */
-                        onMouseEnter={() => {
-                          hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
-                        }}
-                        onMouseLeave={() => {
-                          unHoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
-                        }}
-                        className={taiwanAreaData[currentTaiwanArea].isHover ? "geographies-style-hover" : "geographies-style"}
-                      />
-                    );
-                  })
-                }
-              </Geographies>
-              <IslandMarker name={islandMarkerData[0].name} coordinates={islandMarkerData[0].coordinates} size={[80, 80]} />
-              <Marker coordinates={[118.155, 24.67]}>
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{
+            scale: 6000,
+          }}
+          onMouseMove={handleMouseMove}
+          className="composable-map-style"
+        >
+          <ZoomableGroup zoom={1} center={[120.7, 24]}>
+            <Geographies geography={TaiwanMap}>
+              {({ geographies }) =>
+                geographies.map((geo, index) => {
+                  const currentTaiwanArea = geo.properties.area;
+                  return (
+                    <Geography
+                      id={index}
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={taiwanAreaData[currentTaiwanArea].fillColor}
+                      className={taiwanAreaData[currentTaiwanArea].isHover ? "geographies-style--hover" : "geographies-style--default"}
+                      /* MOUSE EVENTS */
+                      onMouseEnter={() => {
+                        hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
+                      }}
+                      onMouseLeave={() => {
+                        unHoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+            {/* ISLAND MARKER */}
+            {/* {islandMarkerData.map((data, index) => (
+                <IslandMarker name={data.name} coordinates={data.coordinates} size={data.size} key={index} />
+              ))} */}
+            {islandMarkerData.map((data, index) => (
+              <Marker
+                coordinates={data.coordinates}
+                onMouseEnter={() => {
+                  hoverArea(data.name, setTaiwanAreaData, taiwanAreaData);
+                }}
+                onMouseLeave={() => {
+                  unHoverArea(data.name, setTaiwanAreaData, taiwanAreaData);
+                }}
+              >
                 <rect
                   style={{
-                    width: 50,
-                    height: 50,
-                    stroke: taiwanAreaData["Kinmen County"].fillColor,
+                    height: data.size[0],
+                    width: data.size[1],
+                    stroke: taiwanAreaData[data.name].fillColor,
                     strokeWidth: 5,
                     fill: "rgba(248, 248, 248, 0.01)",
                   }}
-                  onMouseEnter={() => {
-                    hoverArea("Kinmen County", setTaiwanAreaData, taiwanAreaData);
-                  }}
-                  onMouseLeave={() => {
-                    unHoverArea("Kinmen County", setTaiwanAreaData, taiwanAreaData);
-                  }}
                 />
               </Marker>
-              <Marker coordinates={[119.74, 26.45]}>
-                <rect
-                  style={{
-                    width: 100,
-                    height: 70,
-                    stroke: taiwanAreaData["Lienchiang County"].fillColor,
-                    strokeWidth: 5,
-                    fill: "rgba(248, 248, 248, 0.01)",
-                  }}
-                  onMouseEnter={() => {
-                    hoverArea("Lienchiang County", setTaiwanAreaData, taiwanAreaData);
-                  }}
-                  onMouseLeave={() => {
-                    unHoverArea("Lienchiang County", setTaiwanAreaData, taiwanAreaData);
-                  }}
-                />
-              </Marker>
-            </ZoomableGroup>
-          </ComposableMap>
-        </div>
+            ))}
+          </ZoomableGroup>
+        </ComposableMap>
       </div>
       <ScrollToTopBtn theme={"3"} themeName={"career"} />
     </div>

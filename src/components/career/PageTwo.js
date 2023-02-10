@@ -39,9 +39,9 @@ function PageTwo() {
         <span>什麼是</span>
         <div>{careerInfos.name}</div>
       </div>
-      <div className="career-page-2__description">
+      <div className="career-page-2__description-container">
         <InputLabel text={"職類說明"} theme={"3"} />
-        <div className="career-page-2__description__info">{careerInfos.description}</div>
+        <div className="career-page-2__description-container__description">{careerInfos.description}</div>
       </div>
       <div className="career-page-2__sub-types">
         {careerInfos.subTypes.map((subType, index) => (
@@ -52,7 +52,7 @@ function PageTwo() {
       </div>
       {/* AREA CHART */}
       <div className="career-page-2__chart-container">
-        <div className="career-page-2__chart-container__title">
+        <div className="career-page-2__chart-container__description">
           有{careerInfos.areas[0].percentage}%的人在國內發展、{careerInfos.areas[1].percentage}%的人在國外發展
         </div>
         <div className="career-page-2__chart-container__bar">

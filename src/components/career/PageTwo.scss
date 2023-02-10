@@ -33,27 +33,14 @@
     }
   }
 
-  &__description {
+  &__description-container {
     @extend %flex-col-center;
-
     background-color: rgba(255, 255, 255, 0.5);
     padding: $p-sm;
     border-radius: $border-sm;
-    font-weight: bold;
-    &__title {
-      width: 100%;
-      // margin-bottom: $m-xs;
-      span {
-        font-size: $font-sm;
-        font-weight: bold;
-        color: $text-primary-color;
-      }
-      img {
-      }
-    }
-    &__info {
+    &__description {
       font-size: $font-xs;
-      // font-weight: bold;
+      font-weight: bold;
       color: $text-primary-color;
     }
   }
@@ -76,7 +63,7 @@
   &__chart-container {
     @extend %flex-col-center;
     width: 100%;
-    &__title {
+    &__description {
       font-size: $font-xs;
       color: $theme-3-primary-color;
       font-weight: bold;

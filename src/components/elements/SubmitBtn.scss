@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
+@import "../../styles/breakpoints";
 
 @mixin submit-btn($bg-color) {
   @extend %flex-row-center;
@@ -11,6 +12,13 @@
   font-weight: bold;
   cursor: pointer;
   background-color: $bg-color;
+  @include breakpoint(tablet) {
+    font-size: $font-xs;
+    padding: $p-xxxs $p-xs;
+  }
+  @include breakpoint(tablet) {
+    font-size: $font-xs;
+  }
   @content;
 }
 

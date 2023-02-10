@@ -4,12 +4,12 @@ import "./Dropdown.scss";
 // Dropdown: Contains dropdown button / dropdown items
 /*
   Parameters:
-    options: object
+    options: object  // Need the property "name"
     selectedValue: number
-    setSelectedValue: function
+    setSelectedValue: function // [selectedValue, setSelectedValue] = useState()
 */
 function Dropdown({ options, selectedValue, setSelectedValue }) {
-  // DROPDOWN TOGGLE DATA
+  // DROPDOWN TOGGLE STATE
   const [isOpen, setIsOpen] = useState(false);
 
   // TOGGLE DROPDOWN

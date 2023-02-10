@@ -4,21 +4,27 @@
 @import "../../styles/breakpoints";
 
 .future-page-1 {
-  @extend %flex-col-between;
+  @extend %flex-col-start;
+  height: 80vh;
+  background-color: aqua;
 
   &__title {
     @include theme-page-1-title($theme-1-primary-color);
   }
 
   &__inputContainers {
+    // display: flex;
+    // flex-wrap: wrap;
+    // width: 40%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: $m-md;
     grid-row-gap: $m-md;
-    padding: $m-sm $m-md $m-lg $m-md;
+    // padding: $m-sm $m-md $m-lg $m-md;
 
     @include breakpoint(mobile) {
       grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 0;
       // width: 60vw;
       // align-self: center;
     }
@@ -29,6 +35,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    background-color: bisque;
   }
 
   &__chooser {

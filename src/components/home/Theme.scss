@@ -1,23 +1,17 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
 @import "../../styles/breakpoints";
+@import "../../styles/index";
 
 @mixin home-theme-layout($primary-color) {
   @extend %flex-row-center;
 
-  @include breakpoint(tablet) {
-    flex-direction: column;
-  }
+  @include flex-direction-switch(row, column);
 
   .home-theme {
     &__image {
       height: 60vh;
-      @include breakpoint(tablet) {
-        height: 24vh;
-      }
-      @include breakpoint(mobile) {
-        height: 24vh;
-      }
+      @include height-switch(40vh, 30vh);
     }
 
     &__info {
@@ -30,12 +24,11 @@
 
     &__title {
       color: $primary-color;
-      font-size: $font-xxl;
       font-weight: bold;
       padding: 10px;
-      @include breakpoint(mobile) {
-        font-size: $font-mobile-xxl;
-      }
+      font-size: $font-xxl;
+      transition: all 0.3s;
+      @include font-size-switch($font-xl, $font-lg);
     }
 
     &__intro {
@@ -50,13 +43,21 @@
       background-color: $primary-color;
       padding: 20px 30px;
       margin-top: 40px;
-      font-size: 20px;
+      font-size: $font-sm;
       font-weight: bold;
       color: $white-color;
       border-radius: $border-lg;
       transition: all 0.5s;
       text-decoration: none;
       cursor: pointer;
+
+      @include font-size-switch($font-sm, $font-xs);
+      @include breakpoint(tablet) {
+        padding: 20px 30px;
+      }
+      @include breakpoint(mobile) {
+        padding: 10px 20px;
+      }
 
       &:hover {
         span {

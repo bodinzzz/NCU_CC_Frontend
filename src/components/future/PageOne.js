@@ -61,7 +61,7 @@ function PageOne() {
       <div className="future-page-1__inputContainers">
         {/* INOUT 1 - COLLEGES */}
         <div className="future-page-1__inputContainer">
-          <InputLabel text={"學院"} theme={"1"} />
+          <InputLabel text={"學院、系所"} theme={"1"} />
           <Dropdown options={Colleges} selectedValue={selectedCollege} setSelectedValue={setSelectedCollege} />
         </div>
 

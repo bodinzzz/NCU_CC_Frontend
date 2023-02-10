@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function ThemeTwo() {
   return (
     <div className="home-theme-2">
+      <img src={ThemeTwoImg} className="home-theme__image" alt="theme-img" />
       <div className="home-theme__info">
         <div>
           <div className="home-theme__title">畢業後在做什麼</div>
@@ -20,7 +21,6 @@ function ThemeTwo() {
           <span>看看學長姐都在做什麼</span>
         </Link>
       </div>
-      <img src={ThemeTwoImg} className="home-theme__image" alt="theme-img" />
     </div>
   );
 }

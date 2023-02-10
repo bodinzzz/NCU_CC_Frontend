@@ -60,3 +60,30 @@
     display: $display-mobile;
   }
 }
+
+@mixin width-switch($width-tablet, $width-mobile) {
+  @include breakpoint(tablet) {
+    width: $width-tablet;
+  }
+  @include breakpoint(mobile) {
+    width: $width-mobile;
+  }
+}
+
+@mixin height-switch($height-tablet, $height-mobile) {
+  @include breakpoint(tablet) {
+    height: $height-tablet;
+  }
+  @include breakpoint(mobile) {
+    height: $height-mobile;
+  }
+}
+
+@mixin font-size-switch($font-size-tablet, $font-size-mobile) {
+  @include breakpoint(tablet) {
+    font-size: $font-size-tablet;
+  }
+  @include breakpoint(mobile) {
+    font-size: $font-size-mobile;
+  }
+}

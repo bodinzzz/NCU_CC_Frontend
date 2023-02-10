@@ -30,7 +30,7 @@
     @extend %flex-row-between;
     padding: $p-xxs;
     background-color: $white-color;
-    border: 0.8px solid $text-primary-color;
+    border: 1px solid $unselected-color;
     border-radius: $border-sm;
     font-size: $font-xs;
     font-weight: bold;

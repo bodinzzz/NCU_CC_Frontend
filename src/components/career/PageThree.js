@@ -18,12 +18,12 @@ function PageThree() {
     {
       name: "男",
       percentage: [65, 25],
-      fillColor: ["#00BCD4", "#00BCD4"],
+      // fillColor: "#00BCD4",
     },
     {
       name: "女",
       percentage: [35, 75],
-      fillColor: ["#40FFFF", "#40FFFF"],
+      // fillColor: "#40FFFF",
     },
   ];
 
@@ -36,10 +36,10 @@ function PageThree() {
     const femalePercentageForeign = genderData[1].percentage[1] + "%";
 
     // SET BAR COLOR
-    document.getElementById("male-bar-domestic").style.backgroundColor = genderData[0].fillColor[0];
-    document.getElementById("female-bar-domestic").style.backgroundColor = genderData[1].fillColor[0];
-    document.getElementById("male-bar-foreign").style.backgroundColor = genderData[0].fillColor[1];
-    document.getElementById("female-bar-foreign").style.backgroundColor = genderData[1].fillColor[1];
+    // document.getElementById("male-bar-domestic").style.backgroundColor = genderData[0].fillColor[0];
+    // document.getElementById("female-bar-domestic").style.backgroundColor = genderData[1].fillColor[0];
+    // document.getElementById("male-bar-foreign").style.backgroundColor = genderData[0].fillColor[1];
+    // document.getElementById("female-bar-foreign").style.backgroundColor = genderData[1].fillColor[1];
 
     // // SET BAR WIDTH
     document.getElementById("male-bar-domestic").style.width = malePercentageDomestic;
@@ -60,28 +60,8 @@ function PageThree() {
       <div className="career-page-3__chart-container">
         <div className="career-page-3__chart-container__title">
           <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-          <span>建築營造類</span>
-          {/* <RadioBtnGroup options={[{ name: "國內" }, { name: "國外" }]} selectedValue={selectedArea} setSelectedValue={setSelectedArea} type="" /> */}
-          <span>職務男女比</span>
+          <span>建築營造類 職務男女比</span>
         </div>
-        {/* <div className="career-page-3__gender-chart">
-          <div className="career-page-3__gender-chart__items">
-            <div className="career-page-3__gender-chart__items__item">
-              <img src={MaleImg} />
-              <span>男</span>
-              <div className="career-page-3__gender-chart__items__item__percentage">{genderData[0].percentage}%</div>
-            </div>
-            <div className="career-page-3__gender-chart__items__item">
-              <img src={FemaleImg} />
-              <span>女</span>
-              <div className="career-page-3__gender-chart__items__item__percentage">{genderData[1].percentage}%</div>
-            </div>
-          </div>
-          <div className="career-page-3__gender-chart__bar">
-            <div className="career-page-3__gender-chart__bar--male" id="male-bar" />
-            <div className="career-page-3__gender-chart__bar--female" id="female-bar" />
-          </div>
-        </div> */}
         <div className="career-page-3__gender-chart">
           <div className="career-page-3__gender-chart__label">
             <img src={MaleImg} />
