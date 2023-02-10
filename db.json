@@ -1,0 +1,147 @@
+{
+  "questionnaireAmount": [],
+  "workingStatusData": [
+    {
+      "id": "1",
+      "name": "升學",
+      "percentage": 60
+    },
+    {
+      "id": "2",
+      "name": "就業",
+      "percentage": 30
+    },
+    {
+      "id": "3",
+      "name": "其他",
+      "percentage": 10
+    }
+  ],
+  "disciplineData": [
+    {
+      "name": "商業及管理學門",
+      "percentage": 52,
+      "fillColor": "#789EE7"
+    },
+    {
+      "name": "社會及行為科學學門",
+      "percentage": 18,
+      "fillColor": "#AAC7FF"
+    },
+    {
+      "name": "物理、化學及地球科學學門",
+      "percentage": 16,
+      "fillColor": "#D4E2FC"
+    },
+    {
+      "name": "資訊通訊科技學門",
+      "percentage": 5,
+      "fillColor": "#E4E4E4"
+    },
+    {
+      "name": "新聞學及圖書資訊學門",
+      "percentage": 9,
+      "fillColor": "#E4E4E4"
+    }
+  ],
+  "jobData": [
+    {
+      "name": "資訊科技類",
+      "percentage": 40,
+      "fillColor": "#789EE7"
+    },
+    {
+      "name": "科學、技術、工程、數學類",
+      "percentage": 30,
+      "fillColor": "#AAC7FF"
+    },
+    {
+      "name": "製造類",
+      "percentage": 10,
+      "fillColor": "#D4E2FC"
+    },
+    {
+      "name": "藝文與影音傳播類",
+      "percentage": 5,
+      "fillColor": "#E4E4E4"
+    },
+    {
+      "name": "行銷與銷售類",
+      "percentage": 5,
+      "fillColor": "#E4E4E4"
+    }
+  ],
+  "careerInfo": {
+    "name": "建築營造類",
+    "description": "針對建築物及其實質環境，進行生產及作業之調查測量、規劃、組織、指導、協調、管制及考核等管理，並代辦申請建築許可、拆除執照、招商投標、擬定施工契約及其他工程上接洽事項之相關建築或營造工作。",
+    "subTypes": ["建築規劃設計", "營造及維護"],
+    "areas": [
+      { "id": "", "name": "國內", "percentage": 75 },
+      { "id": "", "name": "國外", "percentage": 25 }
+    ]
+  },
+  "genderData": [
+    {
+      "name": "男",
+      "percentage": [65, 35]
+    },
+    {
+      "name": "女",
+      "percentage": [35, 65]
+    }
+  ],
+  "salaryData": [
+    {
+      "id": "",
+      "name": "學士",
+      "range": [
+        [31, 34],
+        [31, 34]
+      ]
+    },
+    {
+      "id": "",
+      "name": "碩士",
+      "range": [
+        [100, 110],
+        [100, 110]
+      ]
+    },
+    {
+      "id": "",
+      "name": "博士",
+      "range": [
+        [500, 1000],
+        [500, 1000]
+      ]
+    }
+  ],
+  "continentData": {
+    "China": {
+      "name": "亞洲（香港、澳門、大陸地區）",
+      "percentage": 95,
+      "fillColor": "blue",
+      "isHover": false
+    },
+    "Asia(Taiwan)": {
+      "name": "亞洲（香港、澳門、大陸地區以外國家",
+      "percentage": 0,
+      "fillColor": "black",
+      "isHover": false
+    }
+  },
+  "taiwanAreaData": {
+    "Keelung City": {
+      "name": "基隆市",
+      "percentage": 95,
+      "fillColor": "blue",
+      "isHover": false
+    },
+    "New Taipei City": {
+      "name": "新北市",
+      "percentage": 0,
+      "fillColor": "black",
+      "isHover": false
+    }
+  }
+}

@@ -51,6 +51,7 @@
 
     overflow-y: auto;
     max-height: 40vh;
+    z-index: 10;
 
     &__item {
       margin: $p-xxs $p-xxs;

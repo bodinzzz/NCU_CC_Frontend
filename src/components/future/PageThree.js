@@ -1,5 +1,13 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  LabelList,
+} from "recharts";
 import LearnerImg from "../../assets/image/Future/LearnerImg.svg";
 import SoldierImg from "../../assets/image/Future/SoldierImg.svg";
 import UnemployedImg from "../../assets/image/Future/UnemployedImg.svg";
@@ -24,7 +32,13 @@ const CustomizedTick = ({ x, y, payload }) => {
     //     </tspan>
     //   </text>
     // </g>
-    <text type="category" x={x} y={y} className="future-page-3__chart__custom-tick" textAnchor="end">
+    <text
+      type="category"
+      x={x}
+      y={y}
+      className="future-page-3__chart__custom-tick"
+      textAnchor="end"
+    >
       <tspan x="52" dy="0.355em">
         {payload.value}
       </tspan>
@@ -35,7 +49,12 @@ const CustomizedTick = ({ x, y, payload }) => {
 function Chart({ data }) {
   return (
     <ResponsiveContainer width="60%" height={300}>
-      <BarChart data={data} layout={"vertical"} barSize={24} margin={{ right: 50 }}>
+      <BarChart
+        data={data}
+        layout={"vertical"}
+        barSize={24}
+        margin={{ right: 50 }}
+      >
         <YAxis
           type="category"
           dataKey="name"
@@ -48,14 +67,19 @@ function Chart({ data }) {
         <XAxis type="number" hide />
         <Tooltip content={<ChartTooltip />} cursor={false} />
         <Bar dataKey="percentage" className="bar-style">
-          <LabelList dataKey="percentage" position="right" formatter={(value) => value + "%"} className="future-page-3__chart__custom-label" />
+          <LabelList
+            dataKey="percentage"
+            position="right"
+            formatter={(value) => value + "%"}
+            className="future-page-3__chart__custom-label"
+          />
         </Bar>
       </BarChart>
     </ResponsiveContainer>
   );
 }
 
-function PageThree() {
+function PageThree({ data }) {
   const otherData = [
     {
       id: "f3-1",
@@ -106,7 +130,14 @@ function PageThree() {
       <div className="future-page-3__chart">
         <div className="future-page-3__chart__icons">
           {elements.map((element, index) => {
-            return <img src={element.image} className="future-page-3__chart__icons__icon" alt={element.title} key={element.id} />;
+            return (
+              <img
+                src={element.image}
+                className="future-page-3__chart__icons__icon"
+                alt={element.title}
+                key={element.id}
+              />
+            );
           })}
         </div>
         <Chart data={otherData} />

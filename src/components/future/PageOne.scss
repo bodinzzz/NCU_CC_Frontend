@@ -6,7 +6,6 @@
 .future-page-1 {
   @extend %flex-col-start;
   height: 80vh;
-  background-color: aqua;
 
   &__title {
     @include theme-page-1-title($theme-1-primary-color);
@@ -35,7 +34,6 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: bisque;
   }
 
   &__chooser {
