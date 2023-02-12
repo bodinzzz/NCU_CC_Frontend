@@ -1,5 +1,14 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip, LabelList } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+  Cell,
+  Tooltip,
+  LabelList,
+} from "recharts";
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import MoneyBagImg from "../../assets/image/Career/MoneyBagImg.svg";
@@ -43,37 +52,7 @@ import ScrollPageNav from "../elements/ScrollPageNav";
 //   );
 // }
 
-function PageFour() {
-  const [selectedCareer, setSelectedCareer] = useState(1);
-  // const [selectedArea, setSelectedArea] = useState(1);
-
-  const salaryData = [
-    {
-      id: "salary-bachelor",
-      name: "學士",
-      range: [
-        [31, 34],
-        [100, 110],
-      ],
-    },
-    {
-      id: "salary-master",
-      name: "碩士",
-      range: [
-        [100, 110],
-        [500, 1000],
-      ],
-    },
-    {
-      id: "salary-doctor",
-      name: "博士",
-      range: [
-        [500, 1000],
-        [500, 1000],
-      ],
-    },
-  ];
-
+function PageFour({ data }) {
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   return (
@@ -89,22 +68,29 @@ function PageFour() {
           </span>
         </div>
         <div className="career-page-4__salary-chart">
-          {salaryData.map((data) => (
-            <div className="career-page-4__salary-chart__element">
+          {data.map((salaryInfo) => (
+            <div
+              className="career-page-4__salary-chart__element"
+              key={salaryInfo.id}
+            >
               <div className="career-page-4__salary-chart__element__title">
                 <img src={MoneyBagImg} alt="MoneyBagImg" />
-                <span>{data.name}</span>
+                <span>{salaryInfo.name}</span>
               </div>
               <div className="career-page-4__salary-chart__element__data">
-                <div className="career-page-4__salary-chart__element__label">國內</div>
+                <div className="career-page-4__salary-chart__element__label">
+                  國內
+                </div>
                 <div className="career-page-4__salary-chart__element__range">
-                  {data.range[0][0]}K - {data.range[0][0]}K
+                  {salaryInfo.range[0][0]}K - {salaryInfo.range[0][0]}K
                 </div>
               </div>
               <div className="career-page-4__salary-chart__element__data">
-                <div className="career-page-4__salary-chart__element__label">國外</div>
+                <div className="career-page-4__salary-chart__element__label">
+                  國外
+                </div>
                 <div className="career-page-4__salary-chart__element__range">
-                  {data.range[1][0]}K - {data.range[1][0]}K
+                  {salaryInfo.range[1][0]}K - {salaryInfo.range[1][0]}K
                 </div>
               </div>
             </div>

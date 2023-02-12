@@ -1,77 +1,23 @@
 import { useState } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFive.scss";
-import { ComposableMap, Geographies, Geography, ZoomableGroup, Marker } from "react-simple-maps";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  ZoomableGroup,
+  Marker,
+} from "react-simple-maps";
 import WorldMap from "../../constant/map/WorldMap.json";
 import TaiwanMap from "../../constant/map/TaiwanMap.json";
-import TaiwanAreaData from "../../constant/TaiwanAreaData.json";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
 import ScrollPageNav from "../elements/ScrollPageNav";
 import ScrollableBarChart from "../graduated/ScrollableBarChart";
 
-function PageFive() {
-  /* SELECTED DATA */
-  const [selectedCareer, setSelectedCareer] = useState("建築營造類");
-
-  /* FETCHING DATA */
-  const [continentData, setContinentData] = useState({
-    China: {
-      name: "亞洲（香港、澳門、大陸地區）",
-      percentage: 40,
-      fillColor: "#1BD1E9",
-      isHover: false,
-    },
-    "Asia(Taiwan)": {
-      name: "臺灣",
-      percentage: 0,
-      fillColor: "#D8EFF2",
-      isHover: false,
-    },
-    Asia: {
-      name: "亞洲（香港、澳門、大陸地區以外國家）",
-      percentage: 30,
-      fillColor: "#6DE3F2",
-      isHover: false,
-    },
-    Africa: {
-      name: "非洲",
-      percentage: 10,
-      fillColor: "#ADEFF7",
-      isHover: false,
-    },
-    Australia: {
-      name: "大洋洲",
-      percentage: 3,
-      fillColor: "#ADEFF7",
-      isHover: false,
-    },
-    Europe: {
-      name: "歐洲",
-      percentage: 2,
-      fillColor: "#ADEFF7",
-      isHover: false,
-    },
-    "North America": {
-      name: "北美洲",
-      percentage: 2,
-      fillColor: "#ADEFF7",
-      isHover: false,
-    },
-    "Central America": {
-      name: "中美洲",
-      percentage: 1,
-      fillColor: "#ADEFF7",
-      isHover: false,
-    },
-    "South America": {
-      name: "南美洲",
-      percentage: 2,
-      fillColor: "#ADEFF7",
-      isHover: false,
-    },
-  });
-  const [taiwanAreaData, setTaiwanAreaData] = useState(TaiwanAreaData);
+function PageFive({ data, topRef }) {
+  const [continentData, setContinentData] = useState(data.continentData);
+  const [taiwanAreaData, setTaiwanAreaData] = useState(data.taiwanAreaData);
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
 
   /* CHART TOOLTIP */
@@ -89,25 +35,25 @@ function PageFive() {
     });
   };
 
-  function hoverArea(currentArea, setAreaData, areaData) {
-    console.log("HERE");
+  const hoverArea = (currentArea, setAreaData, areaData) => {
     setAreaData((prev) => {
       prev[currentArea].isHover = true;
       return { ...prev };
     });
-    setChartTooltipContent(`${areaData[currentArea].name} : ${areaData[currentArea].percentage}%`);
+    setChartTooltipContent(
+      `${areaData[currentArea].name} : ${areaData[currentArea].percentage}%`
+    );
     setShowTooltip(true);
-  }
+  };
 
-  function unHoverArea(currentArea, setAreaData, areaData) {
-    console.log("HERE2");
+  const unHoverArea = (currentArea, setAreaData, areaData) => {
     setAreaData((prev) => {
       prev[currentArea].isHover = false;
       return { ...prev };
     });
     setChartTooltipContent("");
     setShowTooltip(false);
-  }
+  };
 
   // Styles related to chartTooltip
   const tooltipStyle = {
@@ -121,7 +67,11 @@ function PageFive() {
   const islandMarkerData = [
     { name: "Penghu County", coordinates: [119.196, 23.843], size: [80, 80] },
     { name: "Kinmen County", coordinates: [118.155, 24.67], size: [50, 50] },
-    { name: "Lienchiang County", coordinates: [119.74, 26.45], size: [70, 100] },
+    {
+      name: "Lienchiang County",
+      coordinates: [119.74, 26.45],
+      size: [70, 100],
+    },
   ];
 
   // IslandMarker (NOT WORK I DON'T KNOW WHY)
@@ -172,7 +122,10 @@ function PageFive() {
       {/* MAP CHART */}
       <div className="career-page-5__chart-container">
         {/* WORLD MAP CHART */}
-        <ComposableMap onMouseMove={handleMouseMove} className="composable-map-style">
+        <ComposableMap
+          onMouseMove={handleMouseMove}
+          className="composable-map-style"
+        >
           <ZoomableGroup zoom={1}>
             <Geographies geography={WorldMap}>
               {({ geographies }) =>
@@ -187,12 +140,24 @@ function PageFive() {
                       strokeWidth="0.5"
                       // MOUSE EVENTS
                       onMouseEnter={() => {
-                        hoverArea(currentContinent, setContinentData, continentData);
+                        hoverArea(
+                          currentContinent,
+                          setContinentData,
+                          continentData
+                        );
                       }}
                       onMouseLeave={() => {
-                        unHoverArea(currentContinent, setContinentData, continentData);
+                        unHoverArea(
+                          currentContinent,
+                          setContinentData,
+                          continentData
+                        );
                       }}
-                      className={continentData[currentContinent].isHover ? "geographies-style--hover" : "geographies-style--default"}
+                      className={
+                        continentData[currentContinent].isHover
+                          ? "geographies-style--hover"
+                          : "geographies-style--default"
+                      }
                     />
                   );
                 })
@@ -214,19 +179,32 @@ function PageFive() {
               {({ geographies }) =>
                 geographies.map((geo, index) => {
                   const currentTaiwanArea = geo.properties.area;
+
                   return (
                     <Geography
-                      id={index}
+                      id={currentTaiwanArea}
                       key={geo.rsmKey}
                       geography={geo}
                       fill={taiwanAreaData[currentTaiwanArea].fillColor}
-                      className={taiwanAreaData[currentTaiwanArea].isHover ? "geographies-style--hover" : "geographies-style--default"}
+                      className={
+                        taiwanAreaData[currentTaiwanArea].isHover
+                          ? "geographies-style--hover"
+                          : "geographies-style--default"
+                      }
                       /* MOUSE EVENTS */
                       onMouseEnter={() => {
-                        hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
+                        hoverArea(
+                          currentTaiwanArea,
+                          setTaiwanAreaData,
+                          taiwanAreaData
+                        );
                       }}
                       onMouseLeave={() => {
-                        unHoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
+                        unHoverArea(
+                          currentTaiwanArea,
+                          setTaiwanAreaData,
+                          taiwanAreaData
+                        );
                       }}
                     />
                   );
@@ -239,6 +217,7 @@ function PageFive() {
               ))} */}
             {islandMarkerData.map((data, index) => (
               <Marker
+                key={"Marker-" + index.toString()}
                 coordinates={data.coordinates}
                 onMouseEnter={() => {
                   hoverArea(data.name, setTaiwanAreaData, taiwanAreaData);
@@ -261,7 +240,7 @@ function PageFive() {
           </ZoomableGroup>
         </ComposableMap>
       </div>
-      <ScrollToTopBtn theme={"3"} themeName={"career"} />
+      <ScrollToTopBtn theme={"3"} topRef={topRef} />
     </div>
   );
 }

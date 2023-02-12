@@ -73,77 +73,251 @@
       }
     ]
   },
-  "careerInfo": {
-    "name": "建築營造類",
-    "description": "針對建築物及其實質環境，進行生產及作業之調查測量、規劃、組織、指導、協調、管制及考核等管理，並代辦申請建築許可、拆除執照、招商投標、擬定施工契約及其他工程上接洽事項之相關建築或營造工作。",
-    "subTypes": ["建築規劃設計", "營造及維護"],
-    "areas": [
-      { "id": "", "name": "國內", "percentage": 75 },
-      { "id": "", "name": "國外", "percentage": 25 }
-    ]
-  },
-  "genderData": [
-    {
-      "name": "男",
-      "percentage": [65, 35]
-    },
-    {
-      "name": "女",
-      "percentage": [35, 65]
-    }
-  ],
-  "salaryData": [
-    {
-      "id": "",
-      "name": "學士",
-      "range": [
-        [31, 34],
-        [31, 34]
+  "career": {
+    "careerInfo": {
+      "name": "藝文與影音傳播類",
+      "description": "規劃設計、製作、展出表演和出版藝文及影音相關作品，包括視覺設計、通訊傳播、表演藝術、印刷出版、新聞電視廣播及電影、包裝說明、工藝設計等。",
+      "subTypes": [
+        { "id": "c1-t1", "name": "影視傳播" },
+        { "id": "c1-t2", "name": "印刷出版" },
+        { "id": "c1-t3", "name": "視覺藝術" },
+        { "id": "c1-t4", "name": "表演藝術" },
+        { "id": "c1-t5", "name": "新聞傳播" },
+        { "id": "c1-t6", "name": "通訊傳播" },
+        { "id": "c1-t7", "name": "設計產業阿阿阿阿阿" }
+      ],
+      "areas": [
+        { "id": "areaDomestic", "name": "國內", "percentage": 75 },
+        { "id": "areaForeign", "name": "國外", "percentage": 25 }
       ]
     },
-    {
-      "id": "",
-      "name": "碩士",
-      "range": [
-        [100, 110],
-        [100, 110]
-      ]
-    },
-    {
-      "id": "",
-      "name": "博士",
-      "range": [
-        [500, 1000],
-        [500, 1000]
-      ]
-    }
-  ],
-  "continentData": {
-    "China": {
-      "name": "亞洲（香港、澳門、大陸地區）",
-      "percentage": 95,
-      "fillColor": "blue",
-      "isHover": false
-    },
-    "Asia(Taiwan)": {
-      "name": "亞洲（香港、澳門、大陸地區以外國家",
-      "percentage": 0,
-      "fillColor": "black",
-      "isHover": false
-    }
-  },
-  "taiwanAreaData": {
-    "Keelung City": {
-      "name": "基隆市",
-      "percentage": 95,
-      "fillColor": "blue",
-      "isHover": false
-    },
-    "New Taipei City": {
-      "name": "新北市",
-      "percentage": 0,
-      "fillColor": "black",
-      "isHover": false
+    "genderData": [
+      {
+        "name": "男",
+        "percentage": [65, 35]
+      },
+      {
+        "name": "女",
+        "percentage": [35, 65]
+      }
+    ],
+    "salaryData": [
+      {
+        "id": "salary-bachelor",
+        "name": "學士",
+        "range": [
+          [31, 34],
+          [100, 110]
+        ]
+      },
+      {
+        "id": "salary-master",
+        "name": "碩士",
+        "range": [
+          [100, 110],
+          [500, 1000]
+        ]
+      },
+      {
+        "id": "salary-doctor",
+        "name": "博士",
+        "range": [
+          [500, 1000],
+          [500, 1000]
+        ]
+      }
+    ],
+    "mapData": {
+      "continentData": {
+        "China": {
+          "name": "亞洲（香港、澳門、大陸地區）",
+          "percentage": 40,
+          "fillColor": "#1BD1E9",
+          "isHover": false
+        },
+        "Asia(Taiwan)": {
+          "name": "臺灣",
+          "percentage": 0,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Asia": {
+          "name": "亞洲（香港、澳門、大陸地區以外國家）",
+          "percentage": 30,
+          "fillColor": "#6DE3F2",
+          "isHover": false
+        },
+        "Africa": {
+          "name": "非洲",
+          "percentage": 10,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "Australia": {
+          "name": "大洋洲",
+          "percentage": 3,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "Europe": {
+          "name": "歐洲",
+          "percentage": 2,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "North America": {
+          "name": "北美洲",
+          "percentage": 2,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "Central America": {
+          "name": "中美洲",
+          "percentage": 1,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "South America": {
+          "name": "南美洲",
+          "percentage": 2,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        }
+      },
+      "taiwanAreaData": {
+        "Keelung City": {
+          "name": "基隆市",
+          "percentage": 5,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "New Taipei City": {
+          "name": "新北市",
+          "percentage": 15,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "Taipei City": {
+          "name": "臺北市",
+          "percentage": 30,
+          "fillColor": "#6DE3F2",
+          "isHover": false
+        },
+        "Taoyuan City": {
+          "name": "桃園市",
+          "percentage": 5,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Hsinchu County": {
+          "name": "新竹縣",
+          "percentage": 5,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Hsinchu City": {
+          "name": "新竹市",
+          "percentage": 6,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Miaoli County": {
+          "name": "苗栗縣",
+          "percentage": 1,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Taichung City": {
+          "name": "臺中市",
+          "percentage": 13,
+          "fillColor": "#ADEFF7",
+          "isHover": false
+        },
+        "Nantou County": {
+          "name": "南投縣",
+          "percentage": 1,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Changhua County": {
+          "name": "彰化縣",
+          "percentage": 1,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Yunlin County": {
+          "name": "雲林縣",
+          "percentage": 1,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Chiayi County": {
+          "name": "嘉義縣",
+          "percentage": 0.5,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Chiayi City": {
+          "name": "嘉義市",
+          "percentage": 0.5,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Tainan City": {
+          "name": "臺南市",
+          "percentage": 6,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Kaohsiung City": {
+          "name": "高雄市",
+          "percentage": 8,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Pingtung County": {
+          "name": "屏東縣",
+          "percentage": 2,
+          "fillColor": "#D8EFF2",
+          "isHover": false
+        },
+        "Taitung County": {
+          "name": "臺東縣",
+          "percentage": 0,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Hualien County": {
+          "name": "花蓮縣",
+          "percentage": 0,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Yilan County": {
+          "name": "宜蘭縣",
+          "percentage": 0,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Lienchiang County": {
+          "name": "連江縣",
+          "percentage": 0,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Kinmen County": {
+          "name": "金門縣",
+          "percentage": 0,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        },
+        "Penghu County": {
+          "name": "澎湖縣",
+          "percentage": 0,
+          "fillColor": "#EAEAEA",
+          "isHover": false
+        }
+      }
     }
   }
 }
