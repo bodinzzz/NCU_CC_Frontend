@@ -31,6 +31,7 @@ function Dropdown({ options, selectedValue, setSelectedValue }) {
               <div
                 className="dropdown__items__item"
                 onClick={() => toggleDropdown(index)}
+                key={option.id}
               >
                 {options[index].name}
               </div>

@@ -79,7 +79,7 @@ function Chart({ data }) {
   );
 }
 
-function PageThree({ data }) {
+function PageThree({ data, topRef }) {
   const otherData = [
     {
       id: "f3-1",
@@ -142,7 +142,7 @@ function PageThree({ data }) {
         </div>
         <Chart data={otherData} />
       </div>
-      <ScrollToTopBtn theme={"1"} themeName={"future"} />
+      <ScrollToTopBtn theme={"1"} topRef={topRef} />
     </div>
   );
 }

@@ -17,60 +17,62 @@
       "percentage": 10
     }
   ],
-  "disciplineData": [
-    {
-      "name": "商業及管理學門",
-      "percentage": 52,
-      "fillColor": "#789EE7"
-    },
-    {
-      "name": "社會及行為科學學門",
-      "percentage": 18,
-      "fillColor": "#AAC7FF"
-    },
-    {
-      "name": "物理、化學及地球科學學門",
-      "percentage": 16,
-      "fillColor": "#D4E2FC"
-    },
-    {
-      "name": "資訊通訊科技學門",
-      "percentage": 5,
-      "fillColor": "#E4E4E4"
-    },
-    {
-      "name": "新聞學及圖書資訊學門",
-      "percentage": 9,
-      "fillColor": "#E4E4E4"
-    }
-  ],
-  "jobData": [
-    {
-      "name": "資訊科技類",
-      "percentage": 40,
-      "fillColor": "#789EE7"
-    },
-    {
-      "name": "科學、技術、工程、數學類",
-      "percentage": 30,
-      "fillColor": "#AAC7FF"
-    },
-    {
-      "name": "製造類",
-      "percentage": 10,
-      "fillColor": "#D4E2FC"
-    },
-    {
-      "name": "藝文與影音傳播類",
-      "percentage": 5,
-      "fillColor": "#E4E4E4"
-    },
-    {
-      "name": "行銷與銷售類",
-      "percentage": 5,
-      "fillColor": "#E4E4E4"
-    }
-  ],
+  "graduated": {
+    "disciplineData": [
+      {
+        "name": "商業及管理學門",
+        "percentage": 52,
+        "fillColor": "#789EE7"
+      },
+      {
+        "name": "社會及行為科學學門",
+        "percentage": 18,
+        "fillColor": "#AAC7FF"
+      },
+      {
+        "name": "物理、化學及地球科學學門",
+        "percentage": 16,
+        "fillColor": "#D4E2FC"
+      },
+      {
+        "name": "資訊通訊科技學門",
+        "percentage": 5,
+        "fillColor": "#E4E4E4"
+      },
+      {
+        "name": "新聞學及圖書資訊學門",
+        "percentage": 9,
+        "fillColor": "#E4E4E4"
+      }
+    ],
+    "jobData": [
+      {
+        "name": "資訊科技類",
+        "percentage": 40,
+        "fillColor": "#789EE7"
+      },
+      {
+        "name": "科學、技術、工程、數學類",
+        "percentage": 30,
+        "fillColor": "#AAC7FF"
+      },
+      {
+        "name": "製造類",
+        "percentage": 10,
+        "fillColor": "#D4E2FC"
+      },
+      {
+        "name": "藝文與影音傳播類",
+        "percentage": 5,
+        "fillColor": "#E4E4E4"
+      },
+      {
+        "name": "行銷與銷售類",
+        "percentage": 5,
+        "fillColor": "#E4E4E4"
+      }
+    ]
+  },
   "careerInfo": {
     "name": "建築營造類",
     "description": "針對建築物及其實質環境，進行生產及作業之調查測量、規劃、組織、指導、協調、管制及考核等管理，並代辦申請建築許可、拆除執照、招商投標、擬定施工契約及其他工程上接洽事項之相關建築或營造工作。",

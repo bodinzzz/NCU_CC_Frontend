@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Future.scss";
 import PageOne from "../components/future/PageOne";
 import PageTwo from "../components/future/PageTwo";
@@ -11,6 +11,8 @@ function Future() {
   const [selectedDepartment, setSelectedDepartment] = useState(0);
   const [selectedDegree, setSelectedDegree] = useState(0);
   const [selectedYear, setSelectedYear] = useState(0);
+  const scrollRef = useRef(null);
+  const topRef = useRef(null);
 
   // Reset shouldFetch to false after submit
   const [shouldFetch, setShouldFetch] = useState(false);
@@ -20,7 +22,7 @@ function Future() {
     }
   }, [shouldFetch]);
 
-  // fetch data after submit
+  // Fetch data after submit
   const { data, isLoading } = useFetch(
     shouldFetch
       ? // ? "http://localhost:5000/workingStatusData/" +
@@ -40,9 +42,16 @@ function Future() {
     setSelectedDepartment(0);
   }, [selectedCollege]);
 
+  // Scroll to page2 after data is fetched
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView();
+    }
+  }, [data]);
+
   return (
     <div className="future scroll-container">
-      <div className="future__section-1" id="future__section-1">
+      <div className="future__section-1" id="future__section-1" ref={topRef}>
         <PageOne
           selectedCollege={selectedCollege}
           selectedDepartment={selectedDepartment}
@@ -60,7 +69,11 @@ function Future() {
       {/* Show PageTwo & PageThree after submit */}
       {data && !isLoading && (
         <>
-          <div className="future__section-2" id="future__section-2">
+          <div
+            className="future__section-2"
+            id="future__section-2"
+            ref={scrollRef}
+          >
             <PageTwo
               selectedCollege={selectedCollege}
               selectedDepartment={selectedDepartment}
@@ -76,6 +89,7 @@ function Future() {
                 selectedDepartment={selectedDepartment}
                 selectedDegree={selectedDegree}
                 data={data}
+                topRef={topRef}
               />
             </div>
           )}

@@ -1,40 +1,44 @@
-import { useState, useEffect } from "react";
 import "./PageOne.scss";
 import InputLabel from "../elements/InputLabel";
 import SubmitBtn from "../elements/SubmitBtn";
 import Dropdown from "../elements/Dropdown";
 import Colleges from "../../constant/Colleges.json";
 
-function PageOne() {
-  // SELECTED DATA (College、Department)
-  const [selectedCollege, setSelectedCollege] = useState(0);
-  const [selectedDepartment, setSelectedDepartment] = useState(0);
-
-  // API Call
-  useEffect(() => {
-    setSelectedDepartment(0);
-  }, [selectedCollege]);
-
+function PageOne({
+  selectedCollege,
+  selectedDepartment,
+  setSelectedCollege,
+  setSelectedDepartment,
+  onSubmit,
+}) {
   return (
     <div className="graduated-page-1">
       <div className="graduated-page-1__title">畢業後在做什麼</div>
 
       <div className="graduated-page-1__inputContainers">
-        {/* INOUT 1 - COLLEGES */}
+        {/* Input for college */}
         <div className="graduated-page-1__inputContainer">
           <InputLabel text={"學院"} theme={"2"} />
-          <Dropdown options={Colleges} selectedValue={selectedCollege} setSelectedValue={setSelectedCollege} />
+          <Dropdown
+            options={Colleges}
+            selectedValue={selectedCollege}
+            setSelectedValue={setSelectedCollege}
+          />
         </div>
 
-        {/* INOUT 2 - DEPARTMENT */}
+        {/* Input for department */}
         <div className="graduated-page-1__inputContainer">
           <InputLabel text={"系所"} theme={"2"} />
-          <Dropdown options={Colleges[selectedCollege].departments} selectedValue={selectedDepartment} setSelectedValue={setSelectedDepartment} />
+          <Dropdown
+            options={Colleges[selectedCollege].departments}
+            selectedValue={selectedDepartment}
+            setSelectedValue={setSelectedDepartment}
+          />
         </div>
       </div>
 
-      {/* SUBMIT BUTTON */}
-      <SubmitBtn theme={"2"} />
+      {/* Submit button */}
+      <SubmitBtn theme={"2"} onSubmit={onSubmit} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Graduated.scss";
 import PageOne from "../components/graduated/PageOne";
 import PageTwo from "../components/graduated/PageTwo";
@@ -6,6 +6,17 @@ import PageThree from "../components/graduated/PageThree";
 import useFetch from "../hooks/useFetch";
 
 function Graduated() {
+  // SELECTED DATA (College、Department)
+  const [selectedCollege, setSelectedCollege] = useState(0);
+  const [selectedDepartment, setSelectedDepartment] = useState(0);
+  const scrollRef = useRef(null);
+  const topRef = useRef(null);
+
+  // Reset department when college changes
+  useEffect(() => {
+    setSelectedDepartment(0);
+  }, [selectedCollege]);
+
   // Reset shouldFetch to false after submit
   const [shouldFetch, setShouldFetch] = useState(false);
   useEffect(() => {
@@ -14,22 +25,49 @@ function Graduated() {
     }
   }, [shouldFetch]);
 
-  // fetch data after submit
+  // Fetch data after submit
   const { data, isLoading } = useFetch(
-    shouldFetch ? "http://localhost:5000/disciplineData/" : null
+    shouldFetch ? "http://localhost:5000/graduated/" : null
   );
+
+  // Scroll to page2 after data is fetched
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView();
+    }
+  }, [data]);
 
   return (
     <div className="graduated scroll-container">
-      <div className="graduated__section-1" id="graduated__section-1">
-        <PageOne />
+      <div
+        className="graduated__section-1"
+        id="graduated__section-1"
+        ref={topRef}
+      >
+        <PageOne
+          selectedCollege={selectedCollege}
+          selectedDepartment={selectedDepartment}
+          setSelectedCollege={setSelectedCollege}
+          setSelectedDepartment={setSelectedDepartment}
+          onSubmit={() => {
+            setShouldFetch(true);
+          }}
+        />
       </div>
-      <div className="graduated__section-2" id="graduated__section-2">
-        <PageTwo />
-      </div>
-      <div className="graduated__section-3" id="graduated__section-3">
-        <PageThree />
-      </div>
+      {data && !isLoading && (
+        <>
+          <div
+            className="graduated__section-2"
+            id="graduated__section-2"
+            ref={scrollRef}
+          >
+            <PageTwo data={data.disciplineData} />
+          </div>
+          <div className="graduated__section-3" id="graduated__section-3">
+            <PageThree data={data.jobData} topRef={topRef} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

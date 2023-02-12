@@ -24,19 +24,19 @@ function Career() {
   return (
     <div className="career scroll-container">
       <div className="career__section-1" id="career__section-1">
-        <PageOne />
+        <PageOne data={data} />
       </div>
       <div className="career__section-2" id="career__section-2">
-        <PageTwo />
+        <PageTwo data={data} />
       </div>
       <div className="career__section-3" id="career__section-3">
-        <PageThree />
+        <PageThree data={data} />
       </div>
       <div className="career__section-4" id="career__section-4">
-        <PageFour />
+        <PageFour data={data} />
       </div>
       <div className="career__section-5" id="career__section-5">
-        <PageFive />
+        <PageFive data={data} />
       </div>
     </div>
   );
