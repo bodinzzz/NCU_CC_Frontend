@@ -1,22 +1,51 @@
 {
   "questionnaireAmount": [],
-  "workingStatusData": [
-    {
-      "id": "1",
-      "name": "升學",
-      "percentage": 60
-    },
-    {
-      "id": "2",
-      "name": "就業",
-      "percentage": 30
-    },
-    {
-      "id": "3",
-      "name": "其他",
-      "percentage": 10
-    }
-  ],
+  "future": {
+    "workingStatusData": [
+      {
+        "id": "a",
+        "name": "繼續升學",
+        "percentage": 60
+      },
+      {
+        "id": "b",
+        "name": "就業",
+        "percentage": 30
+      },
+      {
+        "id": "c",
+        "name": "其他道路",
+        "percentage": 10
+      }
+    ],
+    "otherData": [
+      {
+        "id": "f3-1",
+        "name": "備考",
+        "percentage": 16
+      },
+      {
+        "id": "f3-2",
+        "name": "服役",
+        "percentage": 18
+      },
+      {
+        "id": "f3-3",
+        "name": "待業",
+        "percentage": 15
+      },
+      {
+        "id": "f3-4",
+        "name": "家管",
+        "percentage": 9
+      },
+      {
+        "id": "f3-5",
+        "name": "其他",
+        "percentage": 24
+      }
+    ]
+  },
   "graduated": {
     "disciplineData": [
       {

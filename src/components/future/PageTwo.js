@@ -74,12 +74,12 @@ function PageTwo({ data }) {
         </span>
       </div>
       <div className="future-page-2__chart">
-        {workingStatusData.map((data, index) => (
+        {data.map((workingStatusInfo, index) => (
           <ChartElement
-            data={data}
+            data={workingStatusInfo}
             index={(index + 1).toString()}
             element={element[index]}
-            key={data.id}
+            key={workingStatusInfo.id}
           />
         ))}
       </div>

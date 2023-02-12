@@ -25,7 +25,7 @@ function Future() {
   // Fetch data after submit
   const { data, isLoading } = useFetch(
     shouldFetch
-      ? // ? "http://localhost:5000/workingStatusData/" +
+      ? // ? "http://localhost:5000/future/" +
         //     selectedCollege +
         //     "/" +
         //     selectedDepartment +
@@ -33,7 +33,7 @@ function Future() {
         //     selectedDegree +
         //     "/" +
         //     selectedYear
-        "http://localhost:5000/workingStatusData/"
+        "http://localhost:5000/future/"
       : null
   );
 
@@ -78,7 +78,7 @@ function Future() {
               selectedCollege={selectedCollege}
               selectedDepartment={selectedDepartment}
               selectedDegree={selectedDegree}
-              data={data}
+              data={data.workingStatusData}
             />
           </div>
           {/* Show PageThree only if graduate year equals to 1 */}
@@ -88,7 +88,7 @@ function Future() {
                 selectedCollege={selectedCollege}
                 selectedDepartment={selectedDepartment}
                 selectedDegree={selectedDegree}
-                data={data}
+                data={data.otherData}
                 topRef={topRef}
               />
             </div>

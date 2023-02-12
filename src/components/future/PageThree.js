@@ -140,7 +140,7 @@ function PageThree({ data, topRef }) {
             );
           })}
         </div>
-        <Chart data={otherData} />
+        <Chart data={data} />
       </div>
       <ScrollToTopBtn theme={"1"} topRef={topRef} />
     </div>
