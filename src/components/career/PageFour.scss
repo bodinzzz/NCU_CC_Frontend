@@ -3,15 +3,6 @@
 @import "../../styles/index";
 @import "../../styles/breakpoints";
 
-// @mixin flex-direction-reverse($direction) {
-//   @include breakpoint(tablet) {
-//     flex-direction: $direction;
-//   }
-//   @include breakpoint(mobile) {
-//     flex-direction: $direction;
-//   }
-// }
-
 .career-page-4 {
   @extend %flex-row-center;
   width: 100%;
@@ -22,7 +13,7 @@
     // width: 40%;
 
     &__title {
-      @include chart-title-basic;
+      @include chart-title-basic($theme-3-primary-color);
     }
   }
 
@@ -37,6 +28,7 @@
       margin: 0 0 $m-sm $m-sm;
       background-color: rgba(255, 255, 255, 0.5);
       border-radius: $border-sm;
+      box-shadow: $box-shadow-block;
       @include flex-direction-switch(row, row);
       &__title {
         @extend %flex-center;
@@ -50,21 +42,26 @@
           font-weight: bold;
         }
       }
+      &__data-container {
+        @extend %flex-col-center;
+      }
       &__data {
         @extend %flex-row-start;
         width: 100%;
-        @include flex-direction-switch(column, column);
-      }
-      &__label {
-        padding: $p-xxs;
-        font-size: $font-sm;
-        color: $text-primary-color;
-        font-weight: bold;
-      }
-      &__range {
-        padding: $p-xs;
-        font-size: $font-sm;
-        color: $text-primary-color;
+        &__label {
+          padding: $p-xxs;
+          font-size: $font-sm;
+          color: $text-primary-color;
+          font-weight: bold;
+        }
+        &__range {
+          padding: $p-xs;
+          font-size: $font-sm;
+          color: $text-primary-color;
+          @include breakpoint(mobile) {
+            padding: $p-xxs;
+          }
+        }
       }
     }
   }

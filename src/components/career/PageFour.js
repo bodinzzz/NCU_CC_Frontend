@@ -1,21 +1,11 @@
 import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
-  Cell,
-  Tooltip,
-  LabelList,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, Tooltip, LabelList } from "recharts";
 import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import MoneyBagImg from "../../assets/image/Career/MoneyBagImg.svg";
 import "./PageFour.scss";
 import SourceTooltip from "../elements/SourceTooltip";
 import ChartTooltip from "../elements/ChartTooltip.js";
-import ScrollPageNav from "../elements/ScrollPageNav";
 
 // function Chart({ data }) {
 //   return (
@@ -57,58 +47,39 @@ function PageFour({ data }) {
 
   return (
     <div className="career-page-4">
-      {/* <ScrollPageNav nowPage={4} /> */}
       {/* SALARY CHART */}
       <div className="career-page-4__chart-container">
         <div className="career-page-4__chart-container__title">
           <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
           <span>
-            建築營造類
+            <strong>建築營造類</strong>
             <br /> 職場新鮮人月薪中位數 級距(畢滿一年)
           </span>
         </div>
         <div className="career-page-4__salary-chart">
           {data.map((salaryInfo) => (
-            <div
-              className="career-page-4__salary-chart__element"
-              key={salaryInfo.id}
-            >
+            <div className="career-page-4__salary-chart__element" key={salaryInfo.id}>
               <div className="career-page-4__salary-chart__element__title">
                 <img src={MoneyBagImg} alt="MoneyBagImg" />
                 <span>{salaryInfo.name}</span>
               </div>
-              <div className="career-page-4__salary-chart__element__data">
-                <div className="career-page-4__salary-chart__element__label">
-                  國內
+              <div className="career-page-4__salary-chart__element__data-container">
+                <div className="career-page-4__salary-chart__element__data">
+                  <div className="career-page-4__salary-chart__element__data__label">國內</div>
+                  <div className="career-page-4__salary-chart__element__data__range">
+                    {salaryInfo.range[0][0]}K - {salaryInfo.range[0][0]}K
+                  </div>
                 </div>
-                <div className="career-page-4__salary-chart__element__range">
-                  {salaryInfo.range[0][0]}K - {salaryInfo.range[0][0]}K
-                </div>
-              </div>
-              <div className="career-page-4__salary-chart__element__data">
-                <div className="career-page-4__salary-chart__element__label">
-                  國外
-                </div>
-                <div className="career-page-4__salary-chart__element__range">
-                  {salaryInfo.range[1][0]}K - {salaryInfo.range[1][0]}K
+                <div className="career-page-4__salary-chart__element__data">
+                  <div className="career-page-4__salary-chart__element__data__label">國外</div>
+                  <div className="career-page-4__salary-chart__element__data__range">
+                    {salaryInfo.range[1][0]}K - {salaryInfo.range[1][0]}K
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        {/* <div className="career-page-4__salary-chart">
-          <div className="career-page-4__salary-chart__labels">
-            {data.map((salary, index) => (
-              <div className="career-page-4__salary-chart__labels__label" key={salary.id}>
-                <div className="career-page-4__salary-chart__labels__label__name">{salary.name}</div>
-                <div className="career-page-4__salary-chart__labels__label__range">
-                  {salary.range[0]}K-{salary.range[1]}K
-                </div>
-              </div>
-            ))}
-          </div>
-          <Chart data={data} />
-        </div> */}
       </div>
     </div>
   );

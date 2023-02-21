@@ -44,15 +44,10 @@ function ScrollPageNav({ nowPage }) {
               scrollToTop(element.sectionNum);
             }}
             key={index}
-            className="scroll-page-nav__menu"
-          >
-            <div className="scroll-page-nav__menu__link">
-              <img src={element.img} />
-            </div>
-          </div>
+            className={nowPage === index ? "scroll-page-nav__link--active" : "scroll-page-nav__link--inactive"}
+          ></div>
         );
       })}
-      <div>{nowPage}</div>
     </div>
   );
 }

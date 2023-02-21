@@ -4,12 +4,27 @@
 
 .scroll-page-nav {
   position: absolute;
+  top: 40%;
   right: 1.5em;
-  background-color: antiquewhite;
+  // background-color: antiquewhite;
+  z-index: 100;
 
-  &__menu {
-    &__link {
-      background-color: $white-color;
+  &__link--active {
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    border-radius: $border-lg;
+    background-color: $theme-3-primary-color;
+  }
+  &__link--inactive {
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    border-radius: $border-lg;
+    background-color: $unselected-color;
+    cursor: pointer;
+    &:hover {
+      background-color: $theme-3-primary-color;
     }
   }
 }

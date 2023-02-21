@@ -106,14 +106,10 @@ function PageTwo({ data }) {
       <div className="graduated-page-2__title">
         <SourceTooltip icon={InfoThemeTwoIcon} text={tooltipText} />
         <span>
-          工學院 軟體工程研究所
+          <strong>工學院 軟體工程研究所</strong>
           <br /> 畢業生繼續升學的領域 :
         </span>
-        <a
-          className="graduated-page-2__title__ref-link"
-          href="https://ulist.moe.gov.tw/Query/Discipline"
-          target="_blank"
-        >
+        <a className="graduated-page-2__title__ref-link" href="https://ulist.moe.gov.tw/Query/Discipline" target="_blank">
           <span>學門參考</span>
           <img src={LinkIcon} alt="LinkIcon" />
         </a>

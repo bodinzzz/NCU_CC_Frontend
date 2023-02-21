@@ -20,6 +20,9 @@
     font-size: $font-xs;
   }
   @content;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .submit-btn {

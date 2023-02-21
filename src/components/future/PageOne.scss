@@ -4,7 +4,7 @@
 @import "../../styles/breakpoints";
 
 .future-page-1 {
-  @extend %flex-col-start;
+  @extend %flex-col-center;
   height: 80vh;
 
   &__title {

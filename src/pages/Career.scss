@@ -6,24 +6,92 @@
   &__section-1 {
     @include scroll-section;
     @extend %flex-row-center;
+    background: transparent;
+    z-index: 1;
   }
 
   &__section-2 {
     @include scroll-section;
     @extend %flex-row-center;
+    background: transparent;
+    z-index: 1;
   }
 
   &__section-3 {
     @include scroll-section;
     @extend %flex-row-center;
+    background: transparent;
+    z-index: 1;
   }
 
   &__section-4 {
     @include scroll-section;
     @extend %flex-row-center;
+    background: transparent;
+    z-index: 1;
   }
   &__section-5 {
     @include scroll-section;
     @extend %flex-row-center;
+    background: transparent;
+    z-index: 1;
+  }
+
+  &__background--1 {
+    position: absolute;
+    width: 30vw;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+  }
+  &__background--2 {
+    position: absolute;
+    width: 15vw;
+    top: 70%;
+    right: 5%;
+  }
+  &__background--3 {
+    position: absolute;
+    width: 25vw;
+    top: 100%;
+    left: 2%;
+    opacity: 0.6;
+  }
+  &__background--4 {
+    position: absolute;
+    width: 25vw;
+    top: 120%;
+    right: 2%;
+    opacity: 0.6;
+    rotate: 180deg;
+  }
+  &__background--5 {
+    position: absolute;
+    width: 25vw;
+    top: 230%;
+    left: 7%;
+    rotate: 10deg;
+  }
+  &__background--male {
+    position: absolute;
+    width: 25vw;
+    top: 230%;
+    left: 7%;
+    opacity: 0.2;
+    // rotate: 20deg;
+    // font-size: 300px;
+    // font-weight: 1200;
+    // color: $theme-3-secondary-color;
+  }
+  &__background--female {
+    position: absolute;
+    width: 25vw;
+    top: 210%;
+    right: 10%;
+    opacity: 0.2;
+    // rotate: -30deg;
+    // font-size: 300px;
+    // font-weight: bolder(1200);
+    // color: $theme-3-secondary-color;
   }
 }

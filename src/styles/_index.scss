@@ -8,17 +8,19 @@
   @content;
 }
 
-@mixin chart-title-basic {
+@mixin chart-title-basic($theme-color) {
   @extend %flex-center;
 
   span {
     color: $text-primary-color;
     font-size: $font-md;
-    font-weight: bold;
     padding: $p-xs;
     text-align: center;
     br {
       display: none;
+    }
+    strong {
+      color: $theme-color;
     }
 
     @include breakpoint(tablet) {

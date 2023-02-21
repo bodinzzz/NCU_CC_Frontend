@@ -14,7 +14,7 @@ function PageThree({ data, topRef }) {
       <div className="graduated-page-3__title">
         <SourceTooltip icon={InfoThemeTwoIcon} text={tooltipText} />
         <span>
-          工學院 軟體工程研究所
+          <strong>工學院 軟體工程研究所</strong>
           <br /> 各系所畢業生職務類型 :
         </span>
       </div>

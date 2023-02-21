@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 @import "../../styles/layout";
+@import "../../styles/breakpoints";
 
 @mixin scroll-to-top-btn($bg-color) {
   @extend %flex-row-center;
@@ -12,6 +13,13 @@
   cursor: pointer;
   background-color: $bg-color;
   @content;
+  @include breakpoint(tablet) {
+    font-size: $font-xs;
+    padding: $p-xxxs $p-xs;
+  }
+  @include breakpoint(tablet) {
+    font-size: $font-xs;
+  }
 
   &:hover {
     opacity: 0.7;

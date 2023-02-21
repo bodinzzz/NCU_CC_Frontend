@@ -57,6 +57,7 @@
       font-size: $font-xs;
       font-weight: bold;
       border-radius: $border-sm;
+      box-shadow: $box-shadow-block;
     }
   }
 
@@ -84,22 +85,22 @@
     }
   }
 
-  &__background-image--left {
-    position: absolute;
-    top: 0.5%;
-    left: 3%;
-    z-index: -1;
-    @include breakpoint(mobile) {
-      left: -20%;
-    }
-  }
-  &__background-image--right {
-    position: absolute;
-    bottom: 0.5%;
-    right: 3%;
-    z-index: -1;
-    @include breakpoint(mobile) {
-      right: -20%;
-    }
-  }
+  // &__background-image--left {
+  //   position: absolute;
+  //   top: 0.5%;
+  //   left: 3%;
+  //   z-index: -1;
+  //   @include breakpoint(mobile) {
+  //     left: -20%;
+  //   }
+  // }
+  // &__background-image--right {
+  //   position: absolute;
+  //   bottom: 0.5%;
+  //   right: 3%;
+  //   z-index: -1;
+  //   @include breakpoint(mobile) {
+  //     right: -20%;
+  //   }
+  // }
 }

@@ -3,20 +3,80 @@
 @import "../styles/scroll";
 
 .future {
-  
   &__section-1 {
     @include scroll-section;
     @extend %flex-row-center;
+    background-color: transparent;
+    z-index: 1;
   }
-  
+
   &__section-2 {
     @include scroll-section;
     @extend %flex-row-center;
-
+    background-color: transparent;
+    z-index: 1;
   }
-  
+
   &__section-3 {
     @include scroll-section;
     @extend %flex-row-center;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  &__background--1 {
+    position: absolute;
+    width: 30vw;
+    top: 50%;
+    right: 0;
+    rotate: 30deg;
+    opacity: 0.6;
+  }
+  &__background--2 {
+    position: absolute;
+    width: 25vw;
+    top: 0;
+    left: 0;
+    rotate: -30deg;
+    opacity: 0.6;
+  }
+  &__background--3 {
+    position: absolute;
+    width: 20vw;
+    top: 110%;
+    right: 20%;
+    opacity: 0.4;
+  }
+  &__background--4 {
+    position: absolute;
+    width: 20vw;
+    top: 160%;
+    right: -5%;
+    opacity: 0.4;
+  }
+  &__background--5 {
+    position: absolute;
+    width: 20vw;
+    top: 210%;
+    left: 0;
+    opacity: 0.4;
+    rotate: 10deg;
+  }
+  &__background--6 {
+    position: absolute;
+    width: 12vw;
+    top: 240%;
+    right: 10%;
+    opacity: 0.4;
+    rotate: 20deg;
+  }
+  &__background--7 {
+    position: absolute;
+    width: 20vw;
+    top: 60%;
+    left: -5%;
+    opacity: 0.4;
+    z-index: -1;
+    rotate: -20deg;
   }
 }

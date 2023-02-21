@@ -15,14 +15,13 @@
   &__radio-btn--selected {
     @extend %radio-btn;
     color: $text-primary-color;
-    // border: 0.8px solid $text-primary-color;
+    border: 1px solid $unselected-color;
     background-color: $white-color;
   }
   &__radio-btn--unselected {
     @extend %radio-btn;
     color: $unselected-color;
-    // border: 0.8px solid $unselected-color;
-    background-color: none;
+    border: 1px solid $unselected-color;
     opacity: 0.7;
     &:hover {
       opacity: 1;
@@ -32,7 +31,7 @@
 }
 %radio-btn {
   @extend %flex-center;
-  // margin: $p-xxxs;
+  margin: $p-xxxs;
   padding: $p-xxs;
   font-size: $font-xs;
   font-weight: bold;

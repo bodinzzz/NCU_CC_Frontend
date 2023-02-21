@@ -1,24 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InfoThemeThreeIcon from "../../assets/icon/InfoThemeThreeIcon.svg";
 import "./PageFive.scss";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-  Marker,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, ZoomableGroup, Marker } from "react-simple-maps";
 import WorldMap from "../../constant/map/WorldMap.json";
 import TaiwanMap from "../../constant/map/TaiwanMap.json";
 import SourceTooltip from "../elements/SourceTooltip";
 import ScrollToTopBtn from "../elements/ScrollToTopBtn";
-import ScrollPageNav from "../elements/ScrollPageNav";
+import RadioBtnGroup from "../elements/RadioBtnGroup";
 import ScrollableBarChart from "../graduated/ScrollableBarChart";
 
 function PageFive({ data, topRef }) {
   const [continentData, setContinentData] = useState(data.continentData);
   const [taiwanAreaData, setTaiwanAreaData] = useState(data.taiwanAreaData);
   const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向調查結果\n學士有效問卷200份(回收率70%)\n碩士有效問卷200份(回收率70%)\n博士有效問卷200份(回收率70%)\n地區分布與男女比為學碩博綜合統計\n畢業滿1.3.5年合併統計`;
+  const [selectedArea, setSelectedArea] = useState(0);
+  const areaOptions = [
+    { id: 0, name: "國內" },
+    { id: 1, name: "國外" },
+  ];
+
+  useEffect(() => {
+    if (selectedArea === 0) {
+      document.getElementById("world-map").style.display = "none";
+      document.getElementById("taiwan-map").style.display = "block";
+    } else {
+      document.getElementById("world-map").style.display = "block";
+      document.getElementById("taiwan-map").style.display = "none";
+    }
+  }, [selectedArea]);
 
   /* CHART TOOLTIP */
 
@@ -40,9 +49,7 @@ function PageFive({ data, topRef }) {
       prev[currentArea].isHover = true;
       return { ...prev };
     });
-    setChartTooltipContent(
-      `${areaData[currentArea].name} : ${areaData[currentArea].percentage}%`
-    );
+    setChartTooltipContent(`${areaData[currentArea].name} : ${areaData[currentArea].percentage}%`);
     setShowTooltip(true);
   };
 
@@ -74,37 +81,6 @@ function PageFive({ data, topRef }) {
     },
   ];
 
-  // IslandMarker (NOT WORK I DON'T KNOW WHY)
-  /*
-  Parameters:
-    name: string  // name of the island
-    coordinates: object
-    size: object // [height, width] of the rect
-  */
-  // function IslandMarker({ name, coordinates, size }) {
-  //   return (
-  //     <Marker
-  //       coordinates={coordinates}
-  //       onMouseEnter={() => {
-  //         hoverArea(name, setTaiwanAreaData, taiwanAreaData);
-  //       }}
-  //       onMouseLeave={() => {
-  //         unHoverArea(name, setTaiwanAreaData, taiwanAreaData);
-  //       }}
-  //     >
-  //       <rect
-  //         style={{
-  //           height: size[0],
-  //           width: size[1],
-  //           stroke: taiwanAreaData[name].fillColor,
-  //           strokeWidth: 5,
-  //           fill: "rgba(248, 248, 248, 0.01)",
-  //         }}
-  //       />
-  //     </Marker>
-  //   );
-  // }
-
   return (
     <div className="career-page-5">
       {/* TOOLTIP */}
@@ -113,19 +89,18 @@ function PageFive({ data, topRef }) {
           {chartTooltipContent}
         </div>
       )}
-      {/* <ScrollPageNav nowPage={5} /> */}
       {/* TITLE */}
       <div className="career-page-5__title">
         <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-        <span>建築營造類 工作地區分布</span>
+        <span>
+          <strong>建築營造類</strong> <br /> 工作地區分布
+        </span>
+        <RadioBtnGroup options={areaOptions} selectedValue={selectedArea} setSelectedValue={setSelectedArea} type={"area"} />
       </div>
       {/* MAP CHART */}
       <div className="career-page-5__chart-container">
         {/* WORLD MAP CHART */}
-        <ComposableMap
-          onMouseMove={handleMouseMove}
-          className="composable-map-style"
-        >
+        <ComposableMap onMouseMove={handleMouseMove} className="composable-map-style" id="world-map">
           <ZoomableGroup zoom={1}>
             <Geographies geography={WorldMap}>
               {({ geographies }) =>
@@ -140,24 +115,12 @@ function PageFive({ data, topRef }) {
                       strokeWidth="0.5"
                       // MOUSE EVENTS
                       onMouseEnter={() => {
-                        hoverArea(
-                          currentContinent,
-                          setContinentData,
-                          continentData
-                        );
+                        hoverArea(currentContinent, setContinentData, continentData);
                       }}
                       onMouseLeave={() => {
-                        unHoverArea(
-                          currentContinent,
-                          setContinentData,
-                          continentData
-                        );
+                        unHoverArea(currentContinent, setContinentData, continentData);
                       }}
-                      className={
-                        continentData[currentContinent].isHover
-                          ? "geographies-style--hover"
-                          : "geographies-style--default"
-                      }
+                      className={continentData[currentContinent].isHover ? "geographies-style--hover" : "geographies-style--default"}
                     />
                   );
                 })
@@ -173,6 +136,7 @@ function PageFive({ data, topRef }) {
           }}
           onMouseMove={handleMouseMove}
           className="composable-map-style"
+          id="taiwan-map"
         >
           <ZoomableGroup zoom={1} center={[120.7, 24]}>
             <Geographies geography={TaiwanMap}>
@@ -186,35 +150,20 @@ function PageFive({ data, topRef }) {
                       key={geo.rsmKey}
                       geography={geo}
                       fill={taiwanAreaData[currentTaiwanArea].fillColor}
-                      className={
-                        taiwanAreaData[currentTaiwanArea].isHover
-                          ? "geographies-style--hover"
-                          : "geographies-style--default"
-                      }
+                      className={taiwanAreaData[currentTaiwanArea].isHover ? "geographies-style--hover" : "geographies-style--default"}
                       /* MOUSE EVENTS */
                       onMouseEnter={() => {
-                        hoverArea(
-                          currentTaiwanArea,
-                          setTaiwanAreaData,
-                          taiwanAreaData
-                        );
+                        hoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
                       }}
                       onMouseLeave={() => {
-                        unHoverArea(
-                          currentTaiwanArea,
-                          setTaiwanAreaData,
-                          taiwanAreaData
-                        );
+                        unHoverArea(currentTaiwanArea, setTaiwanAreaData, taiwanAreaData);
                       }}
                     />
                   );
                 })
               }
             </Geographies>
-            {/* ISLAND MARKER */}
-            {/* {islandMarkerData.map((data, index) => (
-                <IslandMarker name={data.name} coordinates={data.coordinates} size={data.size} key={index} />
-              ))} */}
+
             {islandMarkerData.map((data, index) => (
               <Marker
                 key={"Marker-" + index.toString()}

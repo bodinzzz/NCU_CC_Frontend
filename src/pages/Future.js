@@ -4,6 +4,13 @@ import PageOne from "../components/future/PageOne";
 import PageTwo from "../components/future/PageTwo";
 import PageThree from "../components/future/PageThree";
 import useFetch from "../hooks/useFetch";
+import FutureBgOneImg from "../assets/image/Future/FutureBgOneImg.svg";
+import FutureBgTwoImg from "../assets/image/Future/FutureBgTwoImg.svg";
+import FutureBgThreeImg from "../assets/image/Future/FutureBgThreeImg.svg";
+import FutureBgFourImg from "../assets/image/Future/FutureBgFourImg.svg";
+import FutureBgFiveImg from "../assets/image/Future/FutureBgFiveImg.svg";
+import FutureBgSixImg from "../assets/image/Future/FutureBgSixImg.svg";
+import FutureBgSevenImg from "../assets/image/Future/FutureBgSevenImg.svg";
 
 function Future() {
   // Data
@@ -69,11 +76,7 @@ function Future() {
       {/* Show PageTwo & PageThree after submit */}
       {data && !isLoading && (
         <>
-          <div
-            className="future__section-2"
-            id="future__section-2"
-            ref={scrollRef}
-          >
+          <div className="future__section-2" id="future__section-2" ref={scrollRef}>
             <PageTwo
               selectedCollege={selectedCollege}
               selectedDepartment={selectedDepartment}
@@ -95,6 +98,13 @@ function Future() {
           )}
         </>
       )}
+      <img src={FutureBgOneImg} className="future__background--1" />
+      <img src={FutureBgTwoImg} className="future__background--2" />
+      <img src={FutureBgThreeImg} className="future__background--3" />
+      <img src={FutureBgFourImg} className="future__background--4" />
+      <img src={FutureBgFiveImg} className="future__background--5" />
+      <img src={FutureBgSixImg} className="future__background--6" />
+      <img src={FutureBgSevenImg} className="future__background--7" />
     </div>
   );
 }

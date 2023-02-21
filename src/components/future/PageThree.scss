@@ -15,7 +15,7 @@
   width: 100%;
 
   &__title {
-    @include chart-title-basic;
+    @include chart-title-basic($theme-1-primary-color);
   }
 
   &__chart {

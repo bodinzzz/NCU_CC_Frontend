@@ -39,25 +39,12 @@ const tooltipText = `資料來源 : 中央大學民國109至111年畢業流向�
 */
 function ChartElement({ data, index, element }) {
   return (
-    <div
-      className="future-page-2__chart__element"
-      key={"future-page-2__chart__element" + index}
-    >
-      <img
-        src={element.image}
-        className="future-page-2__chart__element__image"
-        alt={data.name}
-      />
+    <div className="future-page-2__chart__element" key={"future-page-2__chart__element" + index}>
+      <img src={element.image} className="future-page-2__chart__element__image" alt={data.name} />
       <div className="future-page-2__chart__element__info">
         {/* Declare different classes by index */}
-        <div
-          className={
-            "future-page-2__chart__element__info__percentage--" + index
-          }
-        >{`${data.percentage}%`}</div>
-        <div className="future-page-2__chart__element__info__title">
-          {element.title}
-        </div>
+        <div className={"future-page-2__chart__element__info__percentage--" + index}>{`${data.percentage}%`}</div>
+        <div className="future-page-2__chart__element__info__title">{element.title}</div>
       </div>
     </div>
   );
@@ -69,18 +56,13 @@ function PageTwo({ data }) {
       <div className="future-page-2__title">
         <SourceTooltip icon={InfoThemeOneIcon} text={tooltipText} />
         <span>
-          工學院 軟體工程研究所 學士 <br />
+          <strong>工學院 軟體工程研究所 學士</strong> <br />
           在畢滿一年後 :
         </span>
       </div>
       <div className="future-page-2__chart">
         {data.map((workingStatusInfo, index) => (
-          <ChartElement
-            data={workingStatusInfo}
-            index={(index + 1).toString()}
-            element={element[index]}
-            key={workingStatusInfo.id}
-          />
+          <ChartElement data={workingStatusInfo} index={(index + 1).toString()} element={element[index]} key={workingStatusInfo.id} />
         ))}
       </div>
     </div>

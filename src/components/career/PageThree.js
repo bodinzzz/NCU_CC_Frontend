@@ -6,8 +6,9 @@ import MaleImg from "../../assets/image/Career/MaleImg.svg";
 import FemaleImg from "../../assets/image/Career/FemaleImg.svg";
 import "./PageThree.scss";
 import SourceTooltip from "../elements/SourceTooltip";
+import ScrollPageNav from "../elements/ScrollPageNav";
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 // import ChartTooltip from "../elements/ChartTooltip.js";
-// import ScrollPageNav from "../elements/ScrollPageNav";
 // import RadioBtnGroup from "../elements/RadioBtnGroup";
 
 function PageThree({ data }) {
@@ -18,66 +19,58 @@ function PageThree({ data }) {
     const femalePercentageDomestic = data[1].percentage[0] + "%";
     const malePercentageForeign = data[0].percentage[1] + "%";
     const femalePercentageForeign = data[1].percentage[1] + "%";
-
     // Set bar width
-    document.getElementById("male-bar-domestic").style.width =
-      malePercentageDomestic;
-    document.getElementById("female-bar-domestic").style.width =
-      femalePercentageDomestic;
-    document.getElementById("male-bar-foreign").style.width =
-      malePercentageForeign;
-    document.getElementById("female-bar-foreign").style.width =
-      femalePercentageForeign;
+    document.getElementById("male-bar-domestic").style.width = malePercentageDomestic;
+    document.getElementById("female-bar-domestic").style.width = femalePercentageDomestic;
+    document.getElementById("male-bar-foreign").style.width = malePercentageForeign;
+    document.getElementById("female-bar-foreign").style.width = femalePercentageForeign;
   }, []);
 
   return (
     <div className="career-page-3">
+      {/* <ScrollPageNav nowPage={2} /> */}
       {/* GENDER CHART */}
       <div className="career-page-3__chart-container">
         <div className="career-page-3__chart-container__title">
           <SourceTooltip icon={InfoThemeThreeIcon} text={tooltipText} />
-          <span>建築營造類 職務男女比</span>
+          <span>
+            <strong>建築營造類</strong> 職務男女比
+          </span>
         </div>
         <div className="career-page-3__gender-chart">
-          <div className="career-page-3__gender-chart__label">
-            <img src={MaleImg} />
-            <span>男</span>
-          </div>
-          <div className="career-page-3__gender-chart__bar-container">
-            <div className="career-page-3__gender-chart__bar-container__label">
-              <span>{data[0].percentage[0]}%</span>
-              <span>國內</span>
-              <span>{data[1].percentage[0]}%</span>
+          <div className="career-page-3__gender-chart__element">
+            <div className="career-page-3__gender-chart__element__label">
+              <div className="career-page-3__gender-chart__element__label--gender">
+                <img src={MaleImg} />
+                <span>{data[0].percentage[0]}%</span>
+              </div>
+              <div className="career-page-3__gender-chart__element__label--area">國內</div>
+              <div className="career-page-3__gender-chart__element__label--gender">
+                <img src={FemaleImg} />
+                <span>{data[1].percentage[0]}%</span>
+              </div>
             </div>
-            <div className="career-page-3__gender-chart__bar">
-              <div
-                className="career-page-3__gender-chart__bar--male"
-                id="male-bar-domestic"
-              />
-              <div
-                className="career-page-3__gender-chart__bar--female"
-                id="female-bar-domestic"
-              />
-            </div>
-            <div className="career-page-3__gender-chart__bar-container__label">
-              <span>{data[0].percentage[1]}%</span>
-              <span>國外</span>
-              <span>{data[1].percentage[1]}%</span>
-            </div>
-            <div className="career-page-3__gender-chart__bar">
-              <div
-                className="career-page-3__gender-chart__bar--male"
-                id="male-bar-foreign"
-              />
-              <div
-                className="career-page-3__gender-chart__bar--female"
-                id="female-bar-foreign"
-              />
+            <div className="career-page-3__gender-chart__element__bar">
+              <div className="career-page-3__gender-chart__element__bar--male" id="male-bar-domestic" />
+              <div className="career-page-3__gender-chart__element__bar--female" id="female-bar-domestic" />
             </div>
           </div>
-          <div className="career-page-3__gender-chart__label">
-            <img src={FemaleImg} />
-            <span>女</span>
+          <div className="career-page-3__gender-chart__element">
+            <div className="career-page-3__gender-chart__element__label">
+              <div className="career-page-3__gender-chart__element__label--gender">
+                <img src={MaleImg} />
+                <span>{data[0].percentage[1]}%</span>
+              </div>
+              <div className="career-page-3__gender-chart__element__label--area">國外</div>
+              <div className="career-page-3__gender-chart__element__label--gender">
+                <img src={FemaleImg} />
+                <span>{data[1].percentage[1]}%</span>
+              </div>
+            </div>
+            <div className="career-page-3__gender-chart__element__bar">
+              <div className="career-page-3__gender-chart__element__bar--male" id="male-bar-foreign" />
+              <div className="career-page-3__gender-chart__element__bar--female" id="female-bar-foreign" />
+            </div>
           </div>
         </div>
       </div>

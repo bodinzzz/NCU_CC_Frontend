@@ -3,17 +3,58 @@
 @import "../styles/scroll";
 
 .graduated {
+  // background-image: url("../assets/image/BackgroundImg.png");
+  // background-size: repeat;
+  // background-color: green;
   &__section-1 {
     @include scroll-section;
     @extend %flex-row-center;
+    background-color: transparent;
+    z-index: 1;
   }
 
   &__section-2 {
     @include scroll-section;
     @extend %flex-row-center;
+    background-color: transparent;
+    z-index: 1;
   }
 
   &__section-3 {
     @include scroll-section;
+    background-color: transparent;
+    z-index: 1;
+  }
+  &__background--1 {
+    position: absolute;
+    width: 45vw;
+    top: -7%;
+    right: -12%;
+    rotate: 45deg;
+    opacity: 0.5;
+  }
+  &__background--2 {
+    position: absolute;
+    width: 45vw;
+    top: 50%;
+    left: -20%;
+    rotate: 45deg;
+    opacity: 0.5;
+  }
+  &__background--3 {
+    position: absolute;
+    width: 45vw;
+    top: 150%;
+    right: -20%;
+    rotate: -45deg;
+    opacity: 0.5;
+  }
+  &__background--4 {
+    position: absolute;
+    width: 20vw;
+    top: 230%;
+    left: 0;
+    rotate: -30deg;
+    opacity: 0.35;
   }
 }

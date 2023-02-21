@@ -7,7 +7,7 @@
   width: 100%;
 
   &__title {
-    @include chart-title-basic;
+    @include chart-title-basic($theme-2-primary-color);
 
     &__ref-link {
       @extend %flex-center;
