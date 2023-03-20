@@ -38,6 +38,17 @@ function Graduated() {
     }
   }, [data]);
 
+  // const fillColors = ["#FF8E27", "#FFAE63", "#FFC590", "#FFEAD7"];
+  // const setFillColor = (data) => {
+  //   data.map((data, index) => {
+  //     data.fillColor = "red";
+  //   });
+  //   console.log(data);
+  // };
+  // const testData = data;
+  // setFillColor(testData);
+  // console.log(testData);
+
   return (
     <div className="graduated scroll-container">
       <div className="graduated__section-1" id="graduated__section-1" ref={topRef}>
