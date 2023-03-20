@@ -11,10 +11,10 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/future" element={<Future />} />
-        <Route path="/graduated" element={<Graduated />} />
-        <Route path="/career" element={<Career />} />
+        <Route path="/NCU_CC_Frontend/" element={<Home />} />
+        <Route path="/NCU_CC_Frontend/future" element={<Future />} />
+        <Route path="/NCU_CC_Frontend/graduated" element={<Graduated />} />
+        <Route path="/NCU_CC_Frontend/career" element={<Career />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
