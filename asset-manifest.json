@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/NCU_CC_Frontend/static/css/main.b6dcd90c.css",
-    "main.js": "/NCU_CC_Frontend/static/js/main.50647a18.js",
+    "main.js": "/NCU_CC_Frontend/static/js/main.510d3c09.js",
     "static/media/BackgroundImg.png": "/NCU_CC_Frontend/static/media/BackgroundImg.f28b57daf280651ad352.png",
     "static/media/GraduatedBgOneImg.svg": "/NCU_CC_Frontend/static/media/GraduatedBgOneImg.795bc477534aa9b553a79b571fd62183.svg",
     "static/media/ThemeTwoImg.svg": "/NCU_CC_Frontend/static/media/ThemeTwoImg.ba838a85884750d6c459b9be6501e70e.svg",
@@ -53,10 +53,10 @@
     "static/media/labelThemeThreeIcon.svg": "/NCU_CC_Frontend/static/media/labelThemeThreeIcon.67e6d2ac07880fd3e62887eee4a32721.svg",
     "static/media/labelThemeTwoIcon.svg": "/NCU_CC_Frontend/static/media/labelThemeTwoIcon.14110ec092e3635c3ce0efe623d72155.svg",
     "main.b6dcd90c.css.map": "/NCU_CC_Frontend/static/css/main.b6dcd90c.css.map",
-    "main.50647a18.js.map": "/NCU_CC_Frontend/static/js/main.50647a18.js.map"
+    "main.510d3c09.js.map": "/NCU_CC_Frontend/static/js/main.510d3c09.js.map"
   },
   "entrypoints": [
     "static/css/main.b6dcd90c.css",
-    "static/js/main.50647a18.js"
+    "static/js/main.510d3c09.js"
   ]
 }
