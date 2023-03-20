@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/NCU_CC_Frontend/static/css/main.b6dcd90c.css",
-    "main.js": "/NCU_CC_Frontend/static/js/main.e7454e6b.js",
+    "main.js": "/NCU_CC_Frontend/static/js/main.50647a18.js",
     "static/media/BackgroundImg.png": "/NCU_CC_Frontend/static/media/BackgroundImg.f28b57daf280651ad352.png",
     "static/media/GraduatedBgOneImg.svg": "/NCU_CC_Frontend/static/media/GraduatedBgOneImg.795bc477534aa9b553a79b571fd62183.svg",
     "static/media/ThemeTwoImg.svg": "/NCU_CC_Frontend/static/media/ThemeTwoImg.ba838a85884750d6c459b9be6501e70e.svg",
@@ -37,7 +37,6 @@
     "static/media/InfoThemeThreeIcon.svg": "/NCU_CC_Frontend/static/media/InfoThemeThreeIcon.7981bf52c261a048160cf8a4702b6d02.svg",
     "static/media/InfoThemeTwoIcon.svg": "/NCU_CC_Frontend/static/media/InfoThemeTwoIcon.05fa6ad45278bf2699d02943632e69b0.svg",
     "static/media/MenuIcon.svg": "/NCU_CC_Frontend/static/media/MenuIcon.6b9e635ec87c119ca198550971724d88.svg",
-    "static/media/CareerBgMaleImg.svg": "/NCU_CC_Frontend/static/media/CareerBgMaleImg.410c13c8396ab4a7b2a920603561c37e.svg",
     "static/media/ScrollToTopIcon.svg": "/NCU_CC_Frontend/static/media/ScrollToTopIcon.471f66b4a64b93373f19e4a7ae40cf75.svg",
     "static/media/submitIcon.svg": "/NCU_CC_Frontend/static/media/submitIcon.33599e0a7061d21192b9d28a337e2122.svg",
     "static/media/LocationImg.svg": "/NCU_CC_Frontend/static/media/LocationImg.9b0a205b0c97495c1fc34f0d09b2120b.svg",
@@ -45,7 +44,6 @@
     "static/media/FutureBgThreeImg.svg": "/NCU_CC_Frontend/static/media/FutureBgThreeImg.267c1cacf5e7280a450ab263b6cfabaa.svg",
     "static/media/FutureBgFiveImg.svg": "/NCU_CC_Frontend/static/media/FutureBgFiveImg.cc26810db0d017afbb84f06d4a287d22.svg",
     "static/media/FutureBgFourImg.svg": "/NCU_CC_Frontend/static/media/FutureBgFourImg.2ddceaab9ce43d0b1aad107d1d1b7b98.svg",
-    "static/media/CareerBgFemaleImg.svg": "/NCU_CC_Frontend/static/media/CareerBgFemaleImg.7792995834b0cb26bb5b136f38020cfe.svg",
     "static/media/FutureBgSevenImg.svg": "/NCU_CC_Frontend/static/media/FutureBgSevenImg.a956f3fab4ab11e0786bacb91b76283a.svg",
     "index.html": "/NCU_CC_Frontend/index.html",
     "static/media/LinkIcon.svg": "/NCU_CC_Frontend/static/media/LinkIcon.9e66dcb05fae3fed89009e1bde34eabd.svg",
@@ -55,10 +53,10 @@
     "static/media/labelThemeThreeIcon.svg": "/NCU_CC_Frontend/static/media/labelThemeThreeIcon.67e6d2ac07880fd3e62887eee4a32721.svg",
     "static/media/labelThemeTwoIcon.svg": "/NCU_CC_Frontend/static/media/labelThemeTwoIcon.14110ec092e3635c3ce0efe623d72155.svg",
     "main.b6dcd90c.css.map": "/NCU_CC_Frontend/static/css/main.b6dcd90c.css.map",
-    "main.e7454e6b.js.map": "/NCU_CC_Frontend/static/js/main.e7454e6b.js.map"
+    "main.50647a18.js.map": "/NCU_CC_Frontend/static/js/main.50647a18.js.map"
   },
   "entrypoints": [
     "static/css/main.b6dcd90c.css",
-    "static/js/main.e7454e6b.js"
+    "static/js/main.50647a18.js"
   ]
 }
