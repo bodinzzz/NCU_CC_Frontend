@@ -15,7 +15,7 @@ function ThemeThree() {
             <br /> 各個系所有什麼差別呢?
           </div>
         </div>
-        <Link className="home-theme__nav-btn" to="/Career">
+        <Link className="home-theme__nav-btn" to="/NCU_CC_Frontend/Career">
           <span>看看畢業生各類職務資訊</span>
         </Link>
       </div>

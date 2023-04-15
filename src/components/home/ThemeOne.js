@@ -15,7 +15,7 @@ function ThemeOne() {
             <br /> 畢業後我該選擇往哪個道路走呢?
           </div>
         </div>
-        <Link className="home-theme__nav-btn" to="/Future">
+        <Link className="home-theme__nav-btn" to="/NCU_CC_Frontend/Future">
           <span>看看學長姐如何選擇</span>
         </Link>
       </div>

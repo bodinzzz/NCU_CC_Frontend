@@ -17,7 +17,7 @@ function ThemeTwo() {
             各個系所有什麼差別呢?
           </div>
         </div>
-        <Link className="home-theme__nav-btn" to="/Graduated">
+        <Link className="home-theme__nav-btn" to="/NCU_CC_Frontend/Graduated">
           <span>看看學長姐都在做什麼</span>
         </Link>
       </div>
