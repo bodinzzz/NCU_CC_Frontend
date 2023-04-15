@@ -28,13 +28,13 @@ function NavBar() {
         {isSideBarOpen ? (
           <div className="navbar__menu__side-bar" id="side-bar">
             <img src={CloseIcon} alt="CloseIcon" className="navbar__menu__btn" onClick={() => setIsSideBarOpen(!isSideBarOpen)} />
-            <Link className="navbar__menu__link__theme-1" to="/Future">
+            <Link className="navbar__menu__link__theme-1" to="/NCU_CC_Frontend/Future">
               未來道路選擇
             </Link>
-            <Link className="navbar__menu__link__theme-2" to="/Graduated">
+            <Link className="navbar__menu__link__theme-2" to="/NCU_CC_Frontend/Graduated">
               畢業後在做什麼
             </Link>
-            <Link className="navbar__menu__link__theme-3" to="/Career">
+            <Link className="navbar__menu__link__theme-3" to="/NCU_CC_Frontend/Career">
               職務類型大比拚
             </Link>
           </div>
